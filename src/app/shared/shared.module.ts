@@ -3,12 +3,14 @@ import { CommonModule } from '@angular/common';
 import { NewsletterComponent } from '../home/newsletter/newsletter.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import { ListArticleComponent } from '../home/list-article/list-article.component';
 
 
 
 @NgModule({
   declarations: [
-    NewsletterComponent
+    NewsletterComponent,
+    ListArticleComponent
   ],
   imports: [
     CommonModule,
@@ -19,7 +21,8 @@ import { RouterModule } from '@angular/router';
     CommonModule,
     HttpClientModule, 
     RouterModule,
-    NewsletterComponent
+    NewsletterComponent,
+    ListArticleComponent
   ]
 })
 
