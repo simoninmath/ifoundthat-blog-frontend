@@ -5,8 +5,9 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
+
 export class NewsletterService {
-  private apiUrl = 'http://localhost:8000/newsletters'; // URL de votre API backend
+  private apiUrl = 'https://127.0.0.1:8000/api/newsletters';   // URL from API Platform
 
   constructor(
     private http: HttpClient
@@ -16,4 +17,3 @@ export class NewsletterService {
     return this.http.get<any[]>(`${this.apiUrl}/subscribers`);
   }
 }
-
