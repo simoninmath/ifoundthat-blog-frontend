@@ -6,6 +6,7 @@ import { NewsComponent } from './news/news.component';
 import { ListArticleComponent } from './list-article/list-article.component';
 import { DetailArticleComponent } from './detail-article/detail-article.component';
 import { NewsletterComponent } from './newsletter/newsletter.component';
+import { FormComponent } from './form/form.component';
 
 
 
@@ -16,7 +17,8 @@ import { NewsletterComponent } from './newsletter/newsletter.component';
     NewsComponent,
     ListArticleComponent,
     DetailArticleComponent,
-    NewsletterComponent
+    NewsletterComponent,
+    FormComponent
   ],
   imports: [
     CommonModule
