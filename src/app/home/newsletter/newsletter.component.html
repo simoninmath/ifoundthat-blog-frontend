@@ -3,22 +3,32 @@
     <div class="div-3">NewsLetter</div>
     <div class="div-4">Stay alert!</div>
     <div class="input-field">
-        <input type="email" id="email" class="validate black-text" style="border: 2px solid black; background-color: white;" placeholder="Your email">
-        <label for="email" class="active">Your email</label>
-      </div>
+      <input
+        type="email"
+        id="email"
+        class="validate black-text"
+        style="border: 2px solid black; background-color: white"
+        placeholder="Your email"
+      />
+    </div>
     <div class="div-6">
-        <button class="btn black white-text" type="submit">Submit</button>
+      <button class="btn black white-text" type="submit">Submit</button>
       <div class="div-8">500</div>
       <img
         loading="lazy"
         src="https://cdn.builder.io/api/v1/image/assets/TEMP/2b589c780a510185332dc60373c6a1eca38f149d471a94da5a4e8a4f020b3077?"
         class="img"
       />
+      <ul>
+        <li *ngFor="let subscriber of subscribers">
+          {{ subscriber.email }}
+        </li>
+      </ul>
     </div>
   </div>
 </div>
 
-<div class="row">
+<!-- <div class="row">
     <div class="col s12 m6">
       <div class="card deep-orange darken-1">
         <div class="card-content white-text">
@@ -33,10 +43,4 @@
         </div>
       </div>
     </div>
-  </div>
-
-  <!-- <ul>
-    <li *ngFor="let subscriber of subscribers">
-      {{ subscriber.email }}
-    </li>
-  </ul> -->
+  </div> -->
