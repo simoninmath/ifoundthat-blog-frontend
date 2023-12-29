@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class NewsletterService {
-  private apiUrl = 'http://localhost:8000/newsletter'; // URL de votre API backend
+  private apiUrl = 'http://localhost:8000/newsletters'; // URL de votre API backend
 
   constructor(private http: HttpClient) { }
 
