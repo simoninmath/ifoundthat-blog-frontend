@@ -1,4 +1,6 @@
-# IfoundthatBlogFrontend
+# Ifoundthat Blog
+
+![ift-blog front-end](blog-thumbnail.jpg)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.10.
 
