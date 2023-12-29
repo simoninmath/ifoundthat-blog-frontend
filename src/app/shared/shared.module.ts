@@ -4,12 +4,14 @@ import { NewsletterComponent } from '../home/newsletter/newsletter.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { ListArticleComponent } from '../home/list-article/list-article.component';
+import { NewsComponent } from '../home/news/news.component';
 
 
 
 @NgModule({
   declarations: [
     NewsletterComponent,
+    NewsComponent,
     ListArticleComponent
   ],
   imports: [
@@ -22,6 +24,7 @@ import { ListArticleComponent } from '../home/list-article/list-article.componen
     HttpClientModule, 
     RouterModule,
     NewsletterComponent,
+    NewsComponent,
     ListArticleComponent
   ]
 })

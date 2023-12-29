@@ -12,7 +12,6 @@ import { SharedModule } from '../shared/shared.module';
   declarations: [
     HomeComponent,
     HeroComponent,
-    NewsComponent,
     DetailArticleComponent,
     FormComponent
   ],
