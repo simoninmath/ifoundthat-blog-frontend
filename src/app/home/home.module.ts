@@ -4,6 +4,7 @@ import { HomeComponent } from './home.component';
 import { HeroComponent } from './hero/hero.component';
 import { NewsComponent } from './news/news.component';
 import { ListArticleComponent } from './list-article/list-article.component';
+import { DetailArticleComponent } from './detail-article/detail-article.component';
 
 
 
@@ -12,7 +13,8 @@ import { ListArticleComponent } from './list-article/list-article.component';
     HomeComponent,
     HeroComponent,
     NewsComponent,
-    ListArticleComponent
+    ListArticleComponent,
+    DetailArticleComponent
   ],
   imports: [
     CommonModule
