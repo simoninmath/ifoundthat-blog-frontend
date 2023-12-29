@@ -10,8 +10,8 @@ import { SharedModule } from './shared/shared.module';
 @NgModule({
   declarations: [
     AppComponent,
-    Error404Component,
     HomeComponent,
+    Error404Component
   ],
   imports: [
     BrowserModule,
