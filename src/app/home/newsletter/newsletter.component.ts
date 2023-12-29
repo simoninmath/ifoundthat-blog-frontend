@@ -18,8 +18,8 @@ export class NewsletterComponent implements OnInit {
 
   getSubscribers() {
     this.newsletterService.getSubscribers()
-      .subscribe(email => {
-        this.subscribers = email; // Assurez-vous que les données correspondent à la structure de votre modèle de données
+      .subscribe((response: any[]) => {
+        this.subscribers = response;
       });
   }
 }
