@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { ListArticleComponent } from '../home/list-article/list-article.component';
 import { NewsComponent } from '../home/news/news.component';
+import { FormComponent } from '../home/form/form.component';
 
 
 
@@ -12,7 +13,8 @@ import { NewsComponent } from '../home/news/news.component';
   declarations: [
     NewsletterComponent,
     NewsComponent,
-    ListArticleComponent
+    ListArticleComponent,
+    FormComponent
   ],
   imports: [
     CommonModule,
@@ -25,7 +27,8 @@ import { NewsComponent } from '../home/news/news.component';
     RouterModule,
     NewsletterComponent,
     NewsComponent,
-    ListArticleComponent
+    ListArticleComponent,
+    FormComponent
   ]
 })
 
