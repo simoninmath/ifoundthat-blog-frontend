@@ -8,7 +8,9 @@ import { Observable } from 'rxjs';
 export class NewsletterService {
   private apiUrl = 'http://localhost:8000/newsletters'; // URL de votre API backend
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient
+    ) { }
 
   getSubscribers(): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiUrl}/subscribers`);

@@ -6,6 +6,7 @@ import { NewsletterService } from '../../service/newsletter.service';
   templateUrl: './newsletter.component.html',
   styleUrls: ['./newsletter.component.css']
 })
+
 export class NewsletterComponent implements OnInit {
   subscribers: any[] = [];
 
@@ -17,8 +18,8 @@ export class NewsletterComponent implements OnInit {
 
   getSubscribers() {
     this.newsletterService.getSubscribers()
-      .subscribe(data => {
-        this.subscribers = data; // Assurez-vous que les données correspondent à la structure de votre modèle de données
+      .subscribe(email => {
+        this.subscribers = email; // Assurez-vous que les données correspondent à la structure de votre modèle de données
       });
   }
 }

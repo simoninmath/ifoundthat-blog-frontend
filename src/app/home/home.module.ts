@@ -5,8 +5,8 @@ import { HeroComponent } from './hero/hero.component';
 import { NewsComponent } from './news/news.component';
 import { ListArticleComponent } from './list-article/list-article.component';
 import { DetailArticleComponent } from './detail-article/detail-article.component';
-import { NewsletterComponent } from './newsletter/newsletter.component';
 import { FormComponent } from './form/form.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -17,11 +17,11 @@ import { FormComponent } from './form/form.component';
     NewsComponent,
     ListArticleComponent,
     DetailArticleComponent,
-    NewsletterComponent,
     FormComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    SharedModule
   ]
 })
 
