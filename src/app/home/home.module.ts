@@ -5,6 +5,7 @@ import { HeroComponent } from './hero/hero.component';
 import { NewsComponent } from './news/news.component';
 import { ListArticleComponent } from './list-article/list-article.component';
 import { DetailArticleComponent } from './detail-article/detail-article.component';
+import { NewsletterComponent } from './newsletter/newsletter.component';
 
 
 
@@ -14,7 +15,8 @@ import { DetailArticleComponent } from './detail-article/detail-article.componen
     HeroComponent,
     NewsComponent,
     ListArticleComponent,
-    DetailArticleComponent
+    DetailArticleComponent,
+    NewsletterComponent
   ],
   imports: [
     CommonModule
