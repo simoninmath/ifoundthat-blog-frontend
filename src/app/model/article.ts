@@ -1,13 +1,13 @@
 export class Article {
-    id! :number;
-    title! :string;
-    chapo! :string;
-    content! :string;
-    picture! :string;
-    category! :string[];
-    createdAt! :Date;
-    updatedAt! :Date;
-    slug! :string;
+    id!: number;
+    title :string;
+    chapo :string;
+    content :string;
+    picture :string;
+    category :string[];
+    createdAt :Date;
+    updatedAt :Date;
+    slug :string;
   //  isPublished! :string;
 
   // Define default value for article Object 
