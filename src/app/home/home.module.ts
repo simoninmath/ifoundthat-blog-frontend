@@ -6,11 +6,13 @@ import { NewsComponent } from './news/news.component';
 import { DetailArticleComponent } from './detail-article/detail-article.component';
 import { FormComponent } from './form/form.component';
 import { SharedModule } from '../shared/shared.module';
+import { AddArticleComponent } from './add-article/add-article.component';
 
 
 @NgModule({
   declarations: [
     HomeComponent,
+    AddArticleComponent,
   ],
   imports: [
     CommonModule,
