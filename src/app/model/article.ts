@@ -16,13 +16,7 @@ export class Article {
     chapo: string = '',
     content: string = '',
     picture: string = '',
-    category: string[] = [
-        'Cat 1',
-        'Cat 2',
-        'Cat 3',
-        'Cat 4',
-        'Cat 5',
-    ],
+    category: string[] = ['Cat 1'],
     createdAt: Date = new Date,
     updatedAt: Date = new Date,
     slug :string = ''
