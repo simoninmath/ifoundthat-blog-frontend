@@ -1,0 +1,9 @@
+// Target the required HTML attribut
+.ngValid[required] {  
+    border-left: 5px solid #42A948;
+}
+
+// Prevent red border in all form
+.ngInvalid:not(form) {
+    border-left: 5px solid #A94442;
+}
