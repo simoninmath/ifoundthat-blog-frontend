@@ -68,4 +68,15 @@ export class ArticleService {
       catchError((error) => this.handleError(error, []))  // If there is an error in the term, return a empty Table
     )
   }
+
+  getArticleCategoryList(): string[] {
+    return [
+      'Cat 1',
+      'Cat 2',
+      'Cat 3',
+      'Cat 4',
+      'Cat 5'
+    ];
+  }
+
 }
