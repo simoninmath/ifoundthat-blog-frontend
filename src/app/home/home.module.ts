@@ -7,12 +7,14 @@ import { DetailArticleComponent } from './detail-article/detail-article.componen
 import { FormComponent } from './form/form.component';
 import { SharedModule } from '../shared/shared.module';
 import { AddArticleComponent } from './add-article/add-article.component';
+import { EditArticleComponent } from './edit-article/edit-article.component';
 
 
 @NgModule({
   declarations: [
     HomeComponent,
     AddArticleComponent,
+    EditArticleComponent,
   ],
   imports: [
     CommonModule,

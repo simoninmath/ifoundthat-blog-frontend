@@ -1,0 +1,6 @@
+<h2 class="center blue-grey darken-2"> {{ article?.name }} </h2>
+<p *ngIf="article" class="center">
+  <img [src]="article.picture"/>
+</p>
+<!-- use ngIf and property binding to bond @Input form article-form Component -->
+<app-article-form *ngIf="article" [article]="article"></app-article-form>
