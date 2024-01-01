@@ -19,9 +19,14 @@
         src="https://cdn.builder.io/api/v1/image/assets/TEMP/2b589c780a510185332dc60373c6a1eca38f149d471a94da5a4e8a4f020b3077?"
         class="img"
       />
-      <ul>
-        <li *ngFor="let subscriber of subscribers">
-          {{ subscriber.email }}
+      <div>
+        TOTO
+      </div>
+      <ul *ngIf="newsletters.length != 0">
+        Titi
+        <li *ngFor="let newsletter of newsletters">
+          Toto
+          <!-- {{ getUserEmailFromNewsletter() }} -->
         </li>
       </ul>
     </div>
