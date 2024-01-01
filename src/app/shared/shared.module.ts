@@ -6,7 +6,7 @@ import { RouterModule } from '@angular/router';
 import { ListArticleComponent } from '../home/list-article/list-article.component';
 import { NewsComponent } from '../home/news/news.component';
 import { FormComponent } from '../home/form/form.component';
-
+import { LoginComponent } from '../auth/login/login.component';
 
 
 @NgModule({
