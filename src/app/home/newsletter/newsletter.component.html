@@ -2,6 +2,13 @@
   <div class="div-2">
     <div class="div-3">NewsLetter</div>
     <div class="div-4">Stay alert!</div>
+    <div>
+      <ul *ngIf="newsletters.length != 0">
+        <li *ngFor="let newsletter of newsletters">
+          {{ newsletter.email }} <!-- Make sure the property is correct, perhaps "email" or something else depending on the structure of the Newsletter object -->
+        </li>
+      </ul>
+    </div>
     <div class="input-field">
       <input
         type="email"
@@ -19,16 +26,6 @@
         src="https://cdn.builder.io/api/v1/image/assets/TEMP/2b589c780a510185332dc60373c6a1eca38f149d471a94da5a4e8a4f020b3077?"
         class="img"
       />
-      <div>
-        TOTO
-      </div>
-      <ul *ngIf="newsletters.length != 0">
-        Titi
-        <li *ngFor="let newsletter of newsletters">
-          Toto
-          <!-- {{ getUserEmailFromNewsletter() }} -->
-        </li>
-      </ul>
     </div>
   </div>
 </div>

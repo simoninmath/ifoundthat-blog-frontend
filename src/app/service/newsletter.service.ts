@@ -1,36 +1,28 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, pipe, tap } from 'rxjs';
+import { Observable, map } from 'rxjs';
 import { Newsletter } from '../model/newsletter';
 
 @Injectable({
   providedIn: 'root'
 })
 
-// Crée Observable pour écouter la DB
 export class NewsletterService {
-  private apiUrl = 'https://127.0.0.1:8000/api'; // URL from API Platform
+  // URL from API Platform contained in a Variable named "apiUrl"
+  private apiUrl = 'https://127.0.0.1:8000/api'; 
 
-  constructor(private http: HttpClient) { }
+  // Use DI for the HttpClient Service with Constructor method
+  constructor(
+    private http: HttpClient
+  ) {}
 
+  // This method creates an observable to listen for the response from the database, 
+  // and transform the database JSON object into an array with map(), 
+  // because the *ngFor directive can only iterate through an ARRAY! Not in a JSON object!
   getUserEmailFromNewsletter(): Observable<Newsletter[]> {
-    return this.http.get<Newsletter[]>(`${this.apiUrl}/newsletters`);
+    return this.http.get<any>(`${this.apiUrl}/newsletters`).pipe(
+      map((response: any) => response['hydra:member'] as Newsletter[])
+    );
   }
-
-  getTiti(): Observable<Newsletter[]> {
-    return this.http.get<Newsletter[]>('https://127.0.0.1:8000/api/newsletters');
-  }
-
-  // getToto() {
-  //   return this.http
-  //     .get<Newsletter[]>('https://127.0.0.1:8000/api/newsletters')
-
-  //     .pipe(
-  //       tap(velos => {
-  //         this.veloService.setVelos(velos['hydra:member']);
-  //         this.veloService.setLoadingVeloList(false);
-  //       })
-  //     );
-  // }
-
+  
 }
