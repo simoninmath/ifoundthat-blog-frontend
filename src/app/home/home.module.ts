@@ -8,6 +8,7 @@ import { FormComponent } from './form/form.component';
 import { SharedModule } from '../shared/shared.module';
 import { AddArticleComponent } from './add-article/add-article.component';
 import { EditArticleComponent } from './edit-article/edit-article.component';
+import { LoaderComponent } from './loader/loader.component';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { EditArticleComponent } from './edit-article/edit-article.component';
     HomeComponent,
     AddArticleComponent,
     EditArticleComponent,
+    LoaderComponent,
   ],
   imports: [
     CommonModule,
