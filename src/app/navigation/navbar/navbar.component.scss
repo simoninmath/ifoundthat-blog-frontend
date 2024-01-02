@@ -1,0 +1,131 @@
+.div {
+    background-color: #fefefe;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 49px 60px;
+  }
+  @media (max-width: 991px) {
+    .div {
+      padding: 0 20px;
+    }
+  }
+  .div-2 {
+    display: flex;
+    margin-bottom: 6px;
+    width: 100%;
+    max-width: 1424px;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  @media (max-width: 991px) {
+    .div-2 {
+      max-width: 100%;
+      flex-wrap: wrap;
+    }
+  }
+  .div-3 {
+    display: flex;
+    justify-content: space-between;
+    gap: 0px;
+  }
+  @media (max-width: 991px) {
+    .div-3 {
+      max-width: 100%;
+      flex-wrap: wrap;
+    }
+  }
+  .div-4 {
+    display: flex;
+    flex-grow: 1;
+    flex-basis: 0%;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .div-5 {
+    color: var(--PureBlack900, #121212);
+    white-space: nowrap;
+    border: 2px solid var(--PureBlack900, #121212);
+    background-color: var(--PureWhite900, #fefefe);
+    justify-content: center;
+    align-items: center;
+    padding: 28px 60px;
+    font: 400 32px Menlo, sans-serif;
+  }
+  @media (max-width: 991px) {
+    .div-5 {
+      white-space: initial;
+      padding: 0 20px;
+    }
+  }
+  .div-6 {
+    display: flex;
+    flex-grow: 1;
+    flex-basis: 0%;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .div-7 {
+    color: var(--PureBlack900, #121212);
+    letter-spacing: -1.62px;
+    white-space: nowrap;
+    border: 2px solid var(--PureBlack900, #121212);
+    background-color: var(--PureWhite900, #fefefe);
+    justify-content: center;
+    align-items: center;
+    padding: 28px 60px;
+    font: 400 32px Menlo, sans-serif;
+  }
+  @media (max-width: 991px) {
+    .div-7 {
+      white-space: initial;
+      padding: 0 20px;
+    }
+  }
+  .div-8 {
+    display: flex;
+    flex-grow: 1;
+    flex-basis: 0%;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .div-9 {
+    color: var(--PureBlack900, #121212);
+    white-space: nowrap;
+    border: 2px solid var(--PureBlack900, #121212);
+    background-color: var(--PureWhite900, #fefefe);
+    justify-content: center;
+    align-items: center;
+    padding: 28px 60px;
+    font: 400 32px Menlo, sans-serif;
+  }
+  @media (max-width: 991px) {
+    .div-9 {
+      white-space: initial;
+      padding: 0 20px;
+    }
+  }
+  .img {
+    aspect-ratio: 13.09;
+    object-fit: contain;
+    object-position: center;
+    width: 550px;
+    overflow: hidden;
+  }
+  @media (max-width: 991px) {
+    .img {
+      max-width: 100%;
+    }
+  }
+  .img-2 {
+    aspect-ratio: 0.93;
+    object-fit: contain;
+    object-position: center;
+    width: 38px;
+    fill: var(--PureRed900, #f24e1e);
+    overflow: hidden;
+    align-self: center;
+    max-width: 100%;
+    margin: auto 0;
+  }
