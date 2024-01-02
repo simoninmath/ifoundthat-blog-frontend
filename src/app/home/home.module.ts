@@ -10,6 +10,7 @@ import { AddArticleComponent } from './add-article/add-article.component';
 import { EditArticleComponent } from './edit-article/edit-article.component';
 import { LoaderComponent } from './loader/loader.component';
 import { BorderArticleDirective } from './border-article.directive';
+import { MoreButtonComponent } from './more-button/more-button.component';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { BorderArticleDirective } from './border-article.directive';
     EditArticleComponent,
     LoaderComponent,
     BorderArticleDirective,
+    MoreButtonComponent,
   ],
   imports: [
     CommonModule,

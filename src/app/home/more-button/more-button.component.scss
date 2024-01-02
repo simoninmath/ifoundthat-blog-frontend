@@ -1,0 +1,20 @@
+.div {
+    box-shadow: 8px 8px 0px 0px rgba(18, 18, 18, 0.25);
+    display: flex;
+    max-width: 422px;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+.button {
+    color: var(--PureWhite900, #fefefe);
+    white-space: nowrap;
+    background-color: var(--PureRed900, #f24e1e);
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    padding: 24px 60px;
+    font: 400 32px Menlo, sans-serif;
+  }
