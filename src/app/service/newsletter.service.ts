@@ -17,12 +17,15 @@ export class NewsletterService {
   ) {}
 
   // This method creates an observable to listen for the response from the database, 
-  // and transform the database JSON object into an array with map(), 
-  // because the *ngFor directive can only iterate through an ARRAY! Not in a JSON object!
+  // and decode the database JSON Object into an array with map(), 
   getUserEmailFromNewsletter(): Observable<Newsletter[]> {
     return this.http.get<any>(`${this.apiUrl}/newsletters`).pipe(
       map((response: any) => response['hydra:member'] as Newsletter[])
     );
+  }
+
+  getUserEmailFromNewsletterJsonObject(): Observable<Newsletter[]> {
+    return this.http.get<any>(`${this.apiUrl}/newsletters`);
   }
   
 }
