@@ -3,8 +3,6 @@ import { CommonModule } from '@angular/common';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SearchbarComponent } from './searchbar/searchbar.component';
 
-
-
 @NgModule({
   declarations: [
     NavbarComponent,
@@ -14,4 +12,5 @@ import { SearchbarComponent } from './searchbar/searchbar.component';
     CommonModule
   ]
 })
+
 export class NavigationModule { }
