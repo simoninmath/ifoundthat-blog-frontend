@@ -1,4 +1,56 @@
-<div class="row">
+<div class="alert alert-warning">
+  <h2>Se connecter</h2>
+  <p>
+    Authentifiez vous à l'aide de notre formulaire et accedez à vos articles préférées.
+  </p>
+</div>
+
+<form [formGroup]="form" (ngSubmit)="handleSubmit()">
+  <div class="form-group">
+    <input
+      type="email"
+      formControlName="email"
+      class="form-control"
+      [class.is-invalid]="
+        form.get('email').invalid && form.get('email').touched
+      "
+      placeholder="Adresse email"
+    />
+    <div class="invalid-feedback" *ngIf="form.get('email').invalid">
+      <span *ngIf="form.get('email').hasError('required')">
+        Votre adresse email est obligatoire
+      </span>
+      <span *ngIf="form.get('email').hasError('email')">
+        Le format de l'adresse fournie n'est pas valide
+      </span>
+    </div>
+  </div>
+  <div class="form-group">
+    <input
+      type="password"
+      formControlName="password"
+      class="form-control"
+      [class.is-invalid]="
+        form.get('password').invalid && form.get('password').touched
+      "
+      placeholder="Mot de passe"
+    />
+    <div class="invalid-feedback" *ngIf="form.get('password').invalid">
+      Le mot de passe est obligatoire
+    </div>
+  </div>
+
+  <div class="alert alert-danger" *ngIf="errorMessage">
+    {{ errorMessage }}
+  </div>
+
+  <button type="submit" class="btn btn-danger">Connexion !</button>
+  <a routerLink="/register" class="btn btn-link">
+    Ou créez un nouveau compte
+  </a>
+</form>
+
+<!-- <div class="row">
   <div class="col s12 m4 offset-m4 p10">
     <div class="card hoverable">
       <div class="card-content center">
@@ -42,4 +94,4 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
