@@ -14,6 +14,7 @@ export const environment = {
     TAGS_API: 'https://127.0.0.1:8000/api/tags',
     USER_CONNEXIONS_API: 'https://127.0.0.1:8000/api/user_connexions',
     USERS_API: 'https://127.0.0.1:8000/api/users',
+    AUTH_API: 'http://localhost:8000/api/login_check' //TODO créer Entity dans Symfony avec APIPlatform
   };
   /*
    * For easier debugging in development mode, you can import the following file
