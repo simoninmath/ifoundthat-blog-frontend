@@ -14,6 +14,7 @@ import { LoginComponent } from '../auth/login/login.component';
     NewsletterComponent,
     NewsComponent,
     ListArticleComponent,
+    LoginComponent,
     FormComponent
   ],
   imports: [
@@ -28,6 +29,7 @@ import { LoginComponent } from '../auth/login/login.component';
     NewsletterComponent,
     NewsComponent,
     ListArticleComponent,
+    LoginComponent,
     FormComponent
   ]
 })
