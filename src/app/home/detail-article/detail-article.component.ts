@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Article } from 'src/app/model/article';
+import { Category } from 'src/app/model/category';
 import { ArticleService } from 'src/app/service/article.service';
 
 @Component({
@@ -13,6 +14,7 @@ import { ArticleService } from 'src/app/service/article.service';
 export class DetailArticleComponent {
   articleList: Article[];
   article: Article | undefined;
+  articleCategory: Category[];
 
   constructor(
     private route: ActivatedRoute, 
@@ -21,13 +23,14 @@ export class DetailArticleComponent {
     private title: Title  // DI for dynamic titles
     ){
       this.articleList = [];
+      this.articleCategory = [];
     }  
 
   // Refactoring
   ngOnInit() {
     const articleId: string | null = this.route.snapshot.paramMap.get("id");
     if(articleId) {
-      this.articleService.getArticleById(+articleId).subscribe(article => {  // Get dynamic titles in detail section
+      this.articleService.getArticleById(+articleId).subscribe(article => {  // Get dynamic titles in detail article Component
         this.article = article;
         this.initTitle(article);
   });

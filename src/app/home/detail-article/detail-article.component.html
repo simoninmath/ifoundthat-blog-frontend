@@ -30,13 +30,13 @@
                 <tr>
                   <td>Category</td>
                   <td>
-                    <span *ngFor="let type of article.types" class="{{ type | articleCategoryColor }}">{{ type }}</span>
+                    <span *ngFor="let category of article.category" class="{{ category | articleCategoryColorPipe }}">{{ category }}</span>
                   </td>
                 </tr>
                 <tr>
                   <td>Date de création</td>
                   <td>
-                    <em>{{ article.createdAt | date : "dd/MM/yyyy" }}</em>
+                    <em>{{ article?.createdAt | date : "dd/MM/yyyy" }}</em>
                   </td>
                 </tr>
               </tbody>
