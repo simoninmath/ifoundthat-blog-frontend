@@ -6,8 +6,6 @@ import { AppComponent } from './app.component';
 import { Error404Component } from './error404/error404.component';
 import { HomeComponent } from './home/home.component';
 import { SharedModule } from './shared/shared.module';
-import { FormsModule } from '@angular/forms';
-import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -17,8 +15,8 @@ import { ReactiveFormsModule } from '@angular/forms';
   ],
   imports: [
     BrowserModule,
-    FormsModule,
-    ReactiveFormsModule,
+    // FormsModule,
+    // ReactiveFormsModule,
     AppRoutingModule,
     SharedModule
   ],

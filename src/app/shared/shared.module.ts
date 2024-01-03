@@ -7,6 +7,7 @@ import { ListArticleComponent } from '../home/list-article/list-article.componen
 import { NewsComponent } from '../home/news/news.component';
 import { FormComponent } from '../home/form/form.component';
 import { LoginComponent } from '../auth/login/login.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -19,6 +20,8 @@ import { LoginComponent } from '../auth/login/login.component';
   ],
   imports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     HttpClientModule, 
     RouterModule
   ],
