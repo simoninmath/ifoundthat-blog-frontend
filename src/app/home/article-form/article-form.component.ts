@@ -8,10 +8,10 @@ import { ArticleService } from 'src/app/service/article.service';
   templateUrl: './article-form.component.html',
   styleUrls: ['./article-form.component.scss']
 })
-export class ArticleFormComponent implements OnInit{
 
+export class ArticleFormComponent implements OnInit{
   @Input() article: Article; // Indicate the Component property for each instance : to use app-article component, we need to pass a Object Article first
-  types: string[]; // All types in the app
+  categories: string[]; // All categories in the app
   isAddForm: boolean;
 
   constructor(
@@ -20,35 +20,35 @@ export class ArticleFormComponent implements OnInit{
     ) {}
 
   ngOnInit() {
-    this.types = this.articleService.getArticleCategoryList();
+    this.categories = this.articleService.getArticleCategoryList();
     this.isAddForm = this.router.url.includes('add');
   }
 
-  isTypesValid(type: string): boolean {
+  isCategoryValid(category: string): boolean {
     
-    if(this.article.category.length == 1 && this.hasType(type)){  // if article has one type on the current card, the checkbox is disable 
+    if(this.article.categories.length == 1 && this.hasCategory(category)){  // if article has one category on the current card, the checkbox is disable 
       return false;
     }
 
-    if(this.article.category.length > 2 && !this.hasType(type)){ 
+    if(this.article.categories.length > 2 && !this.hasCategory(category)){ 
       return false;
     }
 
     return true;
   }
 
-  hasType(type: string) { // Ask is the Type in parameter exist in types table
-    return this.article.category.includes(type); // includes() return true or false (native JS)
+  hasCategory(category: string) { // Ask is the Category in parameter exist in categorys table
+    return this.article.categories.includes(category); // includes() return true or false (native JS)
   }
 
-  selectType($event: Event, type: string) {  // When user click on checkbox, this method verify if the type selected is available
+  selectCategory($event: Event, category: string) {  // When user click on checkbox, this method verify if the category selected is available
     const isChecked: boolean = ($event.target as HTMLInputElement).checked; // get the DOM event to verify if the box is checked and update @Input, plus cast in HTMLInputElement
   
-    if(isChecked) { // add the type checked into Article[]
-      this.article.category.push(type)
+    if(isChecked) { // add the category checked into Article[]
+      this.article.categories.push(category)
     } else {
-      const index = this.article.category.indexOf(type); // get the index in Article[] to remove the type checked
-      this.article.category.splice(index, 1); // modify the selected index with splice() method
+      const index = this.article.categories.indexOf(category); // get the index in Article[] to remove the category checked
+      this.article.categories.splice(index, 1); // modify the selected index with splice() method
     }
 
   }

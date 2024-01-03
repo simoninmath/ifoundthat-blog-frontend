@@ -4,7 +4,7 @@ export class Article {
     chapo :string;
     content :string;
     picture :string;
-    category :string[];
+    categories :string[];
     createdAt :Date;
     updatedAt :Date;
     slug :string;
@@ -16,7 +16,7 @@ export class Article {
     chapo: string = '',
     content: string = '',
     picture: string = '',
-    category: string[] = ['Cat 1'],
+    categories: string[] = ['Cat 1'],
     createdAt: Date = new Date,
     updatedAt: Date = new Date,
     slug :string = ''
@@ -26,7 +26,7 @@ export class Article {
     this.chapo = chapo;
     this.content = content;
     this.picture = picture;
-    this.category = category;
+    this.categories = categories;
     this.createdAt = createdAt;
     this.updatedAt = updatedAt;
     this.slug = slug;
