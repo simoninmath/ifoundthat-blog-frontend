@@ -12,15 +12,15 @@
       formControlName="email"
       class="form-control"
       [class.is-invalid]="
-        form.get('email').invalid && form.get('email').touched
+        form.get('email')?.invalid && form.get('email')?.touched
       "
       placeholder="Adresse email"
     />
-    <div class="invalid-feedback" *ngIf="form.get('email').invalid">
-      <span *ngIf="form.get('email').hasError('required')">
+    <div class="invalid-feedback" *ngIf="form.get('email')?.invalid">
+      <span *ngIf="form.get('email')?.hasError('required')">
         Votre adresse email est obligatoire
       </span>
-      <span *ngIf="form.get('email').hasError('email')">
+      <span *ngIf="form.get('email')?.hasError('email')">
         Le format de l'adresse fournie n'est pas valide
       </span>
     </div>
@@ -31,11 +31,11 @@
       formControlName="password"
       class="form-control"
       [class.is-invalid]="
-        form.get('password').invalid && form.get('password').touched
+        form.get('password')?.invalid && form.get('password')?.touched
       "
       placeholder="Mot de passe"
     />
-    <div class="invalid-feedback" *ngIf="form.get('password').invalid">
+    <div class="invalid-feedback" *ngIf="form.get('password')?.invalid">
       Le mot de passe est obligatoire
     </div>
   </div>
