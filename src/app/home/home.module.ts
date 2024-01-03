@@ -13,6 +13,7 @@ import { MoreButtonComponent } from './more-button/more-button.component';
 import { ArticleFormComponent } from './article-form/article-form.component';
 import { ListArticleComponent } from './list-article/list-article.component';
 import { ArticleCategoryColorPipe } from './category-article.pipe';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -32,6 +33,8 @@ import { ArticleCategoryColorPipe } from './category-article.pipe';
   ],
   imports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     SharedModule
   ]
 })
