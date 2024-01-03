@@ -1,6 +1,6 @@
 <div *ngIf="article" class="row">
     <div class="col s12 m8 offset-m2">
-      <h2 class="header center">{{ article?.title }}</h2>
+      <h2 class="header center">{{ article.title }}</h2>
       <div class="card horizontal hoverable">
         <div class="card-image">
           <img [src]="article.picture" />
@@ -30,13 +30,13 @@
                 <tr>
                   <td>Category</td>
                   <td>
-                    <span *ngFor="let category of article.category" class="{{ category | articleCategoryColorPipe }}">{{ category }}</span>
+                    <span *ngFor="let category of article.categories" class="{{ category | articleCategoryColorPipe }}">{{ category }}</span>
                   </td>
                 </tr>
                 <tr>
                   <td>Date de création</td>
                   <td>
-                    <em>{{ article?.createdAt | date : "dd/MM/yyyy" }}</em>
+                    <em>{{ article.createdAt | date : "dd/MM/yyyy" }}</em>
                   </td>
                 </tr>
               </tbody>
