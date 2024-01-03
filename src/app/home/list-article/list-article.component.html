@@ -1,22 +1,22 @@
 <div class="container">
   <div class="row">
 
-    <app-search-article></app-search-article>
+    <app-searchbar></app-searchbar>
 
     <div *ngFor="let article of articleList" class="col m4 s6">
-      <div (click)="goToArticle(article)" class="card horizontal" figBorderCard>
+      <div (click)="goToArticle(article)" class="card horizontal" articleBorderCard>
         <div class="card-image">
           <img [src]="article.picture" />
         </div>
         <div class="card-stacked">
           <div class="card-content">
-            <p>{{ article.name }}</p>
-            <p><small>{{ article.created | date : "dd/MM/yy" }}</small>
+            <p>{{ article.title}}</p>
+            <p><small>{{ article.createdAt | date : "dd/MM/yy" }}</small>
               <span 
-                  *ngFor="let type of article.types" 
-                  class="{{ type | articleTypeColor }}"
+                  *ngFor="let type of article.category" 
+                  class="{{ type | articleCategoryColor }}"
               >
-                {{ type }}
+                {{ category }}
             </span>
             </p>
           </div>
