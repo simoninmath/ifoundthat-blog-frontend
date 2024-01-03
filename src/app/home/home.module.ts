@@ -12,6 +12,7 @@ import { BorderArticleDirective } from './border-article.directive';
 import { MoreButtonComponent } from './more-button/more-button.component';
 import { ArticleFormComponent } from './article-form/article-form.component';
 import { ListArticleComponent } from './list-article/list-article.component';
+import { ArticleCategoryColorPipe } from './category-article.pipe';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { ListArticleComponent } from './list-article/list-article.component';
     LoaderComponent,
     BorderArticleDirective,
     MoreButtonComponent,
-    ArticleFormComponent
+    ArticleFormComponent,
+    ArticleCategoryColorPipe
   ],
   imports: [
     CommonModule,
