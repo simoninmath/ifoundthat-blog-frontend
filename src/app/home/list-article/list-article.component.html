@@ -1,4 +1,38 @@
-<div class="div">
+<div class="container">
+  <div class="row">
+
+    <app-searchbar></app-searchbar>
+
+    <div *ngFor="let article of articleList" class="col m4 s6">
+      <div (click)="goToArticle(article)" class="card horizontal" articleBorderCard>
+        <div class="card-image">
+          <img [src]="article.picture" />
+        </div>
+        <div class="card-stacked">
+          <div class="card-content">
+            <p>{{ article.title}}</p>
+            <p><small>{{ article.createdAt | date : "dd/MM/yy" }}</small>
+              <span 
+                  *ngFor="let type of article.category" 
+                  class="{{ type | articleCategoryColor }}"
+              >
+                {{ category }}
+            </span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<a class="btn-floating btn-large waves-effect waves-light red z-depth-3" 
+  style="position:fixed; bottom:25px; right:25px;"
+  routerLink="/article/add">
+➕  
+</a>
+
+<!-- <div class="div">
     <img
       loading="lazy"
       src="https://images.unsplash.com/photo-1589586502913-822aa129d420?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
@@ -50,4 +84,4 @@
         />
       </div>
     </div>
-  </div>
+  </div> -->
