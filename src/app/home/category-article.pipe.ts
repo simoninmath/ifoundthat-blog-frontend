@@ -1,10 +1,10 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'categoryTypeColor'
+  name: 'articleCategoryColorPipe'
 })
 
-export class CategoryTypeColorPipe implements PipeTransform {
+export class ArticleCategoryColorPipe implements PipeTransform {
 
   transform(category: string): string {
     let color: string = 'grey lighten-1';  // Default color value
