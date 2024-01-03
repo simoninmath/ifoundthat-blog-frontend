@@ -19,7 +19,9 @@ export class DetailArticleComponent {
     private router: Router,  // Dependence Injection allow the Route Service disable into the Component
     private articleService: ArticleService,  // DI for articleService
     private title: Title  // DI for dynamic titles
-    ) {}  
+    ){
+      this.articleList = [];
+    }  
 
   // Refactoring
   ngOnInit() {
