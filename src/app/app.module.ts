@@ -7,7 +7,6 @@ import { Error404Component } from './error404/error404.component';
 import { HomeComponent } from './home/home.component';
 import { SharedModule } from './shared/shared.module';
 import { FormsModule } from '@angular/forms';
-import { LoginComponent } from './auth/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
@@ -26,4 +25,5 @@ import { ReactiveFormsModule } from '@angular/forms';
   providers: [],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
