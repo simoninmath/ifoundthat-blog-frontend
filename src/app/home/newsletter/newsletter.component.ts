@@ -12,19 +12,22 @@ import { HttpClient } from '@angular/common/http';
 export class NewsletterComponent implements OnInit {
   newsletters: Newsletter[] = [];
 
+  // Use dependency injection to access services
   constructor(
     private newsletterService: NewsletterService,
     private http: HttpClient,
     ) { }
 
-  // The method below launches the getUserEmailFromNewsletter() method when the program starts
+  // The Method below launches the getUserEmailFromNewsletter() method when the program starts
   ngOnInit() {
     this.getUserEmailFromNewsletter();
   }
 
   getUserEmailFromNewsletter() {
     this.newsletterService.getUserEmailFromNewsletter()
-    // console.log(Object.values(response)[4]); <- This line show hydra:member Array from JSON Object returned by the API
+    // The console.log below show hydra:member Array from JSON Object returned by the API
+    // console.log(Object.values(response)[4]);
+    // This method subscribes to the Observable of newsletter.service.ts 
     .subscribe((response: Newsletter[]) => {
       this.newsletters = response;
     });

@@ -3,9 +3,11 @@
     <div class="div-3">NewsLetter</div>
     <div class="div-4">Stay alert!</div>
     <div>
+      <!-- This condition checks if at least one email address exists -->
       <ul *ngIf="newsletters.length != 0">
-        <li *ngFor="let newsletter of newsletters">
-          {{ newsletter.email }} <!-- Make sure the property is correct, perhaps "email" or something else depending on the structure of the Newsletter object -->
+        <!-- The ngFor directive iterates over the newsletter table of newsletter.service.ts -->
+        <li *ngFor="let newsletter of newsletters"> <!-- Interpolation based on newsletter structure Subject -->
+          {{ newsletter.email }}
         </li>
       </ul>
     </div>
