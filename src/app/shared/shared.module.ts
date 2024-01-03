@@ -1,10 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NewsletterComponent } from '../home/newsletter/newsletter.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
-import { ListArticleComponent } from '../home/list-article/list-article.component';
-import { NewsComponent } from '../home/news/news.component';
 import { FormComponent } from '../home/form/form.component';
 import { LoginComponent } from '../auth/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -12,9 +9,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-    NewsletterComponent,
-    NewsComponent,
-    ListArticleComponent,
     LoginComponent,
     FormComponent
   ],
@@ -29,9 +23,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     HttpClientModule, 
     RouterModule,
-    NewsletterComponent,
-    NewsComponent,
-    ListArticleComponent,
     LoginComponent,
     FormComponent
   ]
