@@ -14,6 +14,9 @@ import { ArticleFormComponent } from './article-form/article-form.component';
 import { ListArticleComponent } from './list-article/list-article.component';
 import { ArticleCategoryColorPipe } from './category-article.pipe';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NewsletterComponent } from './newsletter/newsletter.component';
+import { SearchbarComponent } from '../navigation/searchbar/searchbar.component';
+import { NavbarComponent } from '../navigation/navbar/navbar.component';
 
 
 @NgModule({
@@ -25,11 +28,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     DetailArticleComponent,
     AddArticleComponent,
     EditArticleComponent,
+    NewsletterComponent,
     LoaderComponent,
     BorderArticleDirective,
     MoreButtonComponent,
     ArticleFormComponent,
-    ArticleCategoryColorPipe
+    ArticleCategoryColorPipe,
+    NavbarComponent,
+    SearchbarComponent
   ],
   imports: [
     CommonModule,

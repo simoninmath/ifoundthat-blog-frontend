@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SearchbarComponent } from './searchbar/searchbar.component';
+import { SharedModule } from '../shared/shared.module';
+
 
 @NgModule({
   declarations: [
@@ -9,7 +11,8 @@ import { SearchbarComponent } from './searchbar/searchbar.component';
     SearchbarComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    SharedModule
   ]
 })
 
