@@ -20,15 +20,14 @@ import { NewsletterComponent } from './newsletter/newsletter.component';
 import { Routes } from '@angular/router';
 import { AuthGuard } from '../auth/auth.guard';
 
-// canActivate: [AuthGuard]
 
 const routes: Routes = [
-  { path:'home', title: 'IFT-Blog', component: HomeComponent },
-  { path:'articles', title: 'IFT-Blog', component: ListArticleComponent },
-  { path:'article/add', title: 'IFT-Blog', component: AddArticleComponent },
-  { path:'article/form', title: 'IFT-Blog', component: ArticleFormComponent },
-  { path:'article/detail', title: 'IFT-Blog', component: DetailArticleComponent },
-  { path:'article/edit', title: 'IFT-Blog', component: EditArticleComponent },
+  { path:'home', title: 'IFT-Blog', component: HomeComponent, canActivate: [AuthGuard] },
+  { path:'articles', title: 'IFT-Blog', component: ListArticleComponent, canActivate: [AuthGuard] },
+  { path:'article/add', title: 'IFT-Blog', component: AddArticleComponent, canActivate: [AuthGuard] },
+  { path:'article/form', title: 'IFT-Blog', component: ArticleFormComponent, canActivate: [AuthGuard] },
+  { path:'article/detail', title: 'IFT-Blog', component: DetailArticleComponent, canActivate: [AuthGuard] },
+  { path:'article/edit', title: 'IFT-Blog', component: EditArticleComponent, canActivate: [AuthGuard] },
 ];
 
 @NgModule({
