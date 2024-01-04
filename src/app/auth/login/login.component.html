@@ -1,7 +1,7 @@
 <div class="alert alert-warning">
-  <h2>Se connecter</h2>
+  <h2>Sign In</h2>
   <p>
-    Authentifiez vous à l'aide de notre formulaire et accedez à vos articles préférées.
+    Log in using our form and access your favorite articles!
   </p>
 </div>
 
@@ -18,10 +18,10 @@
     />
     <div class="invalid-feedback" *ngIf="form.get('email')?.invalid">
       <span *ngIf="form.get('email')?.hasError('required')">
-        Votre adresse email est obligatoire
+        Valide email address required!
       </span>
       <span *ngIf="form.get('email')?.hasError('email')">
-        Le format de l'adresse fournie n'est pas valide
+        Unexpected email address format!
       </span>
     </div>
   </div>
@@ -36,7 +36,7 @@
       placeholder="Mot de passe"
     />
     <div class="invalid-feedback" *ngIf="form.get('password')?.invalid">
-      Le mot de passe est obligatoire
+      Password required!
     </div>
   </div>
 
@@ -44,9 +44,9 @@
     {{ errorMessage }}
   </div>
 
-  <button type="submit" class="btn btn-danger">Connexion !</button>
+  <button type="submit" class="btn btn-danger">Sign In</button>
   <a routerLink="/register" class="btn btn-link">
-    Ou créez un nouveau compte
+    Or register now!
   </a>
 </form>
 
