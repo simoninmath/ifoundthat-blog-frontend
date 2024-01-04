@@ -14,6 +14,7 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
+    LoginComponent,
     RegisterComponent
   ],
   imports: [
