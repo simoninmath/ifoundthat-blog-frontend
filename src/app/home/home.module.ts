@@ -15,9 +15,21 @@ import { ListArticleComponent } from './list-article/list-article.component';
 import { ArticleCategoryColorPipe } from './category-article.pipe';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NewsletterComponent } from './newsletter/newsletter.component';
-import { SearchbarComponent } from '../navigation/searchbar/searchbar.component';
+// import { SearchbarComponent } from '../navigation/searchbar/searchbar.component';
 // import { NavbarComponent } from '../navigation/navbar/navbar.component';
+import { Routes } from '@angular/router';
+import { AuthGuard } from '../auth/auth.guard';
 
+// canActivate: [AuthGuard]
+
+const routes: Routes = [
+  { path:'home', title: 'IFT-Blog', component: HomeComponent },
+  { path:'articles', title: 'IFT-Blog', component: ListArticleComponent },
+  { path:'article/add', title: 'IFT-Blog', component: AddArticleComponent },
+  { path:'article/form', title: 'IFT-Blog', component: ArticleFormComponent },
+  { path:'article/detail', title: 'IFT-Blog', component: DetailArticleComponent },
+  { path:'article/edit', title: 'IFT-Blog', component: EditArticleComponent },
+];
 
 @NgModule({
   declarations: [
