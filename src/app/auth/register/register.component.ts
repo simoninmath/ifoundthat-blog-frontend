@@ -1,51 +1,50 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 import { UiService } from 'src/app/service/ui.service';
+import { Violation } from '../violation';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss']
+  styleUrls: ['./register.component.scss'],
 })
 
 export class RegisterComponent implements OnInit {
   error = false;
-  form = new FormGroup({
-    email: new FormControl(''),
-    password: new FormControl(''),
-    fullName: new FormControl(''),
-    plainPassword: new FormControl(''),
-  });
+  form: FormGroup;
 
   constructor(
+    private formBuilder: FormBuilder,
     private auth: AuthService,
     private router: Router,
     private ui: UiService
-  ) {}
+  ) {
+    this.form = this.formBuilder.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', Validators.required],
+      fullName: ['', Validators.required],
+      plainPassword: ['', Validators.required],
+    });
+  }
 
   ngOnInit() {}
 
-  get email() {
-    return this.form.get('email');
-  }
-
-  get password() {
-    return this.form.get('password');
-  }
-
-  get fullName() {
-    return this.form.get('fullName');
-  }
-
-  get plainPassword(){
-    return this.form.get('plainPassword');
-  }
-
   handleSubmit() {
     this.ui.activateLoading();
+
+    if (
+      this.form.invalid ||
+      !this.form.value.email ||
+      !this.form.value.password ||
+      !this.form.value.fullName ||
+      !this.form.value.plainPassword
+    ) {
+      this.ui.deactivateLoading();
+      return;
+    }
 
     this.auth.register(this.form.value).subscribe(
       () => {
@@ -59,11 +58,13 @@ export class RegisterComponent implements OnInit {
           const violations = httpError.error.violations as Violation[];
 
           for (const apiViolation of violations) {
-            this.form.get(apiViolation.propertyPath).setErrors({
-              violation: apiViolation.message
-            });
+            const control = this.form.get(apiViolation.propertyPath);
+            if (control) {
+              control.setErrors({
+                violation: apiViolation.message,
+              });
+            }
           }
-
           return;
         }
         // Else
@@ -71,10 +72,4 @@ export class RegisterComponent implements OnInit {
       }
     );
   }
-}
-
-export interface Violation {
-  propertyPath: string;
-  message: string;
-
 }

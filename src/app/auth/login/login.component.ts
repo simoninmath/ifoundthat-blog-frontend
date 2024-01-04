@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UiService } from 'src/app/service/ui.service';
 
 @Component({
@@ -13,17 +13,6 @@ import { UiService } from 'src/app/service/ui.service';
 export class LoginComponent implements OnInit {
   errorMessage: string;
   form: FormGroup;
-
-  // form = new FormGroup({
-  //   email: new FormControl('', [Validators.required, Validators.email]),
-  //   password: new FormControl('', Validators.required)
-  // });
-
-  // constructor(
-  //   private auth: AuthService,
-  //   private router: Router,
-  //   private ui: UiService
-  // ) {}
   
   constructor(
     private formBuilder: FormBuilder,
@@ -44,32 +33,34 @@ export class LoginComponent implements OnInit {
       return;
     }
 
-    // Active l'écran de chargement
+    // Enable load screen
     this.ui.activateLoading();
 
     this.auth.authenticate(this.form.value).subscribe(
-      resultat => {
-        // Désactive l'écran de chargement
+      result => {
+        // Disable load screen
         this.ui.deactivateLoading();
-        this.errorMessage = '';
+        this.errorMessage = 'Error!';
         this.router.navigateByUrl('/articles');
       },
       error => {
-        // Désactive l'écran de chargement
+        // Disabled load screen
         this.ui.deactivateLoading();
 
         if (error.status === 401) {
           this.errorMessage =
-            'Nous n\'avons pas trouvé de compte utilisateur qui corresponde avec cet email et ce mot de passe';
+            'No user account is associated with this email address...';
 
           return;
         }
 
         this.errorMessage =
-          'Un problème est survenu, veuillez ré-essayer plus tard';
+          'Something is wrong... Please try again in a few minutes.';
       }
     );
   }
+
+
   // message: string = 'Status: Disconnect';
   // name: string;
   // password: string;
