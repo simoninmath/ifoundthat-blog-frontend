@@ -22,11 +22,11 @@ import { AuthGuard } from '../auth/auth.guard';
 
 
 const routes: Routes = [
-  { path:'home', title: 'IFT-Blog', component: HomeComponent, canActivate: [AuthGuard] },
-  { path:'articles', title: 'IFT-Blog', component: ListArticleComponent, canActivate: [AuthGuard] },
+  // { path:'home', title: 'IFT-Blog', component: HomeComponent, canActivate: [AuthGuard] },
+  { path:'articles', title: 'IFT-Blog', component: ListArticleComponent },
+  { path:'article/detail', title: 'IFT-Blog', component: DetailArticleComponent },
   { path:'article/add', title: 'IFT-Blog', component: AddArticleComponent, canActivate: [AuthGuard] },
   { path:'article/form', title: 'IFT-Blog', component: ArticleFormComponent, canActivate: [AuthGuard] },
-  { path:'article/detail', title: 'IFT-Blog', component: DetailArticleComponent, canActivate: [AuthGuard] },
   { path:'article/edit', title: 'IFT-Blog', component: EditArticleComponent, canActivate: [AuthGuard] },
 ];
 
