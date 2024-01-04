@@ -78,7 +78,7 @@
   flex-grow: 1;
   padding-left: 60px;
   justify-content: center;
-  align-items: end;
+  align-items: flex-end;
   width: 100%;
   max-width: 216px;
   margin-left: 200px;
@@ -132,7 +132,7 @@
 }
 .div-8 {
   color: var(--PureBlack900, #121212);
-  align-self: end;
+  align-self: flex-end;
   margin-right: 55px;
   font: 400 24px Menlo, sans-serif;
 }
