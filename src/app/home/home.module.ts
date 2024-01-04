@@ -35,7 +35,7 @@ import { SearchbarComponent } from '../navigation/searchbar/searchbar.component'
     ArticleFormComponent,
     ArticleCategoryColorPipe,
     // NavbarComponent,
-    SearchbarComponent
+    // SearchbarComponent
   ],
   imports: [
     CommonModule,
