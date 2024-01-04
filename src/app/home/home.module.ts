@@ -16,7 +16,7 @@ import { ArticleCategoryColorPipe } from './category-article.pipe';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NewsletterComponent } from './newsletter/newsletter.component';
 import { SearchbarComponent } from '../navigation/searchbar/searchbar.component';
-import { NavbarComponent } from '../navigation/navbar/navbar.component';
+// import { NavbarComponent } from '../navigation/navbar/navbar.component';
 
 
 @NgModule({
@@ -34,7 +34,7 @@ import { NavbarComponent } from '../navigation/navbar/navbar.component';
     MoreButtonComponent,
     ArticleFormComponent,
     ArticleCategoryColorPipe,
-    NavbarComponent,
+    // NavbarComponent,
     SearchbarComponent
   ],
   imports: [
