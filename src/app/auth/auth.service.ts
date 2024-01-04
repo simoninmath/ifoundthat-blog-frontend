@@ -23,11 +23,13 @@ export class AuthService {
   redirectUrl: string;
   authState = new Subject<boolean>();
 
-  constructor(private http: HttpClient, private storage: Storage) {}
+  constructor(
+    private http: HttpClient, 
+    private storage: Storage) {}
 
   // Login is a default asynchronous operation, so we need to use Observable
   logIn(name: string, password: string): Observable<boolean> {
-    const isLoggedIn = name == 'fig' && password == 'fig';
+    const isLoggedIn = name == 'admin' && password == 'admin';
 
     // Simulate server answer with delay
     return of(isLoggedIn).pipe(
@@ -40,7 +42,7 @@ export class AuthService {
     this.isLoggedIn = false;
   }
 
-  register(account: { email: string; password: string; fullname: string }) {
+  register(account: { email: string; password: string; fullName: string }) {
     return this.http.post(USERS_API, account);
   }
 
@@ -52,7 +54,7 @@ export class AuthService {
         return result;
       }),
       catchError((error: any) => {
-        throw new Error(`Error!`);
+        throw new Error(error);
       })
     );
   }
