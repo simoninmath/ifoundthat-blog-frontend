@@ -13,8 +13,8 @@
             <p>{{ article.title}}</p>
             <p><small>{{ article.createdAt | date : "dd/MM/yy" }}</small>
               <span 
-                  *ngFor="let type of article.category" 
-                  class="{{ type | articleCategoryColor }}"
+                  *ngFor="let category of article.categories" 
+                  class="{{ category | articleCategoryColorPipe }}"
               >
                 {{ category }}
             </span>
