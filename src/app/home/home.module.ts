@@ -56,7 +56,17 @@ const routes: Routes = [
     RouterModule.forChild(routes)
   ], 
   exports: [
-    HomeComponent
+    HomeComponent,
+    HeroComponent,
+    NewsComponent,
+    ListArticleComponent,
+    DetailArticleComponent,
+    AddArticleComponent,
+    EditArticleComponent,
+    NewsletterComponent,
+    LoaderComponent,
+    MoreButtonComponent,
+    ArticleFormComponent,
   ],
   providers: [
     ArticleService
