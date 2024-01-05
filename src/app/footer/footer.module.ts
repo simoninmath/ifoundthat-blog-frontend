@@ -7,7 +7,6 @@ import { PolicyComponent } from './policy/policy.component';
 import { TermsComponent } from './terms/terms.component';
 
 
-
 @NgModule({
   declarations: [
     FooterComponent,
@@ -18,6 +17,9 @@ import { TermsComponent } from './terms/terms.component';
   ],
   imports: [
     CommonModule
+  ],
+  exports: [
+    FooterComponent,
   ]
 })
 export class FooterModule { }

@@ -15,7 +15,7 @@ import { ListArticleComponent } from './list-article/list-article.component';
 import { ArticleCategoryColorPipe } from './category-article.pipe';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NewsletterComponent } from './newsletter/newsletter.component';
-import { Routes } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from '../auth/auth.guard';
 import { NavigationModule } from '../navigation/navigation.module';
 import { ArticleService } from '../service/article.service';
@@ -29,6 +29,7 @@ const routes: Routes = [
   { path:'article/form', title: 'IFT-Blog', component: ArticleFormComponent, canActivate: [AuthGuard] },
   { path:'article/edit', title: 'IFT-Blog', component: EditArticleComponent, canActivate: [AuthGuard] },
 ];
+
 
 @NgModule({
   declarations: [
@@ -51,9 +52,12 @@ const routes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     NavigationModule,
-    SharedModule 
-    //TODO insérer RouterModule.forChild(routes)
+    SharedModule,
+    RouterModule.forChild(routes)
   ], 
+  exports: [
+    HomeComponent
+  ],
   providers: [
     ArticleService
   ]

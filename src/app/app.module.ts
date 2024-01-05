@@ -3,10 +3,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { Error404Component } from './error404/error404.component';
-// import { HomeComponent } from './home/home.component';
 import { SharedModule } from './shared/shared.module';
 import { AuthModule } from './auth/auth.module';
-// import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FooterModule } from './footer/footer.module';
+import { HomeModule } from './home/home.module';
 
 @NgModule({
   declarations: [
@@ -16,10 +16,10 @@ import { AuthModule } from './auth/auth.module';
   ],
   imports: [
     BrowserModule,
-    // FormsModule,
-    // ReactiveFormsModule,
     AuthModule,
     AppRoutingModule,
+    HomeModule,
+    FooterModule,
     SharedModule
   ],
   providers: [],
