@@ -3,13 +3,11 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { FormComponent } from '../home/form/form.component';
-// import { LoginComponent } from '../auth/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [
-    // LoginComponent,
     FormComponent
   ],
   imports: [
@@ -23,7 +21,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     HttpClientModule, 
     RouterModule,
-    // LoginComponent,
     FormsModule,
     ReactiveFormsModule,
     FormComponent
