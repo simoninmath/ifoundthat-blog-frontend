@@ -14,6 +14,7 @@ import { SharedModule } from '../shared/shared.module';
     CommonModule,
     SharedModule
   ],
+  // Exports allow to Components to be used in others Modules
   exports:[
     NavbarComponent,
     SearchbarComponent
