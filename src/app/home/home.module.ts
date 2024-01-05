@@ -15,10 +15,9 @@ import { ListArticleComponent } from './list-article/list-article.component';
 import { ArticleCategoryColorPipe } from './category-article.pipe';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NewsletterComponent } from './newsletter/newsletter.component';
-// import { SearchbarComponent } from '../navigation/searchbar/searchbar.component';
-// import { NavbarComponent } from '../navigation/navbar/navbar.component';
 import { Routes } from '@angular/router';
 import { AuthGuard } from '../auth/auth.guard';
+import { NavigationModule } from '../navigation/navigation.module';
 
 
 const routes: Routes = [
@@ -45,14 +44,14 @@ const routes: Routes = [
     MoreButtonComponent,
     ArticleFormComponent,
     ArticleCategoryColorPipe,
-    // NavbarComponent,
-    // SearchbarComponent
   ],
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    SharedModule
+    NavigationModule,
+    SharedModule 
+    //TODO insérer RouterModule.forChild(routes)
   ]
 })
 
