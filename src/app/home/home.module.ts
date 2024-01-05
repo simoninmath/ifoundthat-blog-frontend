@@ -18,6 +18,7 @@ import { NewsletterComponent } from './newsletter/newsletter.component';
 import { Routes } from '@angular/router';
 import { AuthGuard } from '../auth/auth.guard';
 import { NavigationModule } from '../navigation/navigation.module';
+import { ArticleService } from '../service/article.service';
 
 
 const routes: Routes = [
@@ -52,6 +53,9 @@ const routes: Routes = [
     NavigationModule,
     SharedModule 
     //TODO insérer RouterModule.forChild(routes)
+  ], 
+  providers: [
+    ArticleService
   ]
 })
 
