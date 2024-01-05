@@ -6,7 +6,7 @@
                     <!-- At any time user enter a term, the search Method is calling and the data pushed form search bar -->
                     <input #searchBox 
                            (keyup)="search(searchBox.value)" 
-                           placeholder="Search a article" 
+                           placeholder="Search article" 
                     />
                     <div class="collection"> <!-- Using async Pipe avoid all subscribe syntaxe -->
                         <a *ngFor="let article of articles$ | async" 
