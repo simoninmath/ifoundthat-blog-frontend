@@ -23,19 +23,27 @@ export class ArticleService {
       );
     }
 
-  getArticleList(): Observable<Article[]> {  // Return an Observable because the Object Article[] will be receive later
-    return this.http.get<Article[]>('api/articles').pipe(  // Making a HTTP Request that return an Object Observable with URL
-      tap((articleList) => console.table(articleList)),  // Log response
-      catchError((error) => this.handleError(error, []))
-    ); 
-  }
+  // getArticleList(): Observable<Article[]> {  // Return an Observable because the Object Article[] will be receive later
+  //   return this.http.get<Article[]>('api/articles').pipe(  // Making a HTTP Request that return an Object Observable with URL
+  //     tap((articleList) => console.table(articleList)),  // Log response
+  //     catchError((error) => this.handleError(error, []))
+  //   ); 
+  // }
 
-  getArticleById(articleId: number): Observable<Article | undefined> {
-    return this.http.get<Article>(`api/articles/${articleId}`).pipe(  // Making a HTTP Request that return an Observable Object with URL
+  getArticleByIdFromDb(articleId: number): Observable<Article | undefined> {
+    return this.http.get<Article>(`${this.apiUrl}/articles/detail/${articleId}`).pipe(  // Making a HTTP Request that return an Observable Object with URL
+    map((response: any) => response['hydra:member'] as Article[]),
     tap((response) => this.log(response)),
     catchError((error) => this.handleError(error, undefined))
     );
   }
+
+  // getArticleById(articleId: number): Observable<Article | undefined> {
+  //   return this.http.get<Article>(`${this.apiUrl}/articles/detail/${articleId}`).pipe(  // Making a HTTP Request that return an Observable Object with URL
+  //   tap((response) => this.log(response)),
+  //   catchError((error) => this.handleError(error, undefined))
+  //   );
+  // }
 
   // Refactoring
   private log(response: Article[] | Article | undefined){
@@ -52,14 +60,14 @@ export class ArticleService {
       headers: new HttpHeaders({'Content-Type': 'application/json'})
     };
   
-    return this.http.put<Article>('api/articles', article, httpOptions).pipe(
+    return this.http.put<Article>('api/articles/detail', article, httpOptions).pipe(
       tap((response) => this.log(response)),
       catchError((error) => this.handleError(error, null))
     );
   }
 
   deleteArticleById(articleId: number): Observable<null> {
-    return this.http.delete<null>(`api/articles/${articleId}`).pipe(
+    return this.http.delete<null>(`api/articles/detail/${articleId}`).pipe(
       //tap((response) => this.log(response)),
       catchError((error) => this.handleError(error, null))
     );
@@ -70,7 +78,7 @@ export class ArticleService {
       headers: new HttpHeaders({'Content-Type': 'application/json'})
     };
     
-    return this.http.post<Article>('api/articles', article, httpOptions).pipe(  // This Method return a Article Type Object with cast "<Article>"
+    return this.http.post<Article>('api/articles/add', article, httpOptions).pipe(  // This Method return a Article Type Object with cast "<Article>"
       // tap((response) => this.log(response)),
       catchError((error) => this.handleError(error, null))
     );
