@@ -24,10 +24,10 @@ import { ArticleService } from '../service/article.service';
 const routes: Routes = [
   // { path:'home', title: 'IFT-Blog', component: HomeComponent, canActivate: [AuthGuard] },
   { path:'articles', title: 'IFT-Blog', component: ListArticleComponent },
-  { path:'article/detail', title: 'IFT-Blog', component: DetailArticleComponent },
-  { path:'article/add', title: 'IFT-Blog', component: AddArticleComponent, canActivate: [AuthGuard] },
-  { path:'article/form', title: 'IFT-Blog', component: ArticleFormComponent, canActivate: [AuthGuard] },
-  { path:'article/edit', title: 'IFT-Blog', component: EditArticleComponent, canActivate: [AuthGuard] },
+  { path:'articles/detail', title: 'IFT-Blog', component: DetailArticleComponent },
+  { path:'articles/add', title: 'IFT-Blog', component: AddArticleComponent, canActivate: [AuthGuard] },
+  { path:'articles/form', title: 'IFT-Blog', component: ArticleFormComponent, canActivate: [AuthGuard] },
+  { path:'articles/edit', title: 'IFT-Blog', component: EditArticleComponent, canActivate: [AuthGuard] },
 ];
 
 
