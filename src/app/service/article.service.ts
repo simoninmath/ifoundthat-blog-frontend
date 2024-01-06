@@ -17,7 +17,7 @@ export class ArticleService {
   }
 
   getArticleById(articleId: number): Observable<Article | undefined> {
-    return this.http.get<Article>(`api/articles/${articleId}`).pipe(  // Making a HTTP Request that return an Object Observable with URL
+    return this.http.get<Article>(`api/articles/${articleId}`).pipe(  // Making a HTTP Request that return an Observable Object with URL
     tap((response) => this.log(response)),
     catchError((error) => this.handleError(error, undefined))
     );
@@ -63,7 +63,7 @@ export class ArticleService {
   }
 
   searchArticleList(term: string): Observable<Article[]> {  // Request a name with term enter by user
-    return this.http.get<Article[]>(`api/articles/?name={term}`).pipe(
+    return this.http.get<Article[]>(`api/articles/?name=${term}`).pipe(
       tap((response) => this.log(response)),
       catchError((error) => this.handleError(error, []))  // If there is an error in the term, return a empty Table
     )
