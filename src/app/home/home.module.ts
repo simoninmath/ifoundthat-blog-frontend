@@ -22,12 +22,15 @@ import { ArticleService } from '../service/article.service';
 
 
 const routes: Routes = [
-  // { path:'home', title: 'IFT-Blog', component: HomeComponent, canActivate: [AuthGuard] },
+  // Routes always public
+  // { path:'' },
   { path:'articles', title: 'IFT-Blog', component: ListArticleComponent },
-  { path:'articles/detail', title: 'IFT-Blog', component: DetailArticleComponent },
+  // Routes exceptions
+  { path:'articles/detail/:id', title: 'IFT-Blog', component: DetailArticleComponent, canActivate: [AuthGuard] },
   { path:'articles/add', title: 'IFT-Blog', component: AddArticleComponent, canActivate: [AuthGuard] },
   { path:'articles/form', title: 'IFT-Blog', component: ArticleFormComponent, canActivate: [AuthGuard] },
-  { path:'articles/edit', title: 'IFT-Blog', component: EditArticleComponent, canActivate: [AuthGuard] },
+  { path:'articles/edit/:id', title: 'IFT-Blog', component: EditArticleComponent, canActivate: [AuthGuard] },
+  { path:'articles/:id', title: 'IFT-Blog', component: DetailArticleComponent, canActivate: [AuthGuard] }
 ];
 
 
