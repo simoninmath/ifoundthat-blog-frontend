@@ -10,7 +10,7 @@
             <table class="bordered striped">
               <tbody>
                 <tr>
-                  <td>Titre</td>
+                  <td>Title</td>
                   <td>
                     <strong>{{ article.title }}</strong>
                   </td>
@@ -34,9 +34,15 @@
                   </td>
                 </tr>
                 <tr>
-                  <td>Date de création</td>
+                  <td>Created at</td>
                   <td>
                     <em>{{ article.createdAt | date : "dd/MM/yyyy" }}</em>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Updated at</td>
+                  <td>
+                    <em>{{ article.updatedAt | date : "dd/MM/yyyy" }}</em>
                   </td>
                 </tr>
               </tbody>

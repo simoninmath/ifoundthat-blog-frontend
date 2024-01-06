@@ -30,12 +30,22 @@ export class DetailArticleComponent {
   ngOnInit() {
     const articleId: string | null = this.route.snapshot.paramMap.get("id");
     if(articleId) {
-      this.articleService.getArticleById(+articleId).subscribe(article => {  // Get dynamic titles in detail article Component
+      this.articleService.getArticleByIdFromDb(+articleId).subscribe(article => {  // Get dynamic titles in detail article Component
         this.article = article;
         this.initTitle(article);
   });
  }
 }
+
+// ngOnInit() {
+//   const articleId: string | null = this.route.snapshot.paramMap.get("id");
+//   if(articleId) {
+//     this.articleService.getArticleById(+articleId).subscribe(article => {  // Get dynamic titles in detail article Component
+//       this.article = article;
+//       this.initTitle(article);
+// });
+// }
+// }
 
   initTitle(article: Article | undefined){
     if(!article){
@@ -50,12 +60,12 @@ export class DetailArticleComponent {
     .subscribe(() => this.goToArticleList());
   }
 
-  goToArticleList() {
-    this.router.navigate(['/articles']);
+  goToEditArticle(article: Article){
+     this.router.navigate(['articles/edit', article.id]);
   }
 
-  goToEditArticle(article: Article){
-     this.router.navigate(['edit/articles', article.id]);
+  goToArticleList() {
+    this.router.navigate(['/articles']);
   }
 
 }
