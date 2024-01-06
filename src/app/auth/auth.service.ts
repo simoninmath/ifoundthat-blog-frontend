@@ -27,10 +27,9 @@ export class AuthService {
     private http: HttpClient, 
     private storage: Storage) {}
 
-  // Login is a default asynchronous operation, so we need to use Observable
-  logIn(name: string, password: string): Observable<boolean> {
-    const isLoggedIn = name == 'admin' && password == 'admin';
-
+  // Because login is a default asynchronous operation, we need to use an Observable
+  logIn(email: string, password: string): Observable<boolean> {
+    const isLoggedIn = email == 'admin@admin.com' && password == 'admin';
     // Simulate server answer with delay
     return of(isLoggedIn).pipe(
       delay(1000),
