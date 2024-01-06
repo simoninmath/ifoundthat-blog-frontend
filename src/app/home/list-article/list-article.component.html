@@ -1,21 +1,24 @@
 <p>LIST ARTICLES WORKS!</p>
 <div class="container">
   <div class="row">
-    <div *ngFor="let article of articleList" class="col m4 s6">
+    <div *ngFor="let article of articleList" class="col m12 s12 l12">
       <div (click)="goToArticle(article)" class="card horizontal" articleBorderCard >
         <div class="card-image">
           <img [src]="article.picture" />
         </div>
         <div class="card-stacked">
           <div class="card-content">
-            <p>{{ article.title}}</p>
-            <p><small>{{ article.createdAt | date : "dd/MM/yy" }}</small>
-              <span 
-                  *ngFor="let category of article.categories" 
-                  class="{{ category | articleCategoryColorPipe }}"
-              >
-                {{ category }}
+            <span 
+            *ngFor="let category of article.categories" 
+            class="{{ category | articleCategoryColorPipe }}"
+        >
+          {{ category }}
             </span>
+            <p>{{ article.title}}</p>
+            <p>{{ article.chapo}}</p>
+            <p>{{ article.content}}</p>
+            <p><small>{{ article.createdAt | date : "dd/MM/yy" }}</small>
+            <p><small>{{ article.updatedAt | date : "dd/MM/yy" }}</small>
             </p>
           </div>
         </div>
