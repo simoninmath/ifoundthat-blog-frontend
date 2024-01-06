@@ -1,13 +1,27 @@
 import { Injectable } from "@angular/core";
 import { Article } from "../model/article";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { Observable, catchError, of, tap } from "rxjs";
+import { Observable, catchError, map, of, tap } from "rxjs";
 
 @Injectable()  // Delete providedIn: 'root' to use Service only in ArticleModule
 
 export class ArticleService {
+
+    // URL from API Platform contained in a Variable named "apiUrl"
+    private apiUrl = 'https://127.0.0.1:8000/api'; 
+
+    // Use Dependency Injection for the HttpClient Service with Constructor method
+    constructor(
+      private http: HttpClient
+    ) {}
   
-  constructor(private http: HttpClient){}
+    // This method creates an Observable to listen for the response from the database, 
+    // and decode the database JSON Object into an array with map(), 
+    getArticleListFromDb(): Observable<Article[]> {
+      return this.http.get<any>(`${this.apiUrl}/articles`).pipe(
+        map((response: any) => response['hydra:member'] as Article[])
+      );
+    }
 
   getArticleList(): Observable<Article[]> {  // Return an Observable because the Object Article[] will be receive later
     return this.http.get<Article[]>('api/articles').pipe(  // Making a HTTP Request that return an Object Observable with URL
