@@ -51,18 +51,23 @@ export class ArticleService {
     );
   }
 
-  addArticle(Article: Article): Observable<Article> {
+  addArticle(article: Article): Observable<Article> {
     const httpOptions = {
       headers: new HttpHeaders({'Content-Type': 'application/json'})
     };
     
-    return this.http.post<Article>('api/articles', Article, httpOptions).pipe(  // This Method return a Article Type Object with cast "<Article>"
+    return this.http.post<Article>('api/articles', article, httpOptions).pipe(  // This Method return a Article Type Object with cast "<Article>"
       // tap((response) => this.log(response)),
       catchError((error) => this.handleError(error, null))
     );
   }
 
   searchArticleList(term: string): Observable<Article[]> {  // Request a name with term enter by user
+  // If the research term is too small, return an empty Table to avoid call Server
+    if(term.length <= 1){
+          return of([]);
+        }
+
     return this.http.get<Article[]>(`api/articles/?name=${term}`).pipe(
       tap((response) => this.log(response)),
       catchError((error) => this.handleError(error, []))  // If there is an error in the term, return a empty Table
