@@ -19,6 +19,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from '../auth/auth.guard';
 import { NavigationModule } from '../navigation/navigation.module';
 import { ArticleService } from '../service/article.service';
+// import { CardComponent } from './card/card.component';
+// import { CardDetailComponent } from './card-detail/card-detail.component';
 
 
 const routes: Routes = [
@@ -49,6 +51,8 @@ const routes: Routes = [
     MoreButtonComponent,
     ArticleFormComponent,
     ArticleCategoryColorPipe,
+    // CardComponent,
+    // CardDetailComponent,
   ],
   imports: [
     CommonModule,
