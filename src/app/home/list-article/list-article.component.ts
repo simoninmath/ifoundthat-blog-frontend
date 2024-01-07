@@ -21,20 +21,20 @@ export class ListArticleComponent {
   ){
       this.articleList = [];   
    }
-    
-  goToArticle(article: Article) {   // Go back Method
-    this.router.navigate(['/articles', article.id]);
-  };
+  
+  // The Method below launches the getUserEmailFromNewsletter() method when the program starts
+  ngOnInit() {
+    this.getArticleListFromDb();
+  }
 
   // ngOnInit() {
   //   this.articleService.getArticleList()   // Get an Observable from Service
   //   .subscribe(articleList => articleList = articleList);   // Fallow Observable to get the article list and push it on the Component property 
   // }
 
-  // The Method below launches the getUserEmailFromNewsletter() method when the program starts
-  ngOnInit() {
-    this.getArticleListFromDb();
-  }
+  goToArticleDetail(article: Article) {
+    this.router.navigate(['/articles/', article.id]);
+  };
 
   getArticleListFromDb() {
     this.articleService.getArticleListFromDb()

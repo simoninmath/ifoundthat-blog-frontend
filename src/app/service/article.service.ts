@@ -31,12 +31,20 @@ export class ArticleService {
   // }
 
   getArticleByIdFromDb(articleId: number): Observable<Article | undefined> {
-    return this.http.get<Article>(`${this.apiUrl}/articles/detail/${articleId}`).pipe(  // Making a HTTP Request that return an Observable Object with URL
-    map((response: any) => response['hydra:member'] as Article[]),
-    tap((response) => this.log(response)),
-    catchError((error) => this.handleError(error, undefined))
+    return this.http.get<Article>(`${this.apiUrl}/articles/${articleId}`).pipe(
+      map((response: any) => response as Article),
+      tap((response) => this.log(response)),
+      catchError((error) => this.handleError(error, undefined))
     );
-  }
+  }  
+
+  // getArticleByIdFromDb(articleId: number): Observable<Article | undefined> {
+  //   return this.http.get<Article>(`${this.apiUrl}/articles/detail/${articleId}`).pipe(  // Making a HTTP Request that return an Observable Object with URL
+  //   map((response: any) => response['hydra:member'] as Article[]),
+  //   tap((response) => this.log(response)),
+  //   catchError((error) => this.handleError(error, undefined))
+  //   );
+  // }
 
   // getArticleById(articleId: number): Observable<Article | undefined> {
   //   return this.http.get<Article>(`${this.apiUrl}/articles/detail/${articleId}`).pipe(  // Making a HTTP Request that return an Observable Object with URL

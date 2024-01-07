@@ -28,11 +28,11 @@ export class DetailArticleComponent {
 
   // Refactoring
   ngOnInit() {
-    const articleId: string | null = this.route.snapshot.paramMap.get("id");
+    const articleId: string | null = this.route.snapshot.paramMap.get('id');  // Get Card id from URL
     if(articleId) {
-      this.articleService.getArticleByIdFromDb(+articleId).subscribe(article => {  // Get dynamic titles in detail article Component
+      this.articleService.getArticleByIdFromDb(+articleId).subscribe(article => {  
         this.article = article;
-        this.initTitle(article);
+        this.initTitle(article);  // Set dynamic titles in detail article Component
   });
  }
 }
@@ -64,7 +64,7 @@ export class DetailArticleComponent {
      this.router.navigate(['articles/edit', article.id]);
   }
 
-  goToArticleList() {
+  goToArticleList() {  // Go back to article list
     this.router.navigate(['/articles']);
   }
 
