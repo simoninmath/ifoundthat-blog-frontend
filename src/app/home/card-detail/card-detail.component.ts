@@ -17,10 +17,10 @@ export class CardDetailComponent implements OnInit {
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
-      const cardIdString = params.get('id'); // Récupérer l'ID de la carte depuis l'URL
+      const cardIdString = params.get('id'); // Récupérer l'ID de la carte depuis l'URL  //TODO récupérer dynamiquement l'id depuis la db
       if (cardIdString !== null) {
         const cardId = +cardIdString;
-        this.cardService.getCardDetails(cardId).subscribe((details) => {
+        this.cardService.getIdFromDb(cardId).subscribe((details) => {
           this.cardDetails = details; // Mettre à jour les détails de la carte
         });
       } else {

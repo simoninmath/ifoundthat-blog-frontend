@@ -8,20 +8,19 @@ import { CardService } from '../card.service';
   styleUrls: ['./card.component.scss']
 })
 export class CardComponent {
-  @Input() cardId: number = 1;  // ID de la carte
+  @Input() cardId: number = 6;  // ID de la carte //TODO dynamiser récupération id depuis la db
 
   constructor(
     private router: Router,
     private cardService: CardService // Service pour récupérer les détails de la carte
-  ) {console.log('SERVICE INJECTION TEST!', this.cardService)}
+  ) {
+    console.log('SERVICE INJECTION TEST!', this.cardService);
+  }
 
   onCardClick() {
     console.log('CLICKED!');
-    // Récupérer les détails de la carte avec l'ID spécifique
-    this.cardService.getCardDetails(this.cardId).subscribe(() => {
-
-      // Naviguer vers la vue des détails de la carte avec l'ID spécifique
-      this.router.navigate(['/articles', this.cardId]);
+    this.cardService.getIdFromDb(this.cardId).subscribe(() => {     // Récupérer les détails de la carte avec l'ID spécifique
+      this.router.navigate(['/articles', this.cardId]);       // Naviguer vers la vue des détails de la carte avec l'ID spécifique
     });
   }
 }
