@@ -1,10 +1,11 @@
-.div {
+.title {
     color: var(--PureRed900, #f24e1e);
     margin-right: -3px;
     font: 700 282px Menlo, sans-serif;
   }
+  
   @media (max-width: 991px) {
-    .div {
+    .title {
       max-width: 100%;
       font-size: 40px;
     }
