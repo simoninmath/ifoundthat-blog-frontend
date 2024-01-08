@@ -1,8 +1,10 @@
 <div class="card deep-orange darken-1">
     <div class="card-content white-text">
       <span class="card-title">{{ cardDetails.title }}</span>
-      <p>{{ cardDetails.description }}</p>
-      <!-- Afficher d'autres détails de la carte ici -->
+      <p>{{ cardDetails.chapo}}</p>
+      <p>{{ cardDetails.content}}</p>
+      <p><small>{{ cardDetails.createdAt | date : "dd/MM/yy" }}</small></p>
+      <p><small>{{ cardDetails.updatedAt | date : "dd/MM/yy" }}</small></p>
     </div>
   </div>
   

@@ -33,7 +33,7 @@ export class ListArticleComponent {
   // }
 
   goToArticleDetail(article: Article) {
-    this.router.navigate(['/articles/', article.id]);
+    this.router.navigate(['/public_articles/', article.id]);
   };
 
   getArticleListFromDb() {

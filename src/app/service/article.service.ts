@@ -18,7 +18,7 @@ export class ArticleService {
     // This method creates an Observable to listen for the response from the database, 
     // and decode the database JSON Object into an array with map(), 
     getArticleListFromDb(): Observable<Article[]> {
-      return this.http.get<any>(`${this.apiUrl}/articles`).pipe(
+      return this.http.get<any>(`${this.apiUrl}/public_articles`).pipe(
         map((response: any) => response['hydra:member'] as Article[])
       );
     }
@@ -31,7 +31,7 @@ export class ArticleService {
   // }
 
   getArticleByIdFromDb(articleId: number): Observable<Article | undefined> {
-    return this.http.get<Article>(`${this.apiUrl}/articles/${articleId}`).pipe(
+    return this.http.get<Article>(`${this.apiUrl}/public_articles/${articleId}`).pipe(
       map((response: any) => response as Article),
       tap((response) => this.log(response)),
       catchError((error) => this.handleError(error, undefined))
@@ -68,14 +68,14 @@ export class ArticleService {
       headers: new HttpHeaders({'Content-Type': 'application/json'})
     };
   
-    return this.http.put<Article>('api/articles/detail', article, httpOptions).pipe(
+    return this.http.put<Article>('api/articles/', article, httpOptions).pipe(
       tap((response) => this.log(response)),
       catchError((error) => this.handleError(error, null))
     );
   }
 
   deleteArticleById(articleId: number): Observable<null> {
-    return this.http.delete<null>(`api/articles/detail/${articleId}`).pipe(
+    return this.http.delete<null>(`api/articles/${articleId}`).pipe(
       //tap((response) => this.log(response)),
       catchError((error) => this.handleError(error, null))
     );
@@ -98,7 +98,7 @@ export class ArticleService {
           return of([]);
         }
 
-    return this.http.get<Article[]>(`api/articles/?name=${term}`).pipe(
+    return this.http.get<Article[]>(`api/public_articles/?name=${term}`).pipe(
       tap((response) => this.log(response)),
       catchError((error) => this.handleError(error, []))  // If there is an error in the term, return a empty Table
     )

@@ -4,9 +4,8 @@
 
 export const environment = {
     production: false,
-    // AUTH_API: 'https://127.0.0.1:8000/api/login_check',
     GLOBAL_API: 'https://127.0.0.1:8000/api',
-    ARTICLES_API: 'https://127.0.0.1:8000/api/articles',
+    ARTICLES_API: 'https://127.0.0.1:8000/api/public_articles',
     CATEGORIES_API: 'https://127.0.0.1:8000/api/categories',
     COMMENTS_API: 'https://127.0.0.1:8000/api/comments',
     LOGS_API: 'https://127.0.0.1:8000/api/logs',
@@ -14,7 +13,7 @@ export const environment = {
     TAGS_API: 'https://127.0.0.1:8000/api/tags',
     USER_CONNEXIONS_API: 'https://127.0.0.1:8000/api/user_connexions',
     USERS_API: 'https://127.0.0.1:8000/api/users',
-    AUTH_API: 'http://localhost:8000/api/login'
+    AUTH_API: 'http://localhost:8000/api/login',
   };
   /*
    * For easier debugging in development mode, you can import the following file
