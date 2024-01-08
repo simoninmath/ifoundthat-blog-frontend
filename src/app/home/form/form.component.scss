@@ -1,4 +1,4 @@
-.div {
+.wrapper {
   background-color: var(--PureWhite900, #fefefe);
   display: flex;
   flex-direction: column;
@@ -49,7 +49,7 @@
   flex-direction: column;
 }
 
-.div-6 {
+.title_form {
   color: var(--PureBlack900, #121212);
   white-space: nowrap;
   font: 400 64px Menlo, sans-serif;
@@ -73,9 +73,9 @@
   }
 }
 
-.div-8 {
+.input_form-email--initialState {
   align-self: stretch;
-  display: flex;
+  display: flex-end;
   margin-top: 86px;
   justify-content: space-between;
   gap: 20px;
@@ -133,10 +133,10 @@
   }
 }
 
-.div-10 {
+.button_submit--initialState {
   color: var(--PureWhite900, #fefefe);
   white-space: nowrap;
-  background-color: var(--PureRed900, #f24e1e);
+  // background-color: var(--PureRed900, #f24e1e);
   align-self: center;
   margin-top: 59px;
   width: 422px;
