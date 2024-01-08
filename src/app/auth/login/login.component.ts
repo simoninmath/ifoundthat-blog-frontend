@@ -7,13 +7,12 @@ import { UiService } from 'src/app/service/ui.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
 })
-
-export class LoginComponent implements OnInit {
+export class LoginComponent {
   errorMessage: string;
   form: FormGroup;
-  
+
   constructor(
     private formBuilder: FormBuilder,
     private auth: AuthService,
@@ -22,28 +21,27 @@ export class LoginComponent implements OnInit {
   ) {
     this.form = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
-      password: ['', Validators.required]
+      password: ['', Validators.required],
     });
   }
 
-  ngOnInit() {}
-
   handleSubmit() {
-    if (this.form.invalid || !this.form.value.email || !this.form.value.password) {
+    if (this.form.invalid) {
       return;
     }
 
     // Enable load screen
     this.ui.activateLoading();
 
-    this.auth.authenticate(this.form.value).subscribe(
-      result => {
+    this.auth.authenticate(this.form.value).subscribe({
+      next: (result) => {
+        console.log('RESULT', result);
         // Disable load screen
         this.ui.deactivateLoading();
         this.errorMessage = 'Error!';
         this.router.navigateByUrl('/articles');
       },
-      error => {
+      error: (error) => {
         // Disabled load screen
         this.ui.deactivateLoading();
 
@@ -53,28 +51,26 @@ export class LoginComponent implements OnInit {
 
           return;
         }
-
         this.errorMessage =
           'Something is wrong... Please try again in a few minutes.';
-      }
-    );
+      },
+    });
   }
-
 
   // message: string = 'Status: Disconnect';
   // name: string;
   // password: string;
   // auth: AuthService;
-  
+
   // constructor(
   //   private authService: AuthService,
   //   private router: Router
   // ){}
-  
+
   // ngOnInit() {
   //   this.auth = this.authService;
   // }
-  
+
   // setMessage() {
   //   if(this.auth.isLoggedIn){
   //     this.message = 'Connexion status: connected';
@@ -82,7 +78,7 @@ export class LoginComponent implements OnInit {
   //     this.message = 'Wrong id or password!';
   //   }
   // }
-  
+
   // login() {
   //   this.message = 'Connexion ongoing...';
   //   this.auth.logIn(this.name, this.password)
@@ -96,9 +92,9 @@ export class LoginComponent implements OnInit {
   //       }
   //     })
   // }
-  
+
   // logout() {
   //   this.auth.logOut();
   //   this.message = 'Disconnected';
-  // }  
+  // }
 }
