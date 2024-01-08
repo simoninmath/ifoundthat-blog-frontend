@@ -4,16 +4,17 @@
 
 export const environment = {
     production: false,
-    GLOBAL_API: 'https://127.0.0.1:8000/api',
-    ARTICLES_API: 'https://127.0.0.1:8000/api/public_articles',
-    CATEGORIES_API: 'https://127.0.0.1:8000/api/categories',
-    COMMENTS_API: 'https://127.0.0.1:8000/api/comments',
-    LOGS_API: 'https://127.0.0.1:8000/api/logs',
-    NEWSLETTERS_API: 'https://127.0.0.1:8000/api/newsletters',
-    TAGS_API: 'https://127.0.0.1:8000/api/tags',
-    USER_CONNEXIONS_API: 'https://127.0.0.1:8000/api/user_connexions',
-    USERS_API: 'https://127.0.0.1:8000/api/users',
-    AUTH_API: 'http://localhost:8000/api/login',
+    BASE_URL: 'https://127.0.0.1:8000',
+    GLOBAL_API: '/api',
+    ARTICLES_API: '/api/public_articles',
+    CATEGORIES_API: '/api/categories',
+    COMMENTS_API: '/api/comments',
+    LOGS_API: '/api/logs',
+    NEWSLETTERS_API: '/api/newsletters',
+    TAGS_API: '/api/tags',
+    USER_CONNEXIONS_API: '/api/user_connexions',
+    USERS_API: '/api/users',
+    AUTH_API: '/api/login',
   };
   /*
    * For easier debugging in development mode, you can import the following file

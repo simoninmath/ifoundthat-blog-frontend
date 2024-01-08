@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { Article } from 'src/app/model/article';
 import { ArticleService } from 'src/app/service/article.service';
 
@@ -12,14 +12,13 @@ import { ArticleService } from 'src/app/service/article.service';
 export class ListArticleComponent {
 
   // articleList: Article[] = [];
-  articleList: Article[];  // Type as a Table of Article
+  articleList$: Observable<Article[]>;  // Type as a Table of Article
 
   // Use dependency injection to access services
   constructor(
-    private router: Router,
+    // private router: Router,
     private articleService: ArticleService
   ){
-      this.articleList = [];   
    }
   
   // The Method below launches the getUserEmailFromNewsletter() method when the program starts
@@ -32,18 +31,18 @@ export class ListArticleComponent {
   //   .subscribe(articleList => articleList = articleList);   // Fallow Observable to get the article list and push it on the Component property 
   // }
 
-  goToArticleDetail(article: Article) {
-    this.router.navigate(['/public_articles/', article.id]);
-  };
+  // goToArticleDetail(article: Article) {
+  //   this.router.navigate(['/public_articles/', article.id]);
+  // };
 
   getArticleListFromDb() {
-    this.articleService.getArticleListFromDb()
+    this.articleList$ = this.articleService.getArticleListFromDb()
     // The console.log below show hydra:member Array from JSON Object returned by the API
     // console.log(Object.values(response)[4]);
     // This method subscribes to the Observable of newsletter.service.ts 
-    .subscribe((response: Article[]) => {
-      this.articleList = response;
-    });
+    // .subscribe((response: Article[]) => {
+    //   this.articleList = response;
+    // });
   }
 
 }

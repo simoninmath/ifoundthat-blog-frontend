@@ -19,6 +19,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from '../auth/auth.guard';
 import { NavigationModule } from '../navigation/navigation.module';
 import { ArticleService } from '../service/article.service';
+import { BrowserModule } from '@angular/platform-browser';
+import { Error404Component } from '../error404/error404.component';
 // import { CardComponent } from './card/card.component';
 // import { CardDetailComponent } from './card-detail/card-detail.component';
 
@@ -28,11 +30,12 @@ const routes: Routes = [
   // { path:'' },
   { path:'articles', title: 'IFT-Blog', component: ListArticleComponent },
   // Routes exceptions
-  { path:'articles/detail/:id', title: 'IFT-Blog', component: DetailArticleComponent, canActivate: [AuthGuard] },
+  { path:'public_articles/:id', title: 'IFT-Blog', component: DetailArticleComponent },
   { path:'articles/add', title: 'IFT-Blog', component: AddArticleComponent, canActivate: [AuthGuard] },
   { path:'articles/form', title: 'IFT-Blog', component: ArticleFormComponent, canActivate: [AuthGuard] },
   { path:'articles/edit/:id', title: 'IFT-Blog', component: EditArticleComponent, canActivate: [AuthGuard] },
-  { path:'articles/:id', title: 'IFT-Blog', component: DetailArticleComponent, canActivate: [AuthGuard] }
+  { path:'articles/:id', title: 'IFT-Blog', component: DetailArticleComponent, canActivate: [AuthGuard] },
+  { path:'**', title: '404 error', component: Error404Component }
 ];
 
 
@@ -56,6 +59,7 @@ const routes: Routes = [
   ],
   imports: [
     CommonModule,
+    BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     NavigationModule,
@@ -74,6 +78,7 @@ const routes: Routes = [
     LoaderComponent,
     MoreButtonComponent,
     ArticleFormComponent,
+    BrowserModule
   ],
   providers: [
     ArticleService

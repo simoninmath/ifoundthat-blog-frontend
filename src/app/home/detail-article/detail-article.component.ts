@@ -29,6 +29,7 @@ export class DetailArticleComponent {
   // Refactoring
   ngOnInit() {
     const articleId: string | null = this.route.snapshot.paramMap.get('id');  // Get Card id from URL
+    console.log('TEST ARTICLE ID', articleId);
     if(articleId) {
       this.articleService.getArticleByIdFromDb(+articleId).subscribe(article => {  
         this.article = article;
@@ -59,7 +60,7 @@ export class DetailArticleComponent {
     this.articleService.deleteArticleById(article.id)
     .subscribe(() => this.goToArticleList());
   }
-
+//TODO OnDestroy(){} + unsubscribe
   goToEditArticle(article: Article){
      this.router.navigate(['articles/edit', article.id]);
   }
