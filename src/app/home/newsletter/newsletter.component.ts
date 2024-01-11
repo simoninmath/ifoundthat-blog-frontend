@@ -13,13 +13,14 @@ import { Router } from '@angular/router';
 export class NewsletterComponent implements OnInit {
   @Input() newsletter: Newsletter; // Indicate the Component property for each instance : to use app-newsletter component, we need to pass an Object Newsletter first
   newsletters: Newsletter[] = [];
+  isAddEmail: boolean;
 
   // Use dependency injection to access services
   constructor(
     private newsletterService: NewsletterService,
     private http: HttpClient,
     private router: Router
-    ) { }
+    ) {}
 
   // The Method below launches the getUserEmailFromNewsletter() method when the program starts
   ngOnInit() {
@@ -38,7 +39,7 @@ export class NewsletterComponent implements OnInit {
 
     // Refactoring
     onSubmit() {
-      if(this.isAddForm){
+      if(this.isAddEmail){
         this.newsletterService.addNewsletter(this.newsletter)
         .subscribe((newsletter: Newsletter) => this.router.navigate(['/newsletter', newsletter.id])); // Redirect to the new newsletter id just created
       } else {
