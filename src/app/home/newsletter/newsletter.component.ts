@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { NewsletterService } from '../../service/newsletter.service';
 import { Newsletter } from 'src/app/model/newsletter';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-newsletter',
@@ -10,12 +11,14 @@ import { HttpClient } from '@angular/common/http';
 })
 
 export class NewsletterComponent implements OnInit {
+  @Input() newsletter: Newsletter; // Indicate the Component property for each instance : to use app-newsletter component, we need to pass an Object Newsletter first
   newsletters: Newsletter[] = [];
 
   // Use dependency injection to access services
   constructor(
     private newsletterService: NewsletterService,
     private http: HttpClient,
+    private router: Router
     ) { }
 
   // The Method below launches the getUserEmailFromNewsletter() method when the program starts
@@ -32,4 +35,27 @@ export class NewsletterComponent implements OnInit {
       this.newsletters = response;
     });
   }
+
+    // Refactoring
+    onSubmit() {
+      if(this.isAddForm){
+        this.newsletterService.addNewsletter(this.newsletter)
+        .subscribe((newsletter: Newsletter) => this.router.navigate(['/newsletter', newsletter.id])); // Redirect to the new newsletter id just created
+      } else {
+        this.newsletterService.updateNewsletter(this.newsletter)
+        .subscribe(() => this.router.navigate(['/newsletter', this.newsletter.id]));
+      }
+    }
+    
+    // onSubmit() {
+    //   this.newsletterService.updateNewsletter(this.newsletter)
+    //   .subscribe((newsletter) => { 
+    //     if(newsletter) {
+    //       this.router.navigate(['/newsletter', this.newsletter.id]);
+    //     } else {
+    //       //TODO include snackbar with error message
+    //     }
+    // })
+    // }
+
 }
