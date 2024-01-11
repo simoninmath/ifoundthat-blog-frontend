@@ -3,21 +3,21 @@
     <div class="div-3">NewsLetter</div>
     <div class="div-4">Stay alert!</div>
     <div class="input-field">
-      <!-- <input
+      <input
         type="email"
         id="email"
         class="validate black-text"
         style="border: 2px solid black; background-color: white"
         placeholder="Your email"
       />
-    </div> -->
+    </div>
 
       <!-- *ngIf: condition, if type is valid the form may work -->
       <!-- (ngSubmit): event, run the onSubmit() method -->
-      <!-- #figurineForm: referenced variable, target the DOM element and attribut result of the ngForm Directive, then become an Angular Object -->
-      <form *ngIf="newsletter" (ngSubmit)="onSubmit()" #figurineForm="ngForm">
+      <!-- #newsletterEmail: referenced variable, target the DOM element and attribut result of the ngForm Directive, then become an Angular Object -->
+      <form *ngIf="newsletter" (ngSubmit)="onSubmit()" #newsletterEmail="ngForm">
         <!-- newsletter email -->
-        <div class="form-group validate black-text">
+        <div class="form-group">
           <label for="email">Email</label>
           <!-- validation rules with regex -->
           <input
@@ -47,7 +47,7 @@
             <button
               type="submit"
               class="waves-effect waves-light btn black white-text"
-              [disabled]="!figurineForm.form.valid"
+              [disabled]="!newsletterEmail.form.valid"
             >
               <!-- If the type selected is invalid, the button stay disable -->
               Submit
@@ -108,5 +108,5 @@
         </div>
       </div>
     </div>
-  </div> -->
-</div>
+  </div> 
+</div> -->

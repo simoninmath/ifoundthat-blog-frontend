@@ -39,6 +39,7 @@ export class NewsletterComponent implements OnInit {
 
     // Refactoring
     onSubmit() {
+      console.log('SUBMITED!');
       if(this.isAddEmail){
         this.newsletterService.addNewsletter(this.newsletter)
         .subscribe((newsletter: Newsletter) => this.router.navigate(['/newsletter', newsletter.id])); // Redirect to the new newsletter id just created
