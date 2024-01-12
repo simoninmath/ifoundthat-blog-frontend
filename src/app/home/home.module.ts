@@ -21,14 +21,13 @@ import { NavigationModule } from '../navigation/navigation.module';
 import { ArticleService } from '../service/article.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { Error404Component } from '../error404/error404.component';
-// import { CardComponent } from './card/card.component';
-// import { CardDetailComponent } from './card-detail/card-detail.component';
 
 
 const routes: Routes = [
   // Routes always public
   // { path:'' },
   { path:'articles', title: 'IFT-Blog', component: ListArticleComponent },
+  { path:'newsletter', title: 'IFT-Blog', component: NewsletterComponent },
   // Routes exceptions
   { path:'public_articles/:id', title: 'IFT-Blog', component: DetailArticleComponent },
   { path:'articles/add', title: 'IFT-Blog', component: AddArticleComponent, canActivate: [AuthGuard] },
@@ -54,8 +53,6 @@ const routes: Routes = [
     MoreButtonComponent,
     ArticleFormComponent,
     ArticleCategoryColorPipe,
-    // CardComponent,
-    // CardDetailComponent,
   ],
   imports: [
     CommonModule,
