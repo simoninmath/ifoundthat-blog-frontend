@@ -21,13 +21,10 @@ import { NavigationModule } from '../navigation/navigation.module';
 import { ArticleService } from '../service/article.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { Error404Component } from '../error404/error404.component';
-// import { CardComponent } from './card/card.component';
-// import { CardDetailComponent } from './card-detail/card-detail.component';
 
 
 const routes: Routes = [
   // Routes always public
-  // { path:'' },
   { path:'articles', title: 'IFT-Blog', component: ListArticleComponent },
   // Routes exceptions
   { path:'public_articles/:id', title: 'IFT-Blog', component: DetailArticleComponent },
@@ -53,9 +50,7 @@ const routes: Routes = [
     BorderArticleDirective,
     MoreButtonComponent,
     ArticleFormComponent,
-    ArticleCategoryColorPipe,
-    // CardComponent,
-    // CardDetailComponent,
+    ArticleCategoryColorPipe
   ],
   imports: [
     CommonModule,
