@@ -7,7 +7,7 @@
       type="email"
       formControlName="email"
       class="form-control"
-      placeholder="Adresse email"
+      placeholder="Email address"
     />
     <p *ngIf="form.get('email')?.hasError('violation')">
       {{ form.get('email')?.getError('violation') }}
@@ -18,7 +18,7 @@
       type="password"
       formControlName="password"
       class="form-control"
-      placeholder="Mot de passe"
+      placeholder="Password"
     />
     <p *ngIf="form.get('password')?.hasError('violation')">
       {{ form.get('password')?.getError('violation') }}
@@ -29,7 +29,7 @@
       type="password"
       formControlName="plainPassword"
       class="form-control"
-      placeholder="Confirmation du mot de passe"
+      placeholder="Password confirmation"
     />
     <p *ngIf="form.get('plainPassword')?.hasError('violation')">
       {{ form.get('plainPassword')?.getError('violation') }}
@@ -40,7 +40,7 @@
       type="text"
       formControlName="fullName"
       class="form-control"
-      placeholder="Nom de famille"
+      placeholder="Last name"
     />
     <p *ngIf="form.get('fullName')?.hasError('violation')">
       {{ form.get('fullName')?.getError('violation') }}
