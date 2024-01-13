@@ -1,5 +1,5 @@
 export interface Newsletter {
-    id?: number;
+    // id?: number;
     email?: string;
     createdAt?: Date;
 }

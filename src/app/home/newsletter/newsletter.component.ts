@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NewsletterService } from '../../service/newsletter.service';
 import { Newsletter } from 'src/app/model/newsletter';
 import { HttpClient } from '@angular/common/http';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-newsletter',
@@ -32,4 +33,16 @@ export class NewsletterComponent implements OnInit {
       this.newsletters = response;
     });
   }
+
+  onSubmit(form: NgForm) {
+    console.log('SUBMITED!');
+    if (form.valid) {
+      const email = form.value.email;
+      this.newsletterService.addNewsletter({ email }).subscribe(() => {
+        console.log('Email added successfully!');
+        form.reset();
+      });
+    }
+  }
+
 }
