@@ -2,7 +2,7 @@
   <div class="container__wrapper">
     <div class="title_form center">A question?</div>
 
-    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <form [formGroup]="form" (ngSubmit)="onSubmitForm(formModel)">
       <div>
         <label for="name">Name</label>
         <input id="name" type="text" formControlName="name" />
