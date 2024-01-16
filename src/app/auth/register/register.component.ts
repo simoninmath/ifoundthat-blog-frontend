@@ -12,15 +12,16 @@ import { Violation } from '../violation';
   styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent implements OnInit {
-  error = false;
-  form: FormGroup;
+  error = false; // Flag to indicate a general error
+  form: FormGroup; // Angular Reactive Form for registration inputs
 
   constructor(
-    private formBuilder: FormBuilder,
-    private auth: AuthService,
-    private router: Router,
-    private ui: UiService
+    private formBuilder: FormBuilder, // Service for building Angular forms
+    private auth: AuthService, // Authentication service
+    private router: Router, // Angular router for navigation
+    private ui: UiService // Service for managing UI state
   ) {
+    // Initialize the form with validation rules
     this.form = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
@@ -31,23 +32,29 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {}
 
+  // Function triggered on form submission
   handleSubmit() {
-    this.ui.activateLoading();
+    this.ui.activateLoading(); // Enable loading screen
 
     if (this.form.invalid) {
       this.ui.deactivateLoading();
-      return;
+      return; // Stop execution if form is invalid
     }
 
+    // Call the authentication service to register
     this.auth.register(this.form.value).subscribe(
       () => {
+        // Disable loading screen
         this.ui.deactivateLoading();
+        // Navigate to the login page on successful registration
         this.router.navigateByUrl('/login');
       },
       (httpError: HttpErrorResponse) => {
+        // Disable loading screen
         this.ui.deactivateLoading();
 
         if (httpError.status === 400) {
+          // Handle validation errors (violations) returned by the API
           const violations = httpError.error.violations as Violation[];
 
           for (const apiViolation of violations) {
@@ -60,7 +67,7 @@ export class RegisterComponent implements OnInit {
           }
           return;
         }
-        // Else
+        // Handle other errors
         this.error = true;
       }
     );
@@ -82,7 +89,6 @@ export class RegisterComponent implements OnInit {
 //   templateUrl: './register.component.html',
 //   styleUrls: ['./register.component.scss'],
 // })
-
 // export class RegisterComponent implements OnInit {
 //   error = false;
 //   form: FormGroup;
@@ -106,13 +112,7 @@ export class RegisterComponent implements OnInit {
 //   handleSubmit() {
 //     this.ui.activateLoading();
 
-//     if (
-//       this.form.invalid ||
-//       !this.form.value.email ||
-//       !this.form.value.password ||
-//       !this.form.value.fullName ||
-//       !this.form.value.plainPassword
-//     ) {
+//     if (this.form.invalid) {
 //       this.ui.deactivateLoading();
 //       return;
 //     }

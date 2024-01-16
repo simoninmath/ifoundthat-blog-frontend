@@ -2,6 +2,68 @@
   <div class="container__wrapper">
     <div class="title_form center">A question?</div>
 
+    <!-- Angular form with formGroup binding and ngSubmit event -->
+    <form [formGroup]="form" (ngSubmit)="onSubmitForm(formModel)">
+      <div>
+        <!-- Input field for 'Name' with associated formControl -->
+        <label for="name">Name</label>
+        <input id="name" type="text" formControlName="name" />
+        <!-- Error container for 'Name' validation -->
+        <div class="error-container">
+          <!-- Display error message if 'Name' is required and not filled -->
+          <span *ngIf="form.controls.name.touched && form.controls.name.errors?.['required']">
+            Please, complete this field.
+          </span>
+        </div>
+      </div>
+
+      <div>
+        <!-- Input field for 'Email' with associated formControl -->
+        <label for="email">Email</label>
+        <input id="email" type="email" formControlName="email" />
+        <!-- Error container for 'Email' validation -->
+        <div class="error-container">
+          <!-- Display error message if 'Email' is required and not filled -->
+          <span *ngIf="form.controls.email.touched && form.controls.email.errors?.['required']">
+            Please, complete this field.
+          </span>
+          <!-- Display error message if 'Email' has an invalid email format -->
+          <span *ngIf="form.controls.email.touched && form.controls.email.errors?.['email']">
+            Invalid email.
+          </span>
+        </div>
+      </div>
+
+      <div>
+        <!-- Input field for 'Message' with associated formControl -->
+        <label for="message">Message</label>
+        <input id="message" type="text" formControlName="message" />
+        <!-- Error container for 'Message' validation -->
+        <div class="error-container">
+          <!-- Display error message if 'Message' is required and not filled -->
+          <span *ngIf="form.controls.message.touched && form.controls.message.errors?.['required']">
+            Please, complete this field.
+          </span>
+        </div>
+      </div>
+
+      <!-- Submit button for the form -->
+      <button type="submit">Submit</button>
+
+      <!-- Display a success message if the form is valid and submitted -->
+      <div *ngIf="form.valid && submitted">
+        <h3>Form Submitted!</h3>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+
+<!-- <div class="container">
+  <div class="container__wrapper">
+    <div class="title_form center">A question?</div>
+
     <form [formGroup]="form" (ngSubmit)="onSubmitForm(formModel)">
       <div>
         <label for="name">Name</label>
@@ -45,4 +107,4 @@
       </div>
     </form>
   </div>
-</div>
+</div> -->
