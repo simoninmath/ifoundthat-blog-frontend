@@ -37,7 +37,7 @@ export class ArticleFormComponent implements OnInit{
     return true;
   }
 
-  hasCategory(category: string) { // Ask is the Category in parameter exist in categorys table
+  hasCategory(category: string) { // Ask is the category in parameter exist in categories table
     return this.article.categories.includes(category); // includes() return true or false (native JS)
   }
 
@@ -53,7 +53,6 @@ export class ArticleFormComponent implements OnInit{
 
   }
 
-  // Refactoring
   onSubmit() {
     if(this.isAddForm){
       this.articleService.addArticle(this.article)
