@@ -11,22 +11,22 @@ export class ArticleCategoryColorPipe implements PipeTransform {
 
     switch (category) {
       case 'Default':
-        color = 'red lighten-1';
-        break;
-      case 'Cat 1':
-        color = 'blue lighten-1';
-        break;
-      case 'Cat 2':
-        color = 'green lighten-2';
-        break;
-      case 'Cat 3':
-        color = 'brown lighten-3';
-        break;
-      case 'Cat 4':
         color = 'grey lighten-1';
         break;
+      case 'Cat 1':
+        color = 'deep-orange darken-1';
+        break;
+      case 'Cat 2':
+        color = 'deep-orange darken-1';
+        break;
+      case 'Cat 3':
+        color = 'deep-orange darken-1';
+        break;
+      case 'Cat 4':
+        color = 'deep-orange darken-1';
+        break;
       case 'Cat 5':
-        color = 'blue lighten-3';
+        color = 'deep-orange darken-1';
         break;
     }
 
