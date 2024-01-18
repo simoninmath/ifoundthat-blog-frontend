@@ -25,7 +25,6 @@ import { Error404Component } from '../error404/error404.component';
 
 const routes: Routes = [
   // Routes always public
-  // { path:'' },
   { path:'articles', title: 'IFT-Blog', component: ListArticleComponent },
   { path:'newsletter', title: 'IFT-Blog', component: NewsletterComponent },
   // Routes exceptions

@@ -50,7 +50,6 @@ export class ArticleFormComponent implements OnInit{
       const index = this.article.categories.indexOf(category); // get the index in Article[] to remove the category checked
       this.article.categories.splice(index, 1); // modify the selected index with splice() method
     }
-
   }
 
   onSubmit() {

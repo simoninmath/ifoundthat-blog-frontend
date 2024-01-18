@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Article } from 'src/app/model/article';
@@ -11,7 +12,7 @@ import { ArticleService } from 'src/app/service/article.service';
 
 export class ListArticleComponent {
 
-  articleList$: Observable<Article[]>;  // Type as a table of article
+  articleList$: Observable<Article[]>;  // Type as a table of article. $ symbole means an Observable by convention
 
 
   constructor(
@@ -26,6 +27,10 @@ export class ListArticleComponent {
 
   getArticleListFromDb() {
     this.articleList$ = this.articleService.getArticleListFromDb();
+  }
+
+  trackByFn(index: number, item: Article){
+    return index;
   }
 
 }
