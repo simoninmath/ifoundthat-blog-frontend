@@ -25,20 +25,21 @@
     
   
           <!-- article picture -->
-          <div *ngIf="isAddForm" class="form-group">
-            <label for="picture">Image</label>
+          <!-- <div *ngIf="isAddForm" class="form-group">
+            <label for="picture">Image</label> -->
             <!-- validation rules -->
-            <input type="url" class="form-control" id="picture"
+            <!-- <input type="url" class="form-control" id="picture"
                    required
                    [(ngModel)]="article.picture" name="picture"
-                   #picture="ngModel"> <!-- Declared Variable: keep the result of ngModel Directive -->
+                   #picture="ngModel">  -->
+                   <!-- Up: declared variable: keep the result of ngModel Directive -->
             
                    <!-- error message if the validation rules are not respected. Hidden state until name is valid or first use (pristine) -->
-            <div [hidden]="picture.valid || picture.pristine" 
+            <!-- <div [hidden]="picture.valid || picture.pristine" 
                   class="card-panel red accent-1">
                   Picture required.
             </div>
-          </div>
+          </div> -->
   
   
           <!-- article chapo -->
@@ -57,7 +58,7 @@
     
           <!-- article content -->
           <div class="form-group">
-            <label for="content">Contenu</label>
+            <label for="content">Content</label>
             <input type="string" class="form-control" id="content"
                     required
                     pattern="^[a-zA-Z0-9]{1,3500}$"
