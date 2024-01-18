@@ -26,7 +26,6 @@ export class DetailArticleComponent {
       this.articleCategory = [];
     }  
 
-  // Refactoring
   ngOnInit() {
     const articleId: string | null = this.route.snapshot.paramMap.get('id');  // Get Card id from URL
     console.log('TEST ARTICLE ID', articleId);
@@ -37,16 +36,6 @@ export class DetailArticleComponent {
   });
  }
 }
-
-// ngOnInit() {
-//   const articleId: string | null = this.route.snapshot.paramMap.get("id");
-//   if(articleId) {
-//     this.articleService.getArticleById(+articleId).subscribe(article => {  // Get dynamic titles in detail article Component
-//       this.article = article;
-//       this.initTitle(article);
-// });
-// }
-// }
 
   initTitle(article: Article | undefined){
     if(!article){
@@ -60,6 +49,7 @@ export class DetailArticleComponent {
     this.articleService.deleteArticleById(article.id)
     .subscribe(() => this.goToArticleList());
   }
+  
 //TODO OnDestroy(){} + unsubscribe
   goToEditArticle(article: Article){
      this.router.navigate(['articles/edit', article.id]);
