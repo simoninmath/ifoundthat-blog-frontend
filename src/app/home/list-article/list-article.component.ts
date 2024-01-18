@@ -11,13 +11,11 @@ import { ArticleService } from 'src/app/service/article.service';
 
 export class ListArticleComponent {
 
-  // articleList: Article[] = [];
-  articleList$: Observable<Article[]>;  // Type as a Table of Article
+  articleList$: Observable<Article[]>;  // Type as a table of article
 
-  // Use dependency injection to access services
+
   constructor(
-    // private router: Router,
-    private articleService: ArticleService
+    private articleService: ArticleService  // Use dependency injection to access services
   ){
    }
   
@@ -26,23 +24,8 @@ export class ListArticleComponent {
     this.getArticleListFromDb();
   }
 
-  // ngOnInit() {
-  //   this.articleService.getArticleList()   // Get an Observable from Service
-  //   .subscribe(articleList => articleList = articleList);   // Fallow Observable to get the article list and push it on the Component property 
-  // }
-
-  // goToArticleDetail(article: Article) {
-  //   this.router.navigate(['/public_articles/', article.id]);
-  // };
-
   getArticleListFromDb() {
-    this.articleList$ = this.articleService.getArticleListFromDb()
-    // The console.log below show hydra:member Array from JSON Object returned by the API
-    // console.log(Object.values(response)[4]);
-    // This method subscribes to the Observable of newsletter.service.ts 
-    // .subscribe((response: Article[]) => {
-    //   this.articleList = response;
-    // });
+    this.articleList$ = this.articleService.getArticleListFromDb();
   }
 
 }
