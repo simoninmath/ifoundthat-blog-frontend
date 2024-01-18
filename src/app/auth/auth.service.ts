@@ -6,7 +6,7 @@ import { environment } from '../../environment/environment';
 import { Credentials } from './credentials';
 import { jwtDecode } from 'jwt-decode';
 
-// URL from
+// URL aliases from environment.ts
 const USERS_API = environment.BASE_URL + environment.USERS_API;
 const AUTH_API = environment.BASE_URL + environment.AUTH_API;
 
@@ -21,12 +21,10 @@ interface AuthResponse {
 export class AuthService {
   isLoggedIn: boolean = false;
   redirectUrl: string;
-  // authState = new Subject<boolean>();
   authState = new BehaviorSubject<boolean>(false);
 
   constructor(
     private http: HttpClient,
-    // private storage: Storage
     ) {
       const token = this.getToken();
       if (token) {
@@ -34,32 +32,18 @@ export class AuthService {
       }
     }
 
-  // // Because login is a default asynchronous operation, we need to use an Observable
-  // logIn(email: string, password: string): Observable<boolean> {
-  //   const isLoggedIn = email == 'admin@admin.com' && password == 'admin';
-  //   // Simulate server answer with delay
-  //   return of(isLoggedIn).pipe(
-  //     delay(1000),
-  //     tap((isLoggedIn) => (this.isLoggedIn = isLoggedIn))
-  //   );
-  // }
-
-  // logOut() {
-  //   this.isLoggedIn = false;
-  //   localStorage.removeItem('token');
-  // }
-
   register(account: { email: string; password: string; fullName: string }) {
     return this.http.post(USERS_API, account);
   }
 
+  // Authentication is a default asynchronous operation, we need to use an Observable
   authenticate(credentials: Credentials): Observable<AuthResponse> {
     return this.http.post<AuthResponse>(AUTH_API, credentials).pipe(
       map((result: AuthResponse) => {
-        // console.log('RESULT TOKEN', result.token);
-        // console.log('JWT DECODE TEST', jwtDecode(result.token));
+        console.log('RESULT TOKEN', result.token);
+        console.log('JWT DECODE TEST', jwtDecode(result.token));
         localStorage.setItem('token', result.token);
-        // this.isLoggedIn = true;
+        this.isLoggedIn = true;
         this.authState.next(true);
         return result;
       }),
@@ -69,7 +53,7 @@ export class AuthService {
     );
   }
 
-  // User disconnect
+  // User disconnect: delete token
   logout() {
     localStorage.removeItem('token');
     this.authState.next(false);
