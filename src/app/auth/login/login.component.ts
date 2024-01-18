@@ -52,7 +52,7 @@ export class LoginComponent {
           return;
         }
         this.errorMessage =
-          'Something is wrong... Please try again in a few minutes.';
+          'Something\'s wrong... Please try again in a few minutes.';
       },
     });
   }
