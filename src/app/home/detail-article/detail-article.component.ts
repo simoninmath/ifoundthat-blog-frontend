@@ -52,11 +52,12 @@ export class DetailArticleComponent {
   
 //TODO OnDestroy(){} + unsubscribe
   goToEditArticle(article: Article){
-     this.router.navigate(['articles/edit', article.id]);
+     console.log('EDIT WORKS!');
+     this.router.navigate(['edit/articles', article.id]);
   }
 
   goToArticleList() {  // Go back to article list
-    this.router.navigate(['/articles']);
+    this.router.navigate(['/home']);
   }
 
 }
