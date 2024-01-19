@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Article } from 'src/app/model/article';
 import { ArticleService } from 'src/app/service/article.service';
 
@@ -34,6 +34,14 @@ export class ArticleFormComponent implements OnInit{
       });
     }
 
+    // private createForm(): void {
+    //   this.articleForm = this.formBuilder.group({
+    //     title: this.article.title,
+    //     chapo: this.article.chapo,
+    //     content: this.article.content,
+    //   });
+    // }
+
   ngOnInit() {
     this.categories = this.articleService.getArticleCategoryList();
     this.isAddForm = this.router.url.includes('add');
@@ -65,6 +73,12 @@ export class ArticleFormComponent implements OnInit{
       const index = this.article.categories.indexOf(category); // get the index in Article[] to remove the category checked
       this.article.categories.splice(index, 1); // modify the selected index with splice() method
     }
+  }
+
+  putArticle() {
+    this.articleService.putArticle(this.article).subscribe((article: Article) => {
+//TODO message de confirmation
+    });
   }
 
   onSubmit() {

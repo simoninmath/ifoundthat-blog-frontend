@@ -7,25 +7,32 @@
     <div class="card-panel">
       <form *ngIf="article" [formGroup]="articleForm" (ngSubmit)="onSubmit()">
         <div class="form-group">
+                  <!-- article title -->
+
           <label for="title">Title:</label>
+                    <!-- input validation rules -->
+
           <input
             type="text"
             id="title"
             formControlName="title"
             class="form-control"
-            pattern="^[a-zA-Z0-9àéèç]{1,255}$"
             required
+            pattern="^[a-zA-Z0-9àéèç]{1,255}$"
+            [(ngModel)]="article.title" name="title"
           />{{article.title}}
+          <!-- The ngModel directive allow to bind dynamicaly the field with the article content -->
+                    <!-- error message if the validation rules are not respected. Hidden state until name is valid or first use (pristine) -->
+
           <div
-            *ngIf="
-              articleForm.get('title')?.hasError('required') &&
-              articleForm.get('title')?.touched
-            "
+            *ngIf="articleForm.get('title')?.hasError('required') && articleForm.get('title')?.touched"
             class="error"
           >
             Please, enter a title with 255 characters or less.
           </div>
         </div>
+
+        <!-- article chapo -->
 
         <div class="form-group">
           <label for="chapo">Chapo:</label>
@@ -34,19 +41,19 @@
             id="chapo"
             formControlName="chapo"
             class="form-control"
-            pattern="^[a-zA-Z0-9àéèç]{1,255}$"
             required
+            pattern="^[a-zA-Z0-9àéèç]{1,255}$"
+            [(ngModel)]="article.chapo" name="chapo"
           />
           <div
-            *ngIf="
-              articleForm.get('chapo')?.hasError('required') &&
-              articleForm.get('chapo')?.touched
-            "
+            *ngIf="articleForm.get('chapo')?.hasError('required') && articleForm.get('chapo')?.touched"
             class="error"
           >
             Please, enter a chapo with 255 characters or less.
           </div>
         </div>
+
+                <!-- article content -->
 
         <div class="form-group">
           <label for="content">Content:</label>
@@ -54,14 +61,12 @@
             id="content"
             formControlName="content"
             class="form-control"
-            pattern="^[a-zA-Z0-9àéèç]{1,3500}$"
             required
+            pattern="^[a-zA-Z0-9àéèç]{1,3500}$"
+            [(ngModel)]="article.content" name="content"
           ></textarea>
           <div
-            *ngIf="
-              articleForm.get('content')?.hasError('required') &&
-              articleForm.get('content')?.touched
-            "
+            *ngIf="articleForm.get('content')?.hasError('required') && articleForm.get('content')?.touched"
             class="error"
           >
             The article content is required.
@@ -72,15 +77,12 @@
           <label for="category">Category</label>
           <select id="category" formControlName="category" class="form-control">
             <option value="" disabled selected>Choose a category</option>
-            <option *ngFor="let cat of categories" [value]="cat">
-              {{ cat }}
+            <option *ngFor="let categorie of categories" [value]="categorie">
+              {{ categories }}
             </option>
           </select>
           <div
-            *ngIf="
-              articleForm.get('category')?.hasError('required') &&
-              articleForm.get('category')?.touched
-            "
+            *ngIf="articleForm.get('category')?.hasError('required') && articleForm.get('category')?.touched"
             class="error"
           >
             Please, select a category.
