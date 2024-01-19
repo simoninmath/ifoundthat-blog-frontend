@@ -31,6 +31,7 @@ export class EditArticleComponent implements OnInit {
   }
 }
 
+  // This method get the article title and show it
   initTitle(article: Article | undefined){
     if(!article){
       this.title.setTitle('This article doesn\'t exist...');

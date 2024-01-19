@@ -37,6 +37,7 @@ export class DetailArticleComponent {
  }
 }
 
+  
   initTitle(article: Article | undefined){
     if(!article){
       this.title.setTitle('This article doesn\'t exist...');
