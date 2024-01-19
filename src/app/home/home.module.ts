@@ -27,11 +27,12 @@ const routes: Routes = [
   // Routes always public
   { path:'articles', title: 'IFT-Blog', component: ListArticleComponent },
   { path:'newsletter', title: 'IFT-Blog', component: NewsletterComponent },
+  // { path:'edit/articles/:id', title: 'EDIT', component: EditArticleComponent },
   // Routes exceptions
   { path:'public_articles/:id', title: 'IFT-Blog', component: DetailArticleComponent },
   { path:'add/articles', title: 'IFT-Blog', component: AddArticleComponent, canActivate: [AuthGuard] },
   { path:'form/articles', title: 'IFT-Blog', component: ArticleFormComponent, canActivate: [AuthGuard] },
-  { path:'edit/articles/:id', title: 'IFT-Blog', component: EditArticleComponent, canActivate: [AuthGuard] },
+  { path:'edit/articles/:id', title: 'IFT-Blog', component: EditArticleComponent },
   { path:'articles/:id', title: 'IFT-Blog', component: DetailArticleComponent, canActivate: [AuthGuard] },
   { path:'**', title: '404 error', component: Error404Component }
 ];
