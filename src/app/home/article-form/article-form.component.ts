@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Article } from 'src/app/model/article';
 import { ArticleService } from 'src/app/service/article.service';
@@ -11,13 +12,27 @@ import { ArticleService } from 'src/app/service/article.service';
 
 export class ArticleFormComponent implements OnInit{
   @Input() article: Article; // Indicate the Component property for each instance : to use app-article component, we need to pass a Object Article first
-  categories: string[]; // All categories in the app
+  categories: string[] = [  // All categories in the app
+    'Category 1', 
+    'Category 2', 
+    'Category 3', 
+    'Category 4', 
+    'Category 5']; 
   isAddForm: boolean;
+  articleForm: FormGroup;
 
   constructor(
     private articleService: ArticleService,
-    private router: Router
-    ) {}
+    private router: Router,
+    private formBuilder: FormBuilder
+    ) {
+      this.articleForm = this.formBuilder.group({
+        title: ['', [Validators.required, Validators.pattern('^[a-zA-Z0-9àéèç]{1,255}$')]],
+        chapo: ['', [Validators.required, Validators.pattern('^[a-zA-Z0-9àéèç]{1,255}$')]],
+        content: ['', [Validators.required, Validators.pattern('^[a-zA-Z0-9àéèç]{1,3500}$')]],
+        category: ['', Validators.required]
+      });
+    }
 
   ngOnInit() {
     this.categories = this.articleService.getArticleCategoryList();
@@ -53,7 +68,7 @@ export class ArticleFormComponent implements OnInit{
   }
 
   onSubmit() {
-    if(this.isAddForm){
+    if(this.isAddForm && this.articleForm.valid){
       this.articleService.addArticle(this.article)
       .subscribe((article: Article) => this.router.navigate(['/article', article.id])); // Redirect to the new article id just created
     } else {

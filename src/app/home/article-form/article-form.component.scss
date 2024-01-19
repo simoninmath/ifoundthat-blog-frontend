@@ -7,3 +7,13 @@
 .ngInvalid:not(form) {
     border-left: 5px solid #A94442;
 }
+
+
+.form-group {
+    margin-bottom: 20px;
+  }
+  
+  .error {
+    color: red;
+    margin-top: 5px;
+  }
