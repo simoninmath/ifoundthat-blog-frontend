@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
+import { tap } from 'rxjs';
 import { Article } from 'src/app/model/article';
 import { ArticleService } from 'src/app/service/article.service';
 
@@ -11,7 +12,7 @@ import { ArticleService } from 'src/app/service/article.service';
 })
 
 export class ArticleFormComponent implements OnInit{
-  @Input() article: Article; // Indicate the Component property for each instance : to use app-article component, we need to pass a Object Article first
+  @Input() article: Article; // Indicate the Component property for each instance to use app-article component, we need to pass a Object Article first
   categories: string[] = [  // All categories in the app
     'Category 1', 
     'Category 2', 
@@ -33,14 +34,6 @@ export class ArticleFormComponent implements OnInit{
         category: ['', Validators.required]
       });
     }
-
-    // private createForm(): void {
-    //   this.articleForm = this.formBuilder.group({
-    //     title: this.article.title,
-    //     chapo: this.article.chapo,
-    //     content: this.article.content,
-    //   });
-    // }
 
   ngOnInit() {
     this.categories = this.articleService.getArticleCategoryList();
@@ -75,20 +68,35 @@ export class ArticleFormComponent implements OnInit{
     }
   }
 
-  putArticle() {
-    this.articleService.putArticle(this.article).subscribe((article: Article) => {
-//TODO message de confirmation
-    });
-  }
+  // onSubmit() {
+    // console.log('SUBMIT EDIT WORKS!');
+  //   this.articleService.putArticle(this.article);
+  //   }
+
 
   onSubmit() {
-    if(this.isAddForm && this.articleForm.valid){
-      this.articleService.addArticle(this.article)
-      .subscribe((article: Article) => this.router.navigate(['/article', article.id])); // Redirect to the new article id just created
+    console.log('SUBMIT EDIT WORKS!');
+    if (this.isAddForm) {
+      this.articleService.putArticle(this.article).pipe(
+          tap((article: Article) => this.router.navigate(['/articles', article.id])),
+        ).subscribe();
     } else {
-      this.articleService.updateArticle(this.article)
-      .subscribe(() => this.router.navigate(['/article', this.article.id]));
+      this.articleService.putArticle(this.article).pipe(
+          tap(() => this.router.navigate(['/articles', this.article.id])),
+        ).subscribe();
     }
   }
+  
+
+  // onSubmit() {
+  //   console.log('SUBMIT EDIT WORKS!');
+  //   if(this.isAddForm){
+  //     this.articleService.updateArticle(this.article)
+  //     .subscribe((article: Article) => this.router.navigate(['/articles', article.id])); // Redirect to the new article id just created
+  //   } else {
+  //     this.articleService.updateArticle(this.article)
+  //     .subscribe(() => this.router.navigate(['/articles', this.article.id]));
+  //   }
+  // }
 
 }

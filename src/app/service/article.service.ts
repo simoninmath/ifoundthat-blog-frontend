@@ -15,14 +15,14 @@ export class ArticleService {
   getArticleListFromDb(): Observable<Article[]> {
     // This method creates an Observable to listen for the response from the database,
     return this.http
-      .get<any>(`${this.apiUrl}/public_articles`) // URL need to be exactly the same authorized in Symfony security.yaml file
+      .get<any>(`${this.apiUrl}/articles`) // URL need to be exactly the same authorized in Symfony security.yaml file
       .pipe(map((response: any) => response['hydra:member'] as Article[])); // and decode the database JSON Object into an array with map(),
   }
 
   // CRUD: Get one article (GET method)
   getArticleByIdFromDb(articleId: number): Observable<Article | undefined> {
     return this.http
-      .get<Article>(`${this.apiUrl}/public_articles/${articleId}`)
+      .get<Article>(`${this.apiUrl}/articles/${articleId}`)
       .pipe(
         map((response: any) => response as Article),
         tap((response) => this.log(response)),
@@ -39,29 +39,23 @@ export class ArticleService {
     return of(errorValue);
   }
 
-  updateArticle(article: Article): Observable<null> {
+  //CRUD: Update article (PUT method)
+  putArticle(article: Article): Observable<Article> {
     // In Memory API force to use null Object instead of <Article | undefined>
     const httpOptions = {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
     };
 
-    return this.http.put<Article>('api/articles/', article, httpOptions).pipe(
+    return this.http.put<Article>(`${this.apiUrl}/articles/${article.id}`, article, httpOptions).pipe(
       tap((response) => this.log(response)),
       catchError((error) => this.handleError(error, null))
     );
   }
 
-  //CRUD: Update article (PUT method)
-  putArticle(article: Article) {
-    return this.http
-      .delete<null>(`api/articles/${article}`)
-      .pipe(catchError((error) => this.handleError(error, null)));
-  }
-
   // CRUD: Delete article (DELETE method)
-  deleteArticleById(articleId: number): Observable<null> {
+  deleteArticleById(articleId: number): Observable<Article> {
     return this.http
-      .delete<null>(`api/articles/${articleId}`)
+      .delete<Article>(`articles/${articleId}`)
       .pipe(catchError((error) => this.handleError(error, null)));
   }
 
@@ -71,10 +65,7 @@ export class ArticleService {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
     };
 
-    return this.http
-      .post<Article>('api/articles/add', article, httpOptions)
-      .pipe(
-        // This Method return a Article Type Object with cast "<Article>"
+    return this.http.post<Article>('articles', article, httpOptions).pipe(
         tap((response) => this.log(response)),
         catchError((error) => this.handleError(error, null))
       );
@@ -87,7 +78,7 @@ export class ArticleService {
       return of([]);
     }
 
-    return this.http.get<Article[]>(`api/public_articles/?name=${term}`).pipe(
+    return this.http.get<Article[]>(`articles/?name=${term}`).pipe(
       tap((response) => this.log(response)),
       catchError((error) => this.handleError(error, [])) // If there is an error in the term, return a empty Table
     );

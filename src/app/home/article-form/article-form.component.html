@@ -7,11 +7,11 @@
     <div class="card-panel">
       <form *ngIf="article" [formGroup]="articleForm" (ngSubmit)="onSubmit()">
         <div class="form-group">
+
                   <!-- article title -->
 
           <label for="title">Title:</label>
-                    <!-- input validation rules -->
-
+          <!-- input validation rules -->
           <input
             type="text"
             id="title"
@@ -20,10 +20,10 @@
             required
             pattern="^[a-zA-Z0-9àéèç]{1,255}$"
             [(ngModel)]="article.title" name="title"
-          />{{article.title}}
-          <!-- The ngModel directive allow to bind dynamicaly the field with the article content -->
-                    <!-- error message if the validation rules are not respected. Hidden state until name is valid or first use (pristine) -->
+          />
+          <!-- Up! The ngModel directive allow to bind dynamicaly the field with the article content -->
 
+          <!-- error message if the validation rules are not respected. Hidden state until name is valid or first use (pristine) -->
           <div
             *ngIf="articleForm.get('title')?.hasError('required') && articleForm.get('title')?.touched"
             class="error"
@@ -32,7 +32,7 @@
           </div>
         </div>
 
-        <!-- article chapo -->
+                <!-- article chapo -->
 
         <div class="form-group">
           <label for="chapo">Chapo:</label>
@@ -73,6 +73,8 @@
           </div>
         </div>
 
+                <!-- article categories -->
+
         <div class="form-group">
           <label for="category">Category</label>
           <select id="category" formControlName="category" class="form-control">
@@ -91,7 +93,7 @@
 
         <div class="divider"></div>
         <div class="section center">
-          <button type="submit" class="btn-large center deep-orange darken-1">
+          <button type="submit" class="btn-large center deep-orange darken-1" (click)="article">
             Submit
           </button>
         </div>
@@ -99,151 +101,8 @@
     </div>
   </div>
 </div>
+                <!-- loader -->
 
-<form *ngIf="article" (ngSubmit)="onSubmit()" #articleForm="ngForm">
-  <div class="row">
-    <div class="col s8 offset-s2">
-      <div class="card-panel">
-        <!-- article title -->
-        <div class="form-group">
-          <label for="title">Title</label>
-          <!-- validation rules -->
-          <input
-            type="text"
-            class="form-control"
-            id="title"
-            required
-            pattern="^[a-zA-Z0-9àéèç]{1,70}$"
-            [(ngModel)]="article.title"
-            title="title"
-            #title="ngModel"
-          />
-          <!-- Declared Variable: keep the result of ngModel Directive -->
-
-          <!-- error message if the validation rules are not respected. Hidden state until name is valid or first use (pristine) -->
-          <div
-            [hidden]="title.valid || title.pristine"
-            class="card-panel red accent-1"
-          >
-            Title must be 70 letters or less.
-          </div>
-        </div>
-
-        <!-- article picture -->
-        <div *ngIf="isAddForm" class="form-group">
-          <label for="picture">Image</label>
-          <!-- validation rules -->
-          <input
-            type="url"
-            class="form-control"
-            id="picture"
-            required
-            [(ngModel)]="article.picture"
-            name="picture"
-            #picture="ngModel"
-          />
-          <!-- Up: declared variable: keep the result of ngModel Directive -->
-
-          <!-- error message if the validation rules are not respected. Hidden state until name is valid or first use (pristine) -->
-          <div
-            [hidden]="picture.valid || picture.pristine"
-            class="card-panel red accent-1"
-          >
-            Picture required.
-          </div>
-        </div>
-
-        <!-- article chapo -->
-        <div class="form-group input-field">
-          <label for="chapo">Chapo</label>
-          <input
-            type="string"
-            class="form-control"
-            id="chapo"
-            required
-            pattern="^[a-zA-Z0-9àéèç]{1,255}$"
-            [(ngModel)]="article.chapo"
-            name="chapo"
-            #chapo="ngModel"
-          />
-          <div
-            [hidden]="chapo.valid || chapo.pristine"
-            class="card-panel red accent-1"
-          >
-            Enter a chapo with 255 letters or less.
-          </div>
-        </div>
-
-        <!-- article content -->
-        <div class="form-group">
-          <label for="content">Content</label>
-          <input
-            type="string"
-            class="form-control"
-            id="content"
-            required
-            pattern="^[a-zA-Z0-9àéèç]{1,3500}$"
-            [(ngModel)]="article.content"
-            name="content"
-            #cp="ngModel"
-          />
-          <div
-            [hidden]="cp.valid || cp.pristine"
-            class="card-panel red accent-1"
-          >
-            Enter a content with 3500 letters or less.
-          </div>
-        </div>
-
-        <!-- article category -->
-        <!-- <div class="form-group">
-            <label for="category">Category</label>
-            <select id="category" 
-                    class="browser-default" 
-                    [(ngModel)]="selectCategory" name="category">
-              <option *ngFor="let category of categories" [ngValue]="category" [disabled]="!isCategoryValid(category)">
-                {{ category | articleCategoryColorPipe }}
-              </option>
-            </select>
-          </div> -->
-
-        <!-- <div class="form-group">
-          <label for="category">Category</label>
-          <p *ngFor="let category of categories">
-            <label>
-              <input
-                type="checkbox"
-                class="filled-in"
-                id="{{ category }}"
-                [value]="category"
-                [checked]="hasCategory(category)"
-                [disabled]="!isCategoryValid(category)"
-                (change)="selectCategory($event, category)"
-              />
-              <span [attr.for]="category">
-                <div class="{{ category | articleCategoryColorPipe }}">
-                  {{ category }}
-                </div>
-              </span>
-            </label>
-          </p> -->
-
-        <!-- Submit button -->
-        <div class="divider"></div>
-        <div class="section center">
-          <button
-            type="submit"
-            class="btn-large waves-effect waves-light deep-orange darken-1"
-            [disabled]="!articleForm.form.valid"
-          >
-            Submit
-          </button>
-          <!-- If the type selected is invalid, the button stay disable -->
-        </div>
-      </div>
-    </div>
-  </div>
-</form>
 <h3 *ngIf="!article" class="center">
   <app-loader></app-loader>
 </h3>

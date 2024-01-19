@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from 'src/app/auth/auth.service';
 import { Article } from 'src/app/model/article';
 import { Category } from 'src/app/model/category';
 import { ArticleService } from 'src/app/service/article.service';
@@ -17,6 +18,7 @@ export class DetailArticleComponent {
   articleCategory: Category[];
 
   constructor(
+    private authService: AuthService,
     private route: ActivatedRoute, 
     private router: Router,  // Dependence Injection allow the Route Service disable into the Component
     private articleService: ArticleService,  // DI for articleService
@@ -52,13 +54,18 @@ export class DetailArticleComponent {
   }
   
 //TODO OnDestroy(){} + unsubscribe
+
   goToEditArticle(article: Article){
-     console.log('EDIT WORKS!');
-     this.router.navigate(['edit/articles', article.id]);
+     // console.log('EDIT WORKS!');
+     this.router.navigate(['edit/articles', article.id]);  // Go to edit article form
   }
 
-  goToArticleList() {  // Go back to article list
-    this.router.navigate(['/home']);
+  goToArticleList() {  
+    this.router.navigate(['/home']);  // Go back to home
+  }
+
+  isAdmin(){
+    return this.authService.isAdmin();
   }
 
 }

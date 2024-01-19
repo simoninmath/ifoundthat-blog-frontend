@@ -4,16 +4,15 @@ import { AuthService } from './auth.service';
 
 // Refactored with Guard Function and inject(), 
 // because CanActivate class is now depreciated
-export const AuthGuard = () => {
+export const AdminGuard = () => {
   const authService = inject(AuthService);
   const router = inject(Router);
 
-  console.log('auth guard');
-  if(authService.isAuthenticated()) {
+  if(authService.isAdmin()){
     return true;
   }
 
-  router.navigate(['/login']);
+  router.navigate(['/home']);
   return false;
 
 }

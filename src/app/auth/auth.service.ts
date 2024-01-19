@@ -5,6 +5,7 @@ import { catchError, delay, map, tap } from 'rxjs/operators';
 import { environment } from '../../environment/environment';
 import { Credentials } from './credentials';
 import { jwtDecode } from 'jwt-decode';
+import { UserToken } from '../model/userToken';
 
 // URL aliases from environment.ts
 const USERS_API = environment.BASE_URL + environment.USERS_API;
@@ -18,8 +19,10 @@ interface AuthResponse {
 @Injectable({
   providedIn: 'root',
 })
+
 export class AuthService {
   isLoggedIn: boolean = false;
+  userToken: UserToken | null = null;
   redirectUrl: string;
   authState = new BehaviorSubject<boolean>(false);
 
@@ -29,6 +32,7 @@ export class AuthService {
       const token = this.getToken();
       if (token) {
         this.authState.next(true);
+        this.userToken = this.getUserFromToken();
       }
     }
 
@@ -45,6 +49,7 @@ export class AuthService {
         localStorage.setItem('token', result.token);
         this.isLoggedIn = true;
         this.authState.next(true);
+        this.userToken = this.getUserFromToken();
         return result;
       }),
       catchError((error: any) => {
@@ -53,16 +58,32 @@ export class AuthService {
     );
   }
 
+  isAdmin() {
+    return this.userToken?.roles.includes('ROLE_ADMIN');
+  }
+
   // User disconnect: delete token
   logout() {
     localStorage.removeItem('token');
     this.authState.next(false);
-    this.http.delete('token');
+    this.userToken = null;
+    // this.http.delete('token');
   }
 
   getToken(): string | null {
     return localStorage.getItem('token');
   }
+
+  getUserFromToken() {
+    console.log('get user from token');
+    console.log(this.isAuthenticated());
+    if (!this.isAuthenticated()) return null
+    const token = this.getToken()
+    if (!token) return null
+    const userData = JSON.parse(atob(token.split('.')[1])) as UserToken
+    // console.log(userData);
+    return userData
+}
 
   isAuthenticated(): boolean {
     return this.authState.getValue();
