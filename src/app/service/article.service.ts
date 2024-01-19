@@ -4,24 +4,22 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, catchError, map, of, tap } from 'rxjs';
 
 @Injectable() // Delete providedIn: 'root' to use Service only in ArticleModule
-
 export class ArticleService {
   // URL from API Platform contained in a Variable named "apiUrl"
   private apiUrl = 'https://127.0.0.1:8000/api';
 
   // Use Dependency Injection for the HttpClient Service with Constructor method
-  constructor(
-    private http: HttpClient
-  ) {}
+  constructor(private http: HttpClient) {}
 
-  // This method creates an Observable to listen for the response from the database,
-  // and decode the database JSON Object into an array with map(),
+  // CRUD: Get article list (GET Collection method) from DB with API Platform
   getArticleListFromDb(): Observable<Article[]> {
+    // This method creates an Observable to listen for the response from the database,
     return this.http
-      .get<any>(`${this.apiUrl}/public_articles`)  // URL need to be exactly the same authorized in Symfony security.yaml file
-      .pipe(map((response: any) => response['hydra:member'] as Article[]));
+      .get<any>(`${this.apiUrl}/public_articles`) // URL need to be exactly the same authorized in Symfony security.yaml file
+      .pipe(map((response: any) => response['hydra:member'] as Article[])); // and decode the database JSON Object into an array with map(),
   }
 
+  // CRUD: Get one article (GET method)
   getArticleByIdFromDb(articleId: number): Observable<Article | undefined> {
     return this.http
       .get<Article>(`${this.apiUrl}/public_articles/${articleId}`)
@@ -53,12 +51,21 @@ export class ArticleService {
     );
   }
 
+  //CRUD: Update article (PUT method)
+  putArticle(article: Article) {
+    return this.http
+      .delete<null>(`api/articles/${article}`)
+      .pipe(catchError((error) => this.handleError(error, null)));
+  }
+
+  // CRUD: Delete article (DELETE method)
   deleteArticleById(articleId: number): Observable<null> {
     return this.http
       .delete<null>(`api/articles/${articleId}`)
       .pipe(catchError((error) => this.handleError(error, null)));
   }
 
+  // CRUD: Create article (POST method)
   addArticle(article: Article): Observable<Article> {
     const httpOptions = {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
@@ -73,10 +80,10 @@ export class ArticleService {
       );
   }
 
+  // This method search a corresponding term from searchbar into article list
   searchArticleList(term: string): Observable<Article[]> {
-    // Request a name with term enter by user
-    // If the research term is too small, return an empty Table to avoid call Server
     if (term.length <= 1) {
+      // If the research term is too small, return an empty Table to avoid call Server
       return of([]);
     }
 
@@ -87,6 +94,12 @@ export class ArticleService {
   }
 
   getArticleCategoryList(): string[] {
-    return ['Cat 1', 'Cat 2', 'Cat 3', 'Cat 4', 'Cat 5'];
+    return [
+      'Categorie 1',
+      'Categorie 2',
+      'Categorie 3',
+      'Categorie 4',
+      'Categorie 5',
+    ];
   }
 }
