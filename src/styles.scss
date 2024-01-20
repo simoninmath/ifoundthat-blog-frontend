@@ -1,1 +1,48 @@
 @import '~materialize-css/dist/css/materialize.min.css';
+
+// //TODO make an import with @use '../global-styles.scss'
+// // Graphical Charter
+* {
+    box-sizing: border-box;
+  }
+
+html {
+    height: 100%;
+    font-size: 62.5%;
+}
+
+
+
+
+// /*********** Colors ***********/
+
+// $color__primary: #121212;
+// $color__secondary: #F24E1E;
+// $color__tertiary: #fefefe;
+
+// /*********** Font ***********/
+
+// $font__primary: 'Noto Sans Mono', monospace;
+// $font__secondary: 'Assistant', sans-serif;
+
+// /*********** Initialisation ***********/
+
+// // :host, specific Angular selector (like ":root" in css) to apply style from parent component
+
+// :host {
+//     // fonts
+//     --font__primary: 'Noto Sans Mono', monospace;
+//     --font__secondary: 'Assistant', sans-serif;
+//     // 100% = 1rem = 16px | 62.5% = 1rem = 10px
+//     font-size: 62.5%;
+// }
+
+// // reset decoration and font base
+// * {
+//     margin: 0;
+//     padding: 0;
+//     box-sizing: border-box;
+//     text-decoration: none;
+//     font-size: 1.4rem;
+//     color: $color__primary;
+// }
