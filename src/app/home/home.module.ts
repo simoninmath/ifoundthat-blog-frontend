@@ -22,6 +22,7 @@ import { ArticleService } from '../service/article.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { Error404Component } from '../error404/error404.component';
 import { AdminGuard } from '../auth/admin.guard';
+import { HttpClientModule } from '@angular/common/http';
 
 
 const routes: Routes = [
@@ -60,6 +61,7 @@ const routes: Routes = [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
+    // HttpClientModule,
     NavigationModule,
     SharedModule,
     RouterModule.forChild(routes)
