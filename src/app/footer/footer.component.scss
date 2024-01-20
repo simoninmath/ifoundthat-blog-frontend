@@ -32,13 +32,14 @@ a {
 
 .link__legal-notice {
   grid-column: 3/4;
+  justify-self: center;
 }
 
 .link__legal-notice:hover {
   text-decoration-line: underline;
 }
 
-@media screen and (min-width: 40rem) {
+@media screen and (max-width: 40rem) {
   .link__legal-notice {
     margin: 2rem 2rem 2rem 2rem ;
   }
