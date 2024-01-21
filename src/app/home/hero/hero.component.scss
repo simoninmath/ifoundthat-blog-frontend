@@ -12,9 +12,10 @@
   .container__heroSection {
     grid-template-columns: 1fr;
     display: inline-block;
-    width: 100%;
+    width: 100vw;
     text-align: center;
-    padding: 0 20px;
+    padding: 0 1rem;
+    // padding: 1rem 1rem 1rem 1rem;
   }
 }
 
@@ -33,6 +34,7 @@
 @media screen and (max-width: 40rem) {
   .label__heroSection-title {
     font-size: 13rem;
+    padding: 1rem 1rem 1rem 1rem;
   }
 }
 
