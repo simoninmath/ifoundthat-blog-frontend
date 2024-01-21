@@ -1,75 +1,110 @@
-<div class="div">
-  <div class="div-2">
-    <div class="div-3">
-      <span style="color: rgba(242, 78, 30, 1)">NEW</span>
-    </div>
-    <div class="div-4">
-      <div class="div-5">
-        <div class="column">
-          <div class="div-6">
-            <img
-              loading="lazy"
-              srcset="..."
-              class="img"
-            />
-            <img
-              loading="lazy"
-              src="https://cdn.builder.io/api/v1/image/assets/TEMP/c205982aa38c8db20efbcb8df0d421c901a87df059831cd0c97b1a578d0f9433?"
-              class="img-2"
-            />
-          </div>
-        </div>
-        <div class="column-2">
-          <div class="div-7">
-            <div class="div-8">2023-10-19</div>
-            <img
-              loading="lazy"
-              src="https://cdn.builder.io/api/v1/image/assets/TEMP/bc81f759b8d9a4a8bb5d117c2f15a00f2613a8538b4eca7a6ac2d2e520aa4491?"
-              class="img-3"
-            />
-            <div class="div-9">
-              <div class="div-10">Article title</div>
-              <div class="div-11">
-                Lorem ipsum dolor sit amet consectetur. Sit facilisis aliquam
-                nullam rutrum justo. Viverra velit.
-              </div>
-            </div>
-            <img
-              loading="lazy"
-              src="https://cdn.builder.io/api/v1/image/assets/TEMP/bc81f759b8d9a4a8bb5d117c2f15a00f2613a8538b4eca7a6ac2d2e520aa4491?"
-              class="img-4"
-            />
-            <div class="div-12">
-              <div class="div-13">
-                <div class="div-14">1000</div>
-                <img
-                  loading="lazy"
-                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/d538111207c463b784f336052b0632c8a16ccee7a71ea4fd1835bd6f2b18069e?"
-                  class="img-5"
-                />
-              </div>
-              <div class="div-15">
-                <div class="div-16">500</div>
-                <img
-                  loading="lazy"
-                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/4d877897c52886d766d396b16f15f914a1a101549806691ae343285e6dc74014?"
-                  class="img-6"
-                />
-              </div>
-              <img
-                loading="lazy"
-                src="https://cdn.builder.io/api/v1/image/assets/TEMP/1cf6747245a326e9b935bfa422c938831ce6454906545e4cd10e287dba205d06?"
-                class="img-7"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
+<div class="container__newsSection">
+  <div class="bloc__newsSection-title">
+    <span>NEWS!</span>
+  </div>
+  <div class="bloc__image-column">
+    <img loading="lazy" class="img__news-main" [src]="imgNewsMain" />
+  </div>
+  <div class="bloc__text-column">
+    <div class="label__date">2023-10-19</div>
+    <div class="label__news-article-title">Article title</div>
+    <div class="label__news-chapo">
+      Lorem ipsum dolor sit amet consectetur. Sit facilisis aliquam nullam
+      rutrum justo. Viverra velit.
     </div>
   </div>
-  <img
-    loading="lazy"
-    src="https://cdn.builder.io/api/v1/image/assets/TEMP/14caf7d9c7b0fa6af0a8c6a30e95c9ca34914b929da973fa3b7325d9d515e937?"
-    class="img-8"
-  />
+  <div class="label__views">1000</div>
+  <div class="wrapper__picto-views">
+    <svg
+      class="picto__views"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+      <g
+        id="SVGRepo_tracerCarrier"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      ></g>
+      <g id="SVGRepo_iconCarrier">
+        <path
+          d="M15.0007 12C15.0007 13.6569 13.6576 15 12.0007 15C10.3439 15 9.00073 13.6569 9.00073 12C9.00073 10.3431 10.3439 9 12.0007 9C13.6576 9 15.0007 10.3431 15.0007 12Z"
+          stroke="#F24E1E"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        ></path>
+        <path
+          d="M12.0012 5C7.52354 5 3.73326 7.94288 2.45898 12C3.73324 16.0571 7.52354 19 12.0012 19C16.4788 19 20.2691 16.0571 21.5434 12C20.2691 7.94291 16.4788 5 12.0012 5Z"
+          stroke="#F24E1E"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        ></path>
+      </g>
+    </svg>
+  </div>
+  <div class="label__comments">500</div>
+  <div class="wrapper__picto-comments">
+    <svg
+      class="picto__comments"
+      fill="#F24E1E"
+      version="1.1"
+      id="Layer_1"
+      xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      viewBox="0 0 259.465 259.465"
+      xml:space="preserve"
+      stroke="#F24E1E"
+    >
+      <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+      <g
+        id="SVGRepo_tracerCarrier"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      ></g>
+      <g id="SVGRepo_iconCarrier">
+        <g>
+          <g>
+            <g>
+              <path
+                d="M216.544,9.994H42.921c-25.535,0-45.436,22.21-42.662,47.579l12.258,112.159c2.385,21.808,20.726,38.253,42.662,38.253 c7.486,0,65.908,0,76.517,0l35.642,36.216c9.988,10.153,27.357,4.854,29.913-9.212l4.91-27.004 c25.999,0,42.539-17.686,44.788-38.253l12.258-112.159C261.981,32.189,242.064,9.994,216.544,9.994z M244.294,55.943 l-12.257,112.159c-1.552,14.186-13.481,24.883-27.751,24.883h-8.385c-3.625,0-6.73,2.592-7.379,6.158l-6.03,33.163 c-0.384,2.108-2.963,2.9-4.464,1.374l-25.831-26.248c7.594-3.084,5.391-14.448-2.818-14.448c-10.983,0-84.789,0-94.2,0 c-14.269,0-26.199-10.697-27.75-24.883L15.171,55.943c-1.806-16.511,11.149-30.949,27.75-30.949h173.623 C233.153,24.994,246.099,39.44,244.294,55.943z"
+              ></path>
+              <circle cx="84.136" cy="113.734" r="12.193"></circle>
+              <circle cx="129.732" cy="113.734" r="12.193"></circle>
+              <circle cx="175.328" cy="113.734" r="12.193"></circle>
+            </g>
+          </g>
+        </g>
+      </g>
+    </svg>
+  </div>
+  <button class="wrapper__picto-reddit" (click)="goToReddit()">
+    <svg
+      class="picto__reddit"
+      viewBox="0 0 32 32"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+      <g
+        id="SVGRepo_tracerCarrier"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      ></g>
+      <g id="SVGRepo_iconCarrier">
+        <path
+          d="M16 2C8.27812 2 2 8.27812 2 16C2 23.7219 8.27812 30 16 30C23.7219 30 30 23.7219 30 16C30 8.27812 23.7219 2 16 2Z"
+          fill="#F24E1E"
+        ></path>
+        <path
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M20.0193 8.90951C20.0066 8.98984 20 9.07226 20 9.15626C20 10.0043 20.6716 10.6918 21.5 10.6918C22.3284 10.6918 23 10.0043 23 9.15626C23 8.30819 22.3284 7.6207 21.5 7.6207C21.1309 7.6207 20.7929 7.7572 20.5315 7.98359L16.6362 7L15.2283 12.7651C13.3554 12.8913 11.671 13.4719 10.4003 14.3485C10.0395 13.9863 9.54524 13.7629 9 13.7629C7.89543 13.7629 7 14.6796 7 15.8103C7 16.5973 7.43366 17.2805 8.06967 17.6232C8.02372 17.8674 8 18.1166 8 18.3696C8 21.4792 11.5817 24 16 24C20.4183 24 24 21.4792 24 18.3696C24 18.1166 23.9763 17.8674 23.9303 17.6232C24.5663 17.2805 25 16.5973 25 15.8103C25 14.6796 24.1046 13.7629 23 13.7629C22.4548 13.7629 21.9605 13.9863 21.5997 14.3485C20.2153 13.3935 18.3399 12.7897 16.2647 12.7423L17.3638 8.24143L20.0193 8.90951ZM12.5 18.8815C13.3284 18.8815 14 18.194 14 17.3459C14 16.4978 13.3284 15.8103 12.5 15.8103C11.6716 15.8103 11 16.4978 11 17.3459C11 18.194 11.6716 18.8815 12.5 18.8815ZM19.5 18.8815C20.3284 18.8815 21 18.194 21 17.3459C21 16.4978 20.3284 15.8103 19.5 15.8103C18.6716 15.8103 18 16.4978 18 17.3459C18 18.194 18.6716 18.8815 19.5 18.8815ZM12.7773 20.503C12.5476 20.3462 12.2372 20.4097 12.084 20.6449C11.9308 20.8802 11.9929 21.198 12.2226 21.3548C13.3107 22.0973 14.6554 22.4686 16 22.4686C17.3446 22.4686 18.6893 22.0973 19.7773 21.3548C20.0071 21.198 20.0692 20.8802 19.916 20.6449C19.7628 20.4097 19.4524 20.3462 19.2226 20.503C18.3025 21.1309 17.1513 21.4449 16 21.4449C15.3173 21.4449 14.6345 21.3345 14 21.1137C13.5646 20.9621 13.1518 20.7585 12.7773 20.503Z"
+          fill="white"
+        ></path>
+      </g>
+    </svg>
+  </button>
 </div>
