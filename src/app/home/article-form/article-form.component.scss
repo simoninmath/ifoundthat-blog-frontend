@@ -1,19 +1,26 @@
 // Target the required HTML attribut
-.ngValid[required] {  
-    border-left: 5px solid #42A948;
+.ngValid[required] {
+  border-left: 5px solid #42a948;
 }
 
 // Prevent red border in all form
 .ngInvalid:not(form) {
-    border-left: 5px solid #A94442;
+  border-left: 5px solid #a94442;
 }
 
-
 .form-group {
-    margin-bottom: 20px;
-  }
-  
-  .error {
-    color: red;
-    margin-top: 5px;
-  }
+  margin-bottom: 20px;
+}
+
+.error {
+  color: red;
+  margin-top: 5px;
+}
+
+.btn__createForm-submit {
+  display: inline-block;
+  border: 0;
+  background-color: #fefefe;
+  margin: 2rem 2rem 2rem 2rem;
+  padding: 2rem 2rem 2rem 2rem;
+}

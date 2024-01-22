@@ -12,6 +12,7 @@ import { ArticleService } from 'src/app/service/article.service';
 })
 
 export class ArticleFormComponent implements OnInit{
+
   @Input() article: Article; // Indicate the Component property for each instance to use app-article component, we need to pass a Object Article first
   categories: string[] = [  // All categories in the app
     'Category 1', 
@@ -19,7 +20,7 @@ export class ArticleFormComponent implements OnInit{
     'Category 3', 
     'Category 4', 
     'Category 5']; 
-  isAddForm: boolean;
+  // isAddForm: boolean;
   articleForm: FormGroup;
 
   constructor(
@@ -37,7 +38,7 @@ export class ArticleFormComponent implements OnInit{
 
   ngOnInit() {
     this.categories = this.articleService.getArticleCategoryList();
-    this.isAddForm = this.router.url.includes('add');
+    // this.isAddForm = this.router.url.includes('add');
   }
 
   
@@ -71,19 +72,21 @@ export class ArticleFormComponent implements OnInit{
     }
   }
 
+  goBackHome() {
+    this.router.navigate(['/home']);
+  }
 
   onSubmitEdit() {
-    if (this.isAddForm) {
-      console.log('SUBMIT BUTTON FROM ADD');
-      this.articleService.addArticle(this.article).pipe(
-          tap((article: Article) => this.router.navigate(['/articles', article.id])),
-        ).subscribe();
-    } else {
+    // if (this.isAddForm) {
+    //   console.log('SUBMIT BUTTON FROM ADD');
+    //   this.articleService.addArticle(this.article).pipe(
+    //       tap((article: Article) => this.router.navigate(['/articles', article.id])),
+    //     ).subscribe();
+    // } else {
       console.log('SUBMIT BUTTON FROM EDIT');
       this.articleService.putArticle(this.article).pipe(
           tap(() => this.router.navigate(['/articles', this.article.id])),
         ).subscribe();
     }
-  }
 
 }
