@@ -24,9 +24,9 @@ export class EditArticleComponent implements OnInit {
   ngOnInit() {
     const articleId: string | null = this.route.snapshot.paramMap.get('id');
     if(articleId) {
-      this.articleService.getArticleByIdFromDb(+articleId).subscribe(article => {  // Get dynamic titles in edit section
+      this.articleService.getArticleByIdFromDb(+articleId).subscribe(article => {  
         this.article = article;
-        this.initTitle(article);
+        this.initTitle(article); // Get dynamic titles in edit section
   });
   }
 }
