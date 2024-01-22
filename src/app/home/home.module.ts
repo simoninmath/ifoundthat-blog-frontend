@@ -22,17 +22,15 @@ import { ArticleService } from '../service/article.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { Error404Component } from '../error404/error404.component';
 import { AdminGuard } from '../auth/admin.guard';
-import { HttpClientModule } from '@angular/common/http';
 
 
 const routes: Routes = [
   // Routes always public
   { path:'articles', title: 'IFT-Blog', component: ListArticleComponent },
   { path:'newsletter', title: 'IFT-Blog', component: NewsletterComponent },
-  // { path:'edit/articles/:id', title: 'EDIT', component: EditArticleComponent },
   // Routes exceptions
   { path:'public_articles/:id', title: 'IFT-Blog', component: DetailArticleComponent },
-  { path:'add/articles', title: 'IFT-Blog', component: AddArticleComponent, canActivate: [AuthGuard] },
+  { path:'add/create-articles', title: 'IFT-Blog', component: AddArticleComponent, canActivate: [AuthGuard] },
   { path:'form/articles', title: 'IFT-Blog', component: ArticleFormComponent, canActivate: [AuthGuard] },
   { path:'edit/articles/:id', title: 'IFT-Blog', component: EditArticleComponent, canActivate: [AdminGuard]},
   { path:'articles/:id', title: 'IFT-Blog', component: DetailArticleComponent, canActivate: [AuthGuard] },
@@ -61,7 +59,6 @@ const routes: Routes = [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    // HttpClientModule,
     NavigationModule,
     SharedModule,
     RouterModule.forChild(routes)
