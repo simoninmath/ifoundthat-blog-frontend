@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./form.component.scss']
 })
 export class FormComponent {
+  
+submitForm() {
+throw new Error('Method not implemented.');
+}
 
 }
