@@ -77,12 +77,6 @@ export class ArticleFormComponent implements OnInit{
   }
 
   onSubmitEdit() {
-    // if (this.isAddForm) {
-    //   console.log('SUBMIT BUTTON FROM ADD');
-    //   this.articleService.addArticle(this.article).pipe(
-    //       tap((article: Article) => this.router.navigate(['/articles', article.id])),
-    //     ).subscribe();
-    // } else {
       console.log('SUBMIT BUTTON FROM EDIT');
       this.articleService.putArticle(this.article).pipe(
           tap(() => this.router.navigate(['/articles', this.article.id])),
