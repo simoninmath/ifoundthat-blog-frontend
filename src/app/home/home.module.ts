@@ -22,6 +22,7 @@ import { ArticleService } from '../service/article.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { Error404Component } from '../error404/error404.component';
 import { AdminGuard } from '../auth/admin.guard';
+import { CreateFormComponent } from './create-form/create-form.component';
 
 
 const routes: Routes = [
@@ -53,6 +54,7 @@ const routes: Routes = [
     MoreButtonComponent,
     ArticleFormComponent,
     ArticleCategoryColorPipe,
+    CreateFormComponent,
   ],
   imports: [
     CommonModule,
