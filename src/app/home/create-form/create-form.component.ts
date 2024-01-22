@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Create } from 'src/app/model/create';
 import { ArticleService } from 'src/app/service/article.service';
 
@@ -8,18 +9,22 @@ import { ArticleService } from 'src/app/service/article.service';
   templateUrl: './create-form.component.html',
   styleUrls: ['./create-form.component.scss']
 })
+
 export class CreateFormComponent {
 
   createForm: FormGroup;
 
   constructor(
     private formBuilder: FormBuilder,
-    private articleService: ArticleService
+    private articleService: ArticleService,
+    private router: Router
   ) {}
+
 
   ngOnInit(): void {
     this.initForm();
   }
+
 
   private initForm(): void {
     this.createForm = this.formBuilder.group({
@@ -30,6 +35,12 @@ export class CreateFormComponent {
       user: ['/api/users/1', Validators.required],           // Vous pouvez ajuster l'URL de l'utilisateur selon vos besoins
     });
   }
+
+
+  goBackHome() {
+      this.router.navigate(['/home']);
+    }
+
 
   onSubmit(): void {
     if (this. createForm.valid) {
