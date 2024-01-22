@@ -54,8 +54,8 @@ export class DetailArticleComponent {
   }
 
 
-  goToAddArticle(article: Article){
-     this.router.navigate(['add/articles', article]);  // Go to add article form
+  goToCreateArticleForm(article: Article){
+     this.router.navigate(['add/create-form', article]);  // Go to add article form
   }
 
 
