@@ -12,7 +12,10 @@ export class CreateFormComponent {
 
   createForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private articleService: ArticleService) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private articleService: ArticleService
+  ) {}
 
   ngOnInit(): void {
     this.initForm();
