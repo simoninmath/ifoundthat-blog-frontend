@@ -39,7 +39,6 @@ export class DetailArticleComponent {
  }
 }
 
-  
   initTitle(article: Article | undefined){
     if(!article){
       this.title.setTitle('This article doesn\'t exist...');
@@ -48,21 +47,27 @@ export class DetailArticleComponent {
     this.title.setTitle(article.title);
   }
 
+  // This method redirect to delete method in ArticleService that contains CRUD
   deleteArticle(article: Article){
     this.articleService.deleteArticleById(article.id)
     .subscribe(() => this.goToArticleList());
   }
-  
-//TODO OnDestroy(){} + unsubscribe
+
+
+  goToAddArticle(article: Article){
+     this.router.navigate(['add/articles', article]);  // Go to add article form
+  }
+
 
   goToEditArticle(article: Article){
-     // console.log('EDIT WORKS!');
-     this.router.navigate(['edit/articles', article.id]);  // Go to edit article form
-  }
+    this.router.navigate(['edit/articles', article.id]);  // Go to edit article form
+ }
+
 
   goToArticleList() {  
     this.router.navigate(['/home']);  // Go back to home
   }
+
 
   isAdmin(){
     return this.authService.isAdmin();

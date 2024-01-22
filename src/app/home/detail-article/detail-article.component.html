@@ -54,7 +54,8 @@
         </div>
         <div class="card-action center deep-orange darken-1">
           <a (click)="goToArticleList()">Return</a>
-          <ng-container *ngIf="isAdmin()">
+          <ng-container *ngIf="isAdmin()">  <!-- This condition checks if the admin is properly logged in. If yes, access to CRUD methods is allowed -->
+            <a (click)="goToAddArticle(article)">Add</a>
             <a (click)="goToEditArticle(article)">Edit</a>
             <a (click)="deleteArticle(article)">Delete</a>
           </ng-container>
