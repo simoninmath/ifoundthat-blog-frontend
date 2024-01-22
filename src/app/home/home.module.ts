@@ -31,7 +31,7 @@ const routes: Routes = [
   { path:'newsletter', title: 'IFT-Blog', component: NewsletterComponent },
   // Routes exceptions
   { path:'public_articles/:id', title: 'IFT-Blog', component: DetailArticleComponent },
-  { path:'add/create-articles', title: 'IFT-Blog', component: AddArticleComponent, canActivate: [AuthGuard] },
+  // { path:'add/create-articles', title: 'IFT-Blog', component: AddArticleComponent, canActivate: [AuthGuard] },
   { path:'add/create-form', title: 'IFT-Blog', component: CreateFormComponent, canActivate: [AuthGuard] },
   { path:'form/articles', title: 'IFT-Blog', component: ArticleFormComponent, canActivate: [AuthGuard] },
   { path:'edit/articles/:id', title: 'IFT-Blog', component: EditArticleComponent, canActivate: [AdminGuard]},
