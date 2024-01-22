@@ -40,6 +40,7 @@ export class ArticleFormComponent implements OnInit{
     this.isAddForm = this.router.url.includes('add');
   }
 
+  
   isCategoryValid(category: string): boolean {
     
     if(this.article.categories.length == 1 && this.hasCategory(category)){  // if article has one category on the current card, the checkbox is disable 
@@ -53,9 +54,11 @@ export class ArticleFormComponent implements OnInit{
     return true;
   }
 
+
   hasCategory(category: string) { // Ask is the category in parameter exist in categories table
     return this.article.categories.includes(category); // includes() return true or false (native JS)
   }
+
 
   selectCategory($event: Event, category: string) {  // When user click on checkbox, this method verify if the category selected is available
     const isChecked: boolean = ($event.target as HTMLInputElement).checked; // get the DOM event to verify if the box is checked and update @Input, plus cast in HTMLInputElement
@@ -68,35 +71,19 @@ export class ArticleFormComponent implements OnInit{
     }
   }
 
-  // onSubmit() {
-    // console.log('SUBMIT EDIT WORKS!');
-  //   this.articleService.putArticle(this.article);
-  //   }
 
-
-  onSubmit() {
-    console.log('SUBMIT EDIT WORKS!');
+  onSubmitEdit() {
     if (this.isAddForm) {
-      this.articleService.putArticle(this.article).pipe(
+      console.log('SUBMIT BUTTON FROM ADD');
+      this.articleService.addArticle(this.article).pipe(
           tap((article: Article) => this.router.navigate(['/articles', article.id])),
         ).subscribe();
     } else {
+      console.log('SUBMIT BUTTON FROM EDIT');
       this.articleService.putArticle(this.article).pipe(
           tap(() => this.router.navigate(['/articles', this.article.id])),
         ).subscribe();
     }
   }
-  
-
-  // onSubmit() {
-  //   console.log('SUBMIT EDIT WORKS!');
-  //   if(this.isAddForm){
-  //     this.articleService.updateArticle(this.article)
-  //     .subscribe((article: Article) => this.router.navigate(['/articles', article.id])); // Redirect to the new article id just created
-  //   } else {
-  //     this.articleService.updateArticle(this.article)
-  //     .subscribe(() => this.router.navigate(['/articles', this.article.id]));
-  //   }
-  // }
 
 }

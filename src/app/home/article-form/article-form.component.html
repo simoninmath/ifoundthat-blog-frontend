@@ -5,7 +5,7 @@
 <div class="row">
   <div class="col s8 offset-s2">
     <div class="card-panel">
-      <form *ngIf="article" [formGroup]="articleForm" (ngSubmit)="onSubmit()">
+      <form *ngIf="article" [formGroup]="articleForm" (ngSubmit)="onSubmitEdit()">
         <div class="form-group">
 
                   <!-- article title -->
@@ -94,7 +94,7 @@
         <div class="divider"></div>
         <div class="section center">
           <button type="submit" class="btn-large center deep-orange darken-1" (click)="article">
-            Submit
+            SUBMIT
           </button>
         </div>
       </form>
