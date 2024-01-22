@@ -28,7 +28,7 @@ export class NewsletterComponent implements OnInit {
     private initForm() {
       this.newslettersForm = this.formBuilder.group({
         email: ['', [Validators.required, Validators.email]],
-        createdAt: ['', Validators.required],
+        // createdAt: ['', Validators.required],
       });
     }
 

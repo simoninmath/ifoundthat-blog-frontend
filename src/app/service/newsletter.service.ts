@@ -51,6 +51,7 @@ export class NewsletterService {
     );
   }
 
+  
   // CRUD: Post
   addNewsletterEmail(newsletter: Newsletter): Observable<Newsletter> {
     const httpOptions = {
@@ -76,6 +77,7 @@ export class NewsletterService {
         catchError((error) => this.handleError(error, null))
       );
   }
+
 
   // CRUD: Put
   updateNewsletter(newsletter: Newsletter): Observable<null> {
