@@ -1,26 +1,27 @@
-<div class="container">
+<form [formGroup]="newslettersForm" (ngSubmit)="onSubmitNewsletters()">
+  <label for="title">Email</label>
+  <input type="email" id="email" formControlName="email" />
+
+  <button type="submit">Submit</button>
+</form>
+
+
+<!-- <div class="container">
   <div class="container__wrapper">
     <div class="label__newsletter-subtitle">NewsLetter</div>
     <div class="label__newsletter-title">Stay alert!</div>
-    <form #newsletterForm="ngForm" (ngSubmit)="onSubmit(newsletterForm)">
-      <div class="input-field">
+    <form [formGroup]="newslettersForm" (ngSubmit)="onSubmitNewsletters()">
+      <div class="input__email-field">
         <input
           type="email"
           id="email"
-          ngModel
+          formControlName="email"
+          class="form-control"
           required
-          #email="ngModel"
-          class="validate black-text"
-          style="border: 2px solid black; background-color: white"
           placeholder="Your email"
         />
       </div>
-      <button 
-        class="btn-large black white-text center" 
-        type="submit"
-      >
-        Submit
-      </button>
+      <button type="submit" class="btn-large black white-text center">Submit</button>
     </form>
     <div class="div-6">
       <div class="div-8">500</div>
@@ -52,4 +53,4 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->

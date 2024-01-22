@@ -52,28 +52,42 @@ export class NewsletterService {
   }
 
   // CRUD: Post
-  addNewsletter(newsletter: Newsletter): Observable<Newsletter> {
+  addNewsletterEmail(newsletter: Newsletter): Observable<Newsletter> {
     const httpOptions = {
       headers: new HttpHeaders({'Content-Type': 'application/json'})
     };
     
-    return this.http.post<Newsletter>(`${this.apiUrl}/public_newsletters_post`, newsletter, httpOptions).pipe( // This Method return a Newsletter Type Object with cast "<Newsletter>"
+    return this.http.post<Newsletter>(`${this.apiUrl}/public_newsletters_post`, newsletter, httpOptions).pipe(  // This Method return a Newsletter Type Object with cast "<Newsletter>"
       tap((response) => this.log(response)),
       catchError((error) => this.handleError(error, null))
     );
   }
 
-  // CRUD: Put
-  updateNewsletter(newsletter: Newsletter): Observable<null> {  // In Memory API force to use null Object instead of <Newsletter | undefined>
-    const httpOptions = {
-      headers: new HttpHeaders({'Content-Type': 'application/json'})
-    };
   
-    return this.http.put<Newsletter>(`${this.apiUrl}/protected_newsletters_put/`, newsletter, httpOptions).pipe(
-      tap((response) => this.log(response)),
-      catchError((error) => this.handleError(error, null))
-    );
+  // Method from create form
+  createFormNewsletter(createDataNewsletter: Newsletter): Observable<Newsletter> {
+    console.log('SUBMIT FROM NEWSLETTER CREATE FORM METHOD', createDataNewsletter);
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+    };
+
+    return this.http.post<Newsletter>(`${this.apiUrl}/public_newsletters_post`, createDataNewsletter, httpOptions).pipe(
+        tap((response) => this.log(response)),
+        catchError((error) => this.handleError(error, null))
+      );
   }
+
+  // CRUD: Put
+  updateNewsletter(newsletter: Newsletter): Observable<null> {
+    const httpOptions = {
+        headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+    };
+
+    return this.http.put<Newsletter>(`${this.apiUrl}/protected_newsletters_put/${newsletter.id}`, newsletter, httpOptions).pipe(
+        tap((response) => this.log(response)),
+        catchError((error) => this.handleError(error, null))
+    );
+}
 
   // CRUD: Delete
   deleteNewsletterById(newsletterId: number): Observable<null> {
