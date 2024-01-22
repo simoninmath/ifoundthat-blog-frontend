@@ -2,10 +2,12 @@ import { Injectable } from '@angular/core';
 import { Article } from '../model/article';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, catchError, map, of, tap } from 'rxjs';
+import { Create } from '../model/create';
 
 @Injectable() // Delete providedIn: 'root' to use Service only in ArticleModule
 
 export class ArticleService {
+
   // URL from API Platform contained in a Variable named "apiUrl"
   private apiUrl = 'https://127.0.0.1:8000/api';
 
@@ -70,6 +72,18 @@ export class ArticleService {
       );
   }
 
+  
+  // Method from create form
+  createFormArticles(createDataArticle: Create) {
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+    };
+
+    return this.http.post<Article>(`${this.apiUrl}/articles`, createDataArticle, httpOptions).pipe(
+        tap((response) => this.log(response)),
+        catchError((error) => this.handleError(error, null))
+      );
+  }
 
 
   private log(response: Article[] | Article | undefined) {

@@ -1,1 +1,24 @@
-<p>create-form works!</p>
+<!-- article-form.component.html -->
+<form [formGroup]="createForm" (ngSubmit)="onSubmit()">
+    <label for="title">Titre:</label>
+    <input type="text" id="title" formControlName="title" required>
+  
+    <label for="chapo">Chapo:</label>
+    <input type="text" id="chapo" formControlName="chapo" required>
+  
+    <label for="content">Contenu:</label>
+    <textarea id="content" formControlName="content" required></textarea>
+  
+    <!-- Ces champs sont automatiquement remplis par le serveur, donc pas besoin de les afficher dans le formulaire -->
+    <input type="hidden" formControlName="createdAt">
+    <input type="hidden" formControlName="updatedAt">
+  
+    <label for="categorie">Catégorie:</label>
+    <input type="text" id="categorie" formControlName="categorie" required>
+  
+    <label for="user">Utilisateur:</label>
+    <input type="text" id="user" formControlName="user" required>
+  
+    <button type="submit">CREATE</button>
+  </form>
+  
