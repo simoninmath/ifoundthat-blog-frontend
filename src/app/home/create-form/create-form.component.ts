@@ -44,20 +44,22 @@ export class CreateFormComponent {
 
 
   // This method call newsletter service to get newsletter user email object
-  onSubmitCreateForm() {
-    if (this.createForm.valid) {
-      const createDataArticle: Create = {
-        title: this.createForm.value.title,
-        chapo: this.createForm.value.chapo,
-        content: this.createForm.value.content,
-        categorie: this.createForm.value.categorie,
-        user: this.createForm.value.user,
-      };
-  
-      this.articleService.createFormArticle(createDataArticle).pipe(
-        tap(() => this.router.navigate(['/home'])),  // Updated navigation
-      ).subscribe();
-    }
+onSubmitCreateForm() {
+  if (this.createForm.valid) {
+    console.log('FORM CREATE CONTENT', this.createForm);
+    const createDataArticle: Create = {
+      title: this.createForm.value.title,
+      chapo: this.createForm.value.chapo,
+      content: this.createForm.value.content,
+      categorie: this.createForm.value.categorie,
+      user: this.createForm.value.user,
+    };
+
+    this.articleService.createFormArticle(createDataArticle).pipe(
+      tap(() => console.log('CATCH ARTICLE DATA FROM SUBMIT', createDataArticle)),  // Updated navigation
+    ).subscribe(() => this.router.navigate(['/home']));
   }
+}
+
 
 }
