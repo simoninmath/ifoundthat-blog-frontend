@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { tap } from 'rxjs';
 import { Create } from 'src/app/model/create';
 import { ArticleService } from 'src/app/service/article.service';
 
@@ -42,20 +43,20 @@ export class CreateFormComponent {
     }
 
 
-  onSubmit(): void {
-    if (this. createForm.valid) {
-      const createDataArticle: Create = this. createForm.value;
-
-      // Appelez votre service pour envoyer l'article au serveur
-      this.articleService.createFormArticles(createDataArticle).subscribe(
-        (response) => {
-          console.log('Article créé avec succès !', response);
-          // Ajoutez ici toute logique de redirection ou de traitement supplémentaire
-        },
-        (error) => {
-          console.error('Erreur lors de la création de l\'article :', error);
-        }
-      );
+  // This method call newsletter service to get newsletter user email object
+  onSubmitCreateForm() {
+    if (this.createForm.valid) {
+      const createDataArticle: Create = {
+        title: this.createForm.value.title,
+        chapo: this.createForm.value.chapo,
+        content: this.createForm.value.content,
+        categorie: this.createForm.value.categorie,
+        user: this.createForm.value.user,
+      };
+  
+      this.articleService.createFormArticle(createDataArticle).pipe(
+        tap(() => this.router.navigate(['/home'])),  // Updated navigation
+      ).subscribe();
     }
   }
 

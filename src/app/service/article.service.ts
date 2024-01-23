@@ -61,20 +61,8 @@ export class ArticleService {
 
 
   // CRUD: Create article (POST method)
-  addArticle(article: Article): Observable<Article> {
-    const httpOptions = {
-      headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
-    };
-
-    return this.http.post<Article>(`${this.apiUrl}/articles`, article, httpOptions).pipe(
-        tap((response) => this.log(response)),
-        catchError((error) => this.handleError(error, null))
-      );
-  }
-
-  
-  // Method from create form
-  createFormArticles(createDataArticle: Create) {
+  createFormArticle(createDataArticle: Create): Observable<Article> {
+    console.log('SUBMIT FROM CREATE ARTICLE FORM', createDataArticle);
     const httpOptions = {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
     };
@@ -84,6 +72,18 @@ export class ArticleService {
         catchError((error) => this.handleError(error, null))
       );
   }
+
+  // createFormArticle(createDataArticle: Create): Observable<Create> {
+  //   console.log('SUBMIT FROM CREATE ARTICLE FORM', createDataArticle);
+  //   const httpOptions = {
+  //     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+  //   };
+
+  //   return this.http.post<Create>(`${this.apiUrl}/articles`, createDataArticle, httpOptions).pipe(
+  //       tap((response) => this.log(response)),
+  //       catchError((error) => this.handleError(error, null))
+  //     );
+  // }
 
 
   private log(response: Article[] | Article | undefined) {

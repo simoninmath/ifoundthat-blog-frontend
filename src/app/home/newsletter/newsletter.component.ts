@@ -40,7 +40,7 @@ export class NewsletterComponent implements OnInit {
   }
 
 
-  // This method call newsletter service to get newsletter user email
+  // This method call newsletter service to get newsletter user email object
   getUserEmailFromNewsletter() {
     this.newsletterService.getUserEmailFromNewsletter()
     .subscribe((response: Newsletter[]) => {  // This method subscribes to the Observable of newsletter.service.ts
@@ -60,5 +60,5 @@ export class NewsletterComponent implements OnInit {
       ).subscribe();
     }
   }
-  
+
 }
