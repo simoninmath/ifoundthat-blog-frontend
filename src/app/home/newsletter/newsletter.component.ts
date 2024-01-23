@@ -50,39 +50,15 @@ export class NewsletterComponent implements OnInit {
 
 
   onSubmitNewsletters() {
-    console.log('SUBMIT BUTTON FROM NEWSLETTER !!!');
-    this.newsletterService.createFormNewsletter(this.newslettersModel).pipe(
-        tap(() => this.router.navigate(['/home', this.newslettersModel])),
-      ).subscribe();
-  }
-
-  // onSubmitNewsletters() {
-  //   if (this.newslettersForm.valid) {
-  //     const createDataNewsletter: Newsletter = this.newslettersForm.value;
-  //     this.newsletterService.createFormNewsletter(createDataNewsletter)
-  //       .subscribe({
-  //         next: (response) => {
-  //           console.log('Success!', response);
-  //         },
-  //         error: (error) => {
-  //           console.error('Something went wrong...', error);
-  //         }
-  //       });
-  //   }
-  // }
+    if (this.newslettersForm.valid) {
+      const createDataNewsletter: Newsletter = {
+        email: this.newslettersForm.value.email,
+      };
   
-
-    // onSubmitNewsletters() {
-    //   if (this.newslettersForm.valid) {
-    //     const createDataNewsletter: Newsletter = this.newslettersForm.value;
-    //     this.newsletterService.createFormNewsletter(createDataNewsletter).subscribe(
-    //       (response) => {
-    //         console.log('Success!', response);
-    //       },
-    //       (error) => {
-    //         console.error('Something went wrong...', error);
-    //       }
-    //     );
-    //   }
-    // }
+      this.newsletterService.createFormNewsletter(createDataNewsletter).pipe(
+        tap(() => this.router.navigate(['/home'])),  // Updated navigation
+      ).subscribe();
+    }
+  }
+  
 }

@@ -52,20 +52,7 @@ export class NewsletterService {
   }
 
   
-  // CRUD: Post
-  addNewsletterEmail(newsletter: Newsletter): Observable<Newsletter> {
-    const httpOptions = {
-      headers: new HttpHeaders({'Content-Type': 'application/json'})
-    };
-    
-    return this.http.post<Newsletter>(`${this.apiUrl}/public_newsletters_post`, newsletter, httpOptions).pipe(  // This Method return a Newsletter Type Object with cast "<Newsletter>"
-      tap((response) => this.log(response)),
-      catchError((error) => this.handleError(error, null))
-    );
-  }
-
-  
-  // Method from create form
+  // CRUD: Post Method from create form
   createFormNewsletter(createDataNewsletter: Newsletter): Observable<Newsletter> {
     console.log('SUBMIT FROM NEWSLETTER CREATE FORM METHOD', createDataNewsletter);
     const httpOptions = {
@@ -85,7 +72,7 @@ export class NewsletterService {
         headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
     };
 
-    return this.http.put<Newsletter>(`${this.apiUrl}/protected_newsletters_put/${newsletter.id}`, newsletter, httpOptions).pipe(
+    return this.http.put<Newsletter>(`${this.apiUrl}/protected_newsletters_put/${newsletter}`, newsletter, httpOptions).pipe(
         tap((response) => this.log(response)),
         catchError((error) => this.handleError(error, null))
     );
