@@ -1,11 +1,6 @@
 <div
   class="container__articleSection"
-  *ngFor="
-    let article of articleList$ | async;
-    let i = index;
-    trackBy: trackByFn;
-    ngForOf: articleList$
-  "
+  *ngFor="let article of articleList$ | async; let i = index; trackBy: trackByFn;"
   routerLink="/public_articles/{{ article.id }}"
   articleBorderCard
 >
@@ -145,71 +140,3 @@
     </g>
   </svg>
 </a>
-<!-- <div class="container">
-  <div class="row">
-    <div
-      *ngFor="let article of articleList$ | async; let i = index; trackBy: trackByFn; ngForOf: articleList$"
-      class="col m12 s12 l12"
-    >
-      <div
-        routerLink="/public_articles/{{ article.id }}"
-        class="card horizontal"
-        articleBorderCard
-      >
-        <div class="card-image">
-          <img [src]="article.picture" />
-        </div>
-        <div class="card-stacked">
-          <div class="card-content">
-            <p>{{ article.title }}</p>
-            <p>{{ article.chapo }}</p>
-            <p>{{ article.content }}</p>
-            <p>
-              <small>{{ article.createdAt | date : "dd/MM/yy" }}</small>
-            </p>
-            <p>
-              <small>{{ article.updatedAt | date : "dd/MM/yy" }}</small>
-            </p>
-            <span
-              *ngFor="let category of article.categories"
-              class="{{ category | articleCategoryColorPipe }}"
-            >
-              {{ category }}
-            </span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<a
-  class="btn-floating btn-large waves-effect waves-light red z-depth-3"
-  style="position: fixed; bottom: 25px; right: 65px"
-  routerLink="/home"
->
-  <svg
-    widght="32px"
-    height="32px"
-    viewBox="0 0 24 24"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-    stroke="#fefefe"
-  >
-    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-    <g
-      id="SVGRepo_tracerCarrier"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    ></g>
-    <g id="SVGRepo_iconCarrier">
-      <path
-        d="M12 7V17M12 7L16 11M12 7L8 11"
-        stroke="#fefefe"
-        stroke-width="1.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      ></path>
-    </g>
-  </svg>
-</a> -->
