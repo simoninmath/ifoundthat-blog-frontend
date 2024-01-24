@@ -1,71 +1,48 @@
 <div class="container">
   <div class="row">
-    <form class="col s12" (ngSubmit)="submitForm()">
+    <form class="col s12" [formGroup]="contactForm" (ngSubmit)="submitContactForm()">
       <div class="row">
         <div class="title_form center">A question?</div>
         <div class="input-field col s6">
-          <input id="name" type="text" class="validate" />
+          <input
+            id="name"
+            type="text"
+            class="validate"
+            formControlName="name"
+            required
+            pattern="^[a-zA-Z0-9àéèç]{1,70}$"
+          />
           <label for="name">Name</label>
         </div>
         <div class="input-field col s6">
-          <input id="email" type="email" class="validate" />
+          <input
+            id="email"
+            type="email"
+            class="validate"
+            formControlName="email"
+            required
+          />
           <label for="email">Email</label>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s12">
-          <input id="message" type="text" class="validate" />
+          <input
+            id="message"
+            type="text"
+            class="validate"
+            formControlName="message"
+            required
+            pattern="^[a-zA-Z0-9èâàç;,!?:'ÉÈÊÀÇËÏÎÔÙÛÜéèêàçëïîôùûü\s]+$"
+          />
           <label for="message">Message</label>
         </div>
       </div>
       <div class="section center">
-        <button type="submit" class="btn btn-large deep-orange darken-1">Submit</button>
+        <button type="submit" class="btn btn-large deep-orange darken-1">
+          Submit
+        </button>
       </div>
     </form>
   </div>
 </div>
-
-<!-- <div class="container">
-  <div class="wrapper">
-    <div class="title_form center">A question?</div>
-        <div class="div-4">First Name</div>
-        <div class="input_form-firstName--initialState">
-          <div class="input-field center">
-            <input
-              type="text"
-              id="text"
-              class="validate black-text"
-              style="border: 2px solid black; background-color: #efece7"
-              placeholder="Your first name"
-            />
-          </div>
-        </div>
-      </div>
-      <div class="div-7">Email*</div>
-      <div class="input_form-email--initialState">
-        <div class="input-field center">
-          <input
-            type="email"
-            id="email"
-            class="validate black-text"
-            style="border: 2px solid black; background-color: #efece7"
-            placeholder="Your email"
-          />
-        </div>
-      </div>
-      <div class="div-9">Message...</div>
-      <div class="input_form-message--initialState">
-        <div class="input-field center">
-          <input
-            type="text"
-            id="text"
-            class="validate black-text"
-            style="border: 2px solid black; background-color: #efece7"
-            placeholder="Your message..."
-          />
-        </div>
-      </div>
-      <div class="button_submit--initialState">
-        <button class="btn-large deep-orange darken-1 center">Submit</button>
-      </div>
-    </div> -->
