@@ -67,23 +67,11 @@ export class ArticleService {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
     };
 
-    return this.http.post<Article>(`${this.apiUrl}/articles`, createDataArticle, httpOptions).pipe(
+    return this.http.post<Article>(`${this.apiUrl}/articles`, createDataArticle, httpOptions).pipe(   // CAUTION! "Uncaught (in promise) Error": createDataArticle must be refactored
         tap((response) => this.log(response)),
         catchError((error) => this.handleError(error, null))
       );
   }
-
-  // createFormArticle(createDataArticle: Create): Observable<Create> {
-  //   console.log('SUBMIT FROM CREATE ARTICLE FORM', createDataArticle);
-  //   const httpOptions = {
-  //     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
-  //   };
-
-  //   return this.http.post<Create>(`${this.apiUrl}/articles`, createDataArticle, httpOptions).pipe(
-  //       tap((response) => this.log(response)),
-  //       catchError((error) => this.handleError(error, null))
-  //     );
-  // }
 
 
   private log(response: Article[] | Article | undefined) {
