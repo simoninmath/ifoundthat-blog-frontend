@@ -74,7 +74,7 @@
   }
 }
 
-.div-6 {
+.picto__subscribers {
   align-self: flex-flex-end;
   display: flex;
   margin-top: 51px;
@@ -85,25 +85,25 @@
 }
 
 @media (max-width: 991px) {
-  .div-6 {
+  .picto__subscribers {
     flex-wrap: wrap;
     margin-top: 40px;
   }
 }
 
-.div-7 {
+.label__subscribers {
   color: var(--PureWhite900, #fefefe);
+  display: flex;
   white-space: nowrap;
-  background-color: var(--PureBlack900, #121212);
   flex-grow: 1;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
-  padding: 27px 60px;
-  font: 400 32px Menlo, sans-serif;
+  padding: 0 0;
+  font: 400 16px Menlo, sans-serif;
 }
 
 @media (max-width: 991px) {
-  .div-7 {
+  .label__subscribers {
     white-space: initial;
     max-width: 100%;
     padding: 0 20px;
