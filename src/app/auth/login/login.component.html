@@ -5,7 +5,7 @@
   <p>Log in to stay already alert!</p>
 </div>
 
-<form [formGroup]="form" (ngSubmit)="handleSubmit()">
+<form [formGroup]="form" (ngSubmit)="handleSubmit() ">
   <div class="form-group">
     <input
       type="email"
@@ -15,7 +15,12 @@
         form.get('email')?.invalid && form.get('email')?.touched
       "
       placeholder="Adresse email"
+      aria-describedby="login-email-description"
     />
+    <!-- Using ARIA description for help assistance technology -->
+    <div id="login-email-description" aria-hidden="true">
+      Please, enter a valid email address into the text field selected.
+    </div>
     <div class="invalid-feedback" *ngIf="form.get('email')?.invalid">
       <span *ngIf="form.get('email')?.hasError('required')">
         Valide email address required!
@@ -34,7 +39,12 @@
         form.get('password')?.invalid && form.get('password')?.touched
       "
       placeholder="Mot de passe"
+      aria-describedby="login-password-description"
     />
+        <!-- Using ARIA description for help assistance technology -->
+        <div id="login-password-description" aria-hidden="true">
+          Please, enter your password into the text field selected.
+        </div>
     <div class="invalid-feedback" *ngIf="form.get('password')?.invalid">
       Password required!
     </div>
@@ -44,9 +54,9 @@
     {{ errorMessage }}
   </div>
 
-  <button type="submit" class="btn btn-danger deep-orange darken-8">Sign In</button>
-  <button routerLink="/register" class="btn btn-link deep-orange darken-8"> Register </button>
-  <button routerLink="/home" class="btn btn-link deep-orange darken-8"> Home </button>
+  <button type="submit" class="btn btn-danger deep-orange darken-8" aria-label="submit login form">Sign In</button>
+  <button routerLink="/register" class="btn btn-link deep-orange darken-8" aria-label="go to register"> Register </button>
+  <button routerLink="/home" class="btn btn-link deep-orange darken-8" aria-label="go to home page"> Home </button>
 </form>
 </div>
 </div>
