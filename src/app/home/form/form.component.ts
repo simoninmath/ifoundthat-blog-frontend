@@ -21,32 +21,21 @@ export class FormComponent {
     private formBuilder: FormBuilder
   ) {}
 
-
   ngOnInit(): void {
     this.initForm();
   }
 
-
   private initForm(): void {
     this.contactForm = this.formBuilder.group({
-      name: [
-        '',
-        [Validators.required, Validators.pattern('^[a-zA-Z0-9àéèç]{1,255}$')],
-      ],
+      name: ['',[Validators.required, Validators.pattern('^[a-zA-Z0-9àéèç]{1,255}$')],],
       email: ['', [Validators.required, Validators.email]],
-      message: [
-        '',
-        [
-          Validators.required,
-          Validators.maxLength(255),
-          Validators.pattern(
-            '^[a-zA-Z0-9èâàç;,!?:\'ÉÈÊÀÇËÏÎÔÙÛÜéèêàçëïîôùûü\\s]+$'
+      message: ['',[Validators.required, Validators.maxLength(255), Validators.pattern(
+              '^[a-zA-Z0-9èâàç;,!?:\'ÉÈÊÀÇËÏÎÔÙÛÜéèêàçëïîôùûü\\s]+$'
           ),
         ],
       ],
     });
   }
-  
 
   submitContactForm() {
     if (this.contactForm.valid) {
@@ -65,14 +54,13 @@ export class FormComponent {
         });
     }
   }
-  
 
   // this method unsubscribe explicitally to the Observable when the component is destroy (life cycle hooks)
-  ngOnDestroy() {
-    console.log('UNSUBSCRIB FROM CONTACT FORM');
-    if (this.contactFormSubscription) {
-      this.contactFormSubscription.unsubscribe();
-    }
-  }
+  // ngOnDestroy() {
+  //   console.log('UNSUBSCRIB FROM CONTACT FORM');
+  //   if (this.contactFormSubscription) {
+  //     this.contactFormSubscription.unsubscribe();
+  //   }
+  // }
 
 }
