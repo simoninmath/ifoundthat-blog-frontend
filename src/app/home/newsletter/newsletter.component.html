@@ -11,11 +11,22 @@
           class="form-control"
           required
           placeholder="Your email"
+          aria-describedby="newsletter-form-email-description"
         />
+        <!-- Using ARIA description for help assistance technology -->
+        <div id="newsletter-form-email-description" aria-hidden="true">
+          Please, enter your email into the text field selected.
+        </div>
       </div>
-    <div class="section center">
-      <button type="submit" class="btn-large black white-text center">Submit</button>
-    </div>
+      <div class="section center">
+        <button
+          type="submit"
+          class="btn-large black white-text center"
+          aria-label="submit newsletter form"
+        >
+          Submit
+        </button>
+      </div>
     </form>
     <div class="picto__subscribers">
       <div class="label__subscribers">500</div>

@@ -1,6 +1,8 @@
 <!-- Allows Angular to inject the associated Component based on the URL loaded by the User  -->
 <!-- <app-card></app-card> -->
-<app-navbar></app-navbar>
-<app-searchbar></app-searchbar>
-<router-outlet></router-outlet>
-<app-footer></app-footer>
+<div class="master-container">
+  <app-navbar class="app-navbar"></app-navbar>
+  <!-- <app-searchbar></app-searchbar> -->
+  <router-outlet class="app-router"></router-outlet>
+  <app-footer class="app-footer"></app-footer>
+</div>

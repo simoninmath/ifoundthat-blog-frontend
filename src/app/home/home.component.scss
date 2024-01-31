@@ -1,0 +1,46 @@
+.container__home-page {
+    grid-column: 2/3;
+    display: flex;
+    // grid-template-columns: 10vw 80vw 10vw;
+    height: 100vh;
+    width: 100vw;
+    align-self: auto;
+    justify-self: auto;
+    place-items: center;
+    flex-direction: column;
+  }
+
+// .app-hero {
+//     grid-column: 2/3;
+//     width: 80vw;
+// }
+
+.app-news {
+    width: 108rem;
+    align-self: auto;
+    place-items: center;
+    display: flex;
+}
+
+// .app-list-article {
+//     // width: 108rem;
+//     align-self: auto;
+//     place-items: center;
+//     // display: flex;
+// }
+
+// .app-more-button {
+//     grid-column: 2/3;
+//     width: 80vw;
+// }
+
+.app-newsletter {
+    grid-column: 2/3;
+    width: 80vw;
+}
+
+// .app-form {
+//     grid-column: 2/3;
+//     width: 80vw;
+// }
+

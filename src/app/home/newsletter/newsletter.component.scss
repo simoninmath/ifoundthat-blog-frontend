@@ -1,15 +1,16 @@
 .container {
-  border: 2px solid var(--PureBlack900, #121212);
-  background-color: var(--PureRed900, #f24e1e);
+  grid-column: 2/3;
+  border: 2px solid #121212;
+  background-color: #f24e1e;
   display: flex;
-  max-width: 848px;
+  // max-width: 848px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 50px 60px;
 }
 
-@media (max-width: 991px) {
+@media (max-width: 40rem) {
   .container {
     padding: 0 20px;
   }
@@ -23,7 +24,7 @@
   margin: 75px 0 40px;
 }
 
-@media (max-width: 991px) {
+@media (max-width: 40rem) {
   .container__wrapper {
     margin-top: 40px;
   }
@@ -35,7 +36,7 @@
   font: 400 32px Menlo, sans-serif;
 }
 
-@media (max-width: 991px) {
+@media (max-width: 40rem) {
   .label__newsletter-subtitle {
     max-width: 100%;
   }
@@ -48,7 +49,7 @@
   font: 700 80px Menlo, sans-serif;
 }
 
-@media (max-width: 991px) {
+@media (max-width: 40rem) {
   .label__newsletter-title {
     max-width: 100%;
     font-size: 40px;
@@ -67,7 +68,7 @@
   background-color: white;
 }
 
-@media (max-width: 991px) {
+@media (max-width: 40rem) {
   .div-5 {
     max-width: 100%;
     padding: 0 20px;
@@ -84,7 +85,7 @@
   gap: 14px;
 }
 
-@media (max-width: 991px) {
+@media (max-width: 40rem) {
   .picto__subscribers {
     flex-wrap: wrap;
     margin-top: 40px;
@@ -102,7 +103,7 @@
   font: 400 16px Menlo, sans-serif;
 }
 
-@media (max-width: 991px) {
+@media (max-width: 40rem) {
   .label__subscribers {
     white-space: initial;
     max-width: 100%;

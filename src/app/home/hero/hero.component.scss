@@ -1,6 +1,10 @@
 /********** Hero Section Container ***********/
 
 .container__heroSection {
+  // place-items: center;
+  // align-self: auto;
+  // justify-self: auto;
+  grid-column: 2/3;
   display: grid;
   grid-template-columns: 10rem 20rem 60rem 10rem;
   grid-template-rows: 30rem 10rem 30rem 5rem;
@@ -23,12 +27,12 @@
 
 
 .label__heroSection-title {
-  grid-column: 2/4;
-  grid-row: 1/2;
-  color: #f24e1e;
-  align-self: center;
-  font: 700 282px Menlo, sans-serif;
-  text-align: center;
+    grid-column: 2/4;
+    grid-row: 1/2;
+    color: #f24e1e;
+    align-self: center;
+    font: 700 174px Menlo, sans-serif;
+    text-align: center;
 }
 
 @media screen and (max-width: 40rem) {
@@ -146,6 +150,6 @@
   border-color: #121212;
   object-fit: cover;
   object-position: center;
-  width: 100%;
+  width: 97%;
   height: 100%;
 }

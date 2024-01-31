@@ -1,12 +1,14 @@
 /********** Footer Section Container ***********/
 
 .container__footer {
-  display: grid;
-  grid-template-columns: repeat(8, 1fr);
-  background-color: var(--PureBlack900, #121212);
-  color: white;
-  padding: 20px;
-  /* text-align: center; */
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    background-color: #121212;
+    color: white;
+    padding: 20px;
+    height: 50vh;
+    width: 100vw;
+    place-items: center;
 }
 
 // Desktop first approch: max-width (mobile first: min-width)
@@ -102,10 +104,17 @@ a {
   margin-top: 40px;
   text-align: center;
   font: 400 12px Menlo, sans-serif;
+  color: #fefefe;
 }
 
 @media screen and (max-width: 40rem) {
   .label__copyrights {
     text-align: center;
   }
+}
+
+@media screen and (max-width: 22.5rem) {
+  .label__copyrights {
+      text-align: center;
+    }  
 }

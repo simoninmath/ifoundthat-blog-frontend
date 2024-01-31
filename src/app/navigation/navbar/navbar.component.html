@@ -1,25 +1,44 @@
 <div class="nav__container">
   <div class="nav__container-wrapper">
-    <div class="div-3">
-      <div class="div-4">
-        <button routerLink="/home" class="div-5">Home</button>
+    <div class="button__wrapper">
+      <div class="button__home">
+        <button routerLink="/home" class="button__home--initialState">Home</button>
       </div>
-      <div class="div-6">
-        <button routerLink="/articles" class="div-7">Articles</button>
+      <div class="button__articles">
+        <button routerLink="/articles" class="button__articles--initialState">Articles</button>
       </div>
-      <div class="div-8">
-        <button routerLink="/about" class="div-9">About</button>
+      <div class="button__about">
+        <button routerLink="/about" class="button__about--initialState">About</button>
+      </div>
+      <div class="search-bar">
+        <div class="search-bar--initialState">
+          <div class="input-field">
+            <!-- At any time user enter a term, the search Method is calling and the data pushed form search bar -->
+            <input
+              #searchBox
+              (keyup)="search(searchBox.value)"
+              placeholder="Search article"
+            />
+            <div class="collection">
+              <!-- Using async Pipe avoid all subscribe syntaxe -->
+              <a *ngFor="let article of articles$ | async" (click)="goToDetailArticle(article)" class="collection-item">
+                {{ article.title }}
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
+    <!-- Condition: if the user is not connected, the second pictogram appears -->
     <button
       *ngIf="!isLogin(); else logoutBlock"
       routerLink="/login"
       class="button__login--initialState"
     >
       <svg
-        width="80px"
-        height="80px"
+        width="65px"
+        height="65px"
         fill="#f04320"
         viewBox="0 0 32 32"
         version="1.1"
@@ -38,8 +57,9 @@
         </g>
       </svg>
     </button>
+    <!-- use ng-template to render login icon and change it with declared variable #logoutBlock -->
     <ng-template #logoutBlock>
-      <button (click)="logout()">
+      <button class="button__logout--initialState" (click)="logout()">
         <svg
           width="80px"
           heigth="80px"
@@ -63,5 +83,5 @@
       </button>
     </ng-template>
   </div>
-  <button (click)="getUser()">TEST</button>
+  <!-- <button (click)="getUser()">TEST</button> -->
 </div>

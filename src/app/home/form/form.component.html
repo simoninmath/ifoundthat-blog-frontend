@@ -11,7 +11,12 @@
             formControlName="name"
             required
             pattern="^[a-zA-Z0-9àéèç]{1,70}$"
+            aria-describedby="contact-form-name-description"
           />
+        <!-- Using ARIA description for help assistance technology -->
+        <div id="contact-form-name-description" aria-hidden="true">
+          Please, enter your name into the text field selected.
+        </div>
           <label for="name">Name</label>
         </div>
         <div class="input-field col s6">
@@ -21,7 +26,12 @@
             class="validate"
             formControlName="email"
             required
+            aria-describedby="contact-form-email-description"
           />
+        <!-- Using ARIA description for help assistance technology -->
+        <div id="contact-form-email-description" aria-hidden="true">
+          Please, enter your email into the text field selected.
+        </div>
           <label for="email">Email</label>
         </div>
       </div>
@@ -34,12 +44,17 @@
             formControlName="message"
             required
             pattern="^[a-zA-Z0-9èâàç;,!?:'ÉÈÊÀÇËÏÎÔÙÛÜéèêàçëïîôùûü\s]+$"
+            aria-describedby="contact-form-message-description"
           />
+        <!-- Using ARIA description for help assistance technology -->
+        <div id="contact-form-message-description" aria-hidden="true">
+          Please, enter your message into the text field selected.
+        </div>
           <label for="message">Message</label>
         </div>
       </div>
       <div class="section center">
-        <button type="submit" class="btn btn-large deep-orange darken-1">
+        <button type="submit" class="btn btn-large deep-orange darken-1" aria-label="submit contact form">
           Submit
         </button>
       </div>

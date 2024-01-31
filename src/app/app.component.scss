@@ -1,0 +1,26 @@
+.master-container {
+    display: grid;
+    grid-template-columns: 10vw 80vw 10vw;
+    align-self: auto;
+    justify-self: auto;
+    place-items: center;
+    height: 100vh;
+    width: 100vw;
+  }
+
+.app-navbar {
+    grid-column: 1/4;
+    width: 80vw;
+}
+
+.app-router {
+    margin: 10rem;
+}
+
+.app-footer {
+    grid-column: 1/4;
+    width: 100vw;
+    align-self: auto;
+    justify-self: auto;
+    place-items: center;
+}
