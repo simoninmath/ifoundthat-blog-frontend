@@ -5,7 +5,7 @@ import { catchError, map } from 'rxjs/operators';
 import { environment } from '../../environment/environment';
 import { Credentials } from './credentials';
 import { jwtDecode } from 'jwt-decode';
-import { UserToken } from '../model/user-token';
+import { UserToken } from '../model/UserToken';
 
 // URL aliases from environment.ts
 const USERS_API = environment.BASE_URL + environment.USERS_API;
