@@ -1,108 +1,65 @@
 <div class="container center col s12 m12 l2">
-<div class="row">
-<div class="alert alert-warning">
-  <h2>Sign In</h2>
-  <p>Log in to stay already alert!</p>
-</div>
+  <div class="row">
+    <div class="alert alert-warning">
+      <h2>Sign In</h2>
+      <p>Log in to stay already alert!</p>
+    </div>
 
-<form [formGroup]="form" (ngSubmit)="handleSubmit() ">
-  <div class="form-group">
-    <input
-      type="email"
-      formControlName="email"
-      class="form-control"
-      [class.is-invalid]="
-        form.get('email')?.invalid && form.get('email')?.touched
-      "
-      placeholder="Adresse email"
-      aria-describedby="login-email-description"
-    />
-    <!-- Using ARIA description for help assistance technology -->
-    <div id="login-email-description" aria-hidden="true">
-      Please, enter a valid email address into the text field selected.
-    </div>
-    <div class="invalid-feedback" *ngIf="form.get('email')?.invalid">
-      <span *ngIf="form.get('email')?.hasError('required')">
-        Valide email address required!
-      </span>
-      <span *ngIf="form.get('email')?.hasError('email')">
-        Unexpected email address format!
-      </span>
-    </div>
-  </div>
-  <div class="form-group">
-    <input
-      type="password"
-      formControlName="password"
-      class="form-control"
-      [class.is-invalid]="
-        form.get('password')?.invalid && form.get('password')?.touched
-      "
-      placeholder="Mot de passe"
-      aria-describedby="login-password-description"
-    />
+    <form [formGroup]="form" (ngSubmit)="loginSubmit()">
+      <div class="form-group">
+        <input
+          type="email"
+          formControlName="email"
+          class="form-control"
+          required
+          [class.is-invalid]="form.get('email')?.invalid && form.get('email')?.touched"
+          placeholder="Email address"
+          aria-describedby="login-email-description"
+        />
+        <!-- Using ARIA description for help assistance technology -->
+        <div id="login-email-description" aria-hidden="true">
+          Please, enter a valid email address into the text field selected.
+        </div>
+        <div class="invalid-feedback" *ngIf="form.get('email')?.invalid">
+          <span *ngIf="form.get('email')?.hasError('required')">
+            Valide email address required!
+          </span>
+          <span *ngIf="form.get('email')?.hasError('email')">
+            Unexpected email address format!
+          </span>
+        </div>
+      </div>
+      <div class="form-group">
+        <input
+          type="password"
+          formControlName="password"
+          class="form-control"
+          [class.is-invalid]="form.get('password')?.invalid && form.get('password')?.touched"
+          placeholder="Password"
+          required
+          pattern="^[a-zA-Z0-9èâàç;,!?:'ÉÈÊÀÇËÏÎÔÙÛÜéèêàçëïîôùûü\s]+$"
+          aria-describedby="login-password-description"
+        />
         <!-- Using ARIA description for help assistance technology -->
         <div id="login-password-description" aria-hidden="true">
           Please, enter your password into the text field selected.
         </div>
-    <div class="invalid-feedback" *ngIf="form.get('password')?.invalid">
-      Password required!
-    </div>
-  </div>
-
-  <div class="alert alert-danger" *ngIf="errorMessage">
-    {{ errorMessage }}
-  </div>
-
-  <button type="submit" class="btn btn-danger deep-orange darken-8" aria-label="submit login form">Sign In</button>
-  <button routerLink="/register" class="btn btn-link deep-orange darken-8" aria-label="go to register"> Register </button>
-  <button routerLink="/home" class="btn btn-link deep-orange darken-8" aria-label="go to home page"> Home </button>
-</form>
-</div>
-</div>
-
-<!-- <div class="row">
-  <div class="col s12 m4 offset-m4 p10">
-    <div class="card hoverable">
-      <div class="card-content center">
-        <span class="card-title">Connexion</span>
-        <p>
-          <em>{{ message }}</em>
-        </p>
-      </div>
-      <form #loginForm="ngForm">
-        <div>
-          <label for="name">Name</label>
-          <input
-            type="text"
-            id="name"
-            [(ngModel)]="name"
-            name="name"
-            required
-          />
+        <div class="invalid-feedback" *ngIf="form.get('password')?.invalid">
+          Password required!
         </div>
-        <div>
-          <label for="password">Password</label>
-          <input
-            type="password"
-            id="password"
-            [(ngModel)]="password"
-            name="password"
-            required
-          />
-        </div>
-      </form>
-      <div class="card-action center">
-        <a
-          class="waves-effect waves-light btn blue-grey darken-2"
-          (keyup.enter)="login()"
-          (click)="login()"
-          *ngIf="!auth.isLoggedIn"
-        >
-          Login
-        </a>
-        <a (click)="logout()" *ngIf="auth.isLoggedIn">Sign Out</a>
       </div>
-    </div>
+      <div class="alert alert-danger" *ngIf="errorMessage">
+        {{ errorMessage }}
+      </div>
+      <button type="submit" class="btn btn-danger deep-orange darken-8" aria-label="submit login form">
+        Sign In
+      </button>
+      <button routerLink="/register" class="btn btn-link deep-orange darken-8" aria-label="go to register">
+        Register
+      </button>
+      <button routerLink="/home" class="btn btn-link deep-orange darken-8" aria-label="go to home page">
+        Home
+      </button>
+    </form>
   </div>
-</div> -->
+</div>

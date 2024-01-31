@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -13,19 +13,28 @@ export class LoginComponent {
   errorMessage: string;
   form: FormGroup;
 
+  // Use injection dependency to access services with constructor method
   constructor(
     private formBuilder: FormBuilder,
     private auth: AuthService,
     private router: Router,
     private ui: UiService
   ) {
+    // Use formBuilder bundle to use Validators and precise regex pattern
     this.form = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
-      password: ['', Validators.required],
-    });
+      password: ['',[Validators.required, Validators.maxLength(255), Validators.pattern(
+                    '^[a-zA-Z0-9èâàç;,!?:\'ÉÈÊÀÇËÏÎÔÙÛÜéèêàçëïîôùûü\\s]+$'),],],});
   }
 
-  handleSubmit() {
+//   this.form = this.formBuilder.group({
+//     email: ['', [Validators.required, Validators.email]],
+//     password: ['', Validators.required],
+//   });
+// }
+
+  loginSubmit() {
+    // Make a condition to verify if the form is valid before take it to
     if (this.form.invalid) {
       return;
     }
@@ -38,8 +47,8 @@ export class LoginComponent {
         console.log('RESULT', result);
         // Disable load screen
         this.ui.deactivateLoading();
-        this.errorMessage = 'Error!';
-        this.router.navigateByUrl('/articles');
+        // this.errorMessage = 'Error!';
+        this.router.navigateByUrl('/home');
       },
       error: (error) => {
         // Disabled load screen
@@ -57,44 +66,4 @@ export class LoginComponent {
     });
   }
 
-  // message: string = 'Status: Disconnect';
-  // name: string;
-  // password: string;
-  // auth: AuthService;
-
-  // constructor(
-  //   private authService: AuthService,
-  //   private router: Router
-  // ){}
-
-  // ngOnInit() {
-  //   this.auth = this.authService;
-  // }
-
-  // setMessage() {
-  //   if(this.auth.isLoggedIn){
-  //     this.message = 'Connexion status: connected';
-  //   } else {
-  //     this.message = 'Wrong id or password!';
-  //   }
-  // }
-
-  // login() {
-  //   this.message = 'Connexion ongoing...';
-  //   this.auth.logIn(this.name, this.password)
-  //     .subscribe((isLoggedIn: boolean) => {
-  //       this.setMessage();
-  //       if(isLoggedIn){
-  //         this.router.navigate(['/figurine']);
-  //       } else {
-  //         this.password = '';
-  //         this.router.navigate(['/login']);
-  //       }
-  //     })
-  // }
-
-  // logout() {
-  //   this.auth.logOut();
-  //   this.message = 'Disconnected';
-  // }
 }
