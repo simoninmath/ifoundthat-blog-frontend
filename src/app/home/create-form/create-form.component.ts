@@ -113,8 +113,8 @@ export class CreateFormComponent {
   // }
 
   onSubmitCreateForm() {
-    console.log('TEST ONSUBMITCREATE');
-    if (this.createForm.valid) {
+    console.log('TEST ONSUBMITCREATE', this.createForm);
+    // if (this.createForm.valid) {
       console.log('FORM CREATE CONTENT', this.createForm);
       const createDataArticle: Create = {
         title: this.createForm.value.title,
@@ -131,7 +131,7 @@ export class CreateFormComponent {
           console.log('CATCH ARTICLE DATA FROM SUBMIT', createDataArticle);
           this.router.navigate(['/home']);
         });
-    }
+    // }
   }
 
   // this method unsubscribe explicitally to the Observable when the component is destroy (life cycle hooks)
