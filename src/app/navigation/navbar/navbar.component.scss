@@ -15,7 +15,6 @@
   width: 100vw;
   max-width: 80vw;
   justify-content: space-between;
-  // gap: 20px;
 }
 
 @media (max-width: 40rem) {
@@ -28,7 +27,6 @@
 .button__wrapper {
   display: flex;
   justify-content: space-between;
-  // gap: 0px;
 }
 
 @media (max-width: 40rem) {
@@ -64,18 +62,9 @@
 
 @media (max-width: 40rem) {
   .button__home--initialState {
-    // white-space: initial;
-    // padding: 0 20px;
     box-shadow: 0 0 0;
   }
 }
-
-// @media (max-width: 22.5rem) {
-//   .button__home--initialState {
-//     white-space: initial;
-//     margin: 5rem 1.4rem 0 0;
-//   }
-// }
 
 .button__articles {
   display: flex;
@@ -155,7 +144,7 @@
   background-color: #fefefe;
   justify-content: center;
   align-items: center;
-  padding: 0.7rem 1rem 1rem 3rem;
+  padding: 0.8rem 1rem 1rem 3rem;
   font: 400 32px Menlo, sans-serif;
   box-shadow: 0 0.2rem 0.5rem #a6a6a6;
 }
@@ -179,9 +168,13 @@
 /********** Login button **********/
 
 .button__login--initialState {
-    border: 0;
-    background-color: #fefefe;
-    margin-right: 5rem;
+  align-self: center;
+  align-items: center;
+  border: 0;
+  background-color: #fefefe;
+    // border: 0;
+    // background-color: #fefefe;
+    // margin-right: -9rem;
 }
 
 .button__logout--initialState {
@@ -206,6 +199,9 @@
     margin: 2rem 0 0 13rem;
   }
 }
+
+
+
 
 
 
