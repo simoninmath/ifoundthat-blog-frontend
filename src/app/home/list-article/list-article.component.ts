@@ -21,6 +21,7 @@ export class ListArticleComponent {
   // The Method below launches the getUserEmailFromNewsletter() method when the program starts
   ngOnInit() {
     this.getArticleListFromDb();
+    // Using a https source for more security
     this.imgArticleMain = 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';
   }
 
