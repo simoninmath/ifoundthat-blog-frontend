@@ -27,12 +27,6 @@ export class LoginComponent {
                     '^[a-zA-Z0-9èâàç;,!?:\'ÉÈÊÀÇËÏÎÔÙÛÜéèêàçëïîôùûü\\s]+$'),],],});
   }
 
-//   this.form = this.formBuilder.group({
-//     email: ['', [Validators.required, Validators.email]],
-//     password: ['', Validators.required],
-//   });
-// }
-
   loginSubmit() {
     // Make a condition to verify if the form is valid before take it to
     if (this.form.invalid) {
